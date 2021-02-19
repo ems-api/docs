@@ -1,17 +1,19 @@
 ---
-title: API Reference
+title: Mailwizz API documentation
+
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
+  - php
   - ruby
   - python
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - setup
+  - campaigns-bounces
   - errors
 
 search: true
@@ -21,221 +23,75 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+This is the documentation for the MailWizz API.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+In order to integrate MailWizz with 3rd-party apps or any custom apps, you can use its powerful API.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+The API is providing the basic operations needed for your implementation. 
 
-# Authentication
+This document will drive you through the Mailwizz available SDKs .
 
-> To authorize, use this code:
+**Available implementations**:
 
-```ruby
-require 'kittn'
+[https://github.com/twisted1919/mailwizz-php-sdk](https://github.com/twisted1919/mailwizz-php-sdk) - The PHP SDK.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+[https://github.com/twisted1919/mailwizz-python-sdk](https://github.com/twisted1919/mailwizz-python-sdk) - The Python SDK.
 
-```python
-import kittn
+[https://github.com/twisted1919/mailwizz-ruby-sdk](https://github.com/twisted1919/mailwizz-ruby-sdk) - The Ruby SDK.
 
-api = kittn.authorize('meowmeowmeow')
-```
+[https://github.com/thangtx/mailwizzphpapi-wrap](https://github.com/thangtx/mailwizzphpapi-wrap) - A small rest app that acts as a proxy between mailwizz and any other software.
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
+[https://www.npmjs.com/package/node-mailwizz](https://www.npmjs.com/package/node-mailwizz) - Node.js implementations
 
-```javascript
-const kittn = require('kittn');
+**HTTP Methods used**
 
-let api = kittn.authorize('meowmeowmeow');
-```
+We follow the REST standards for MailWizz's API interaction, which means that we use following HTTP methods during communication:
 
-> Make sure to replace `meowmeowmeow` with your API key.
+* POST - when items are created
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+* GET - when items are listed
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+* PUT - when items are updated
 
-`Authorization: meowmeowmeow`
+* DELETE - when items are deleted
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+You will have to make sure your server supports all these methods.
 
-# Kittens
+If you are doing API calls and get HTTP Forbidden errors, when updating or deleting items, it means your server does not support PUT/DELETE and you must change it's configuration to allow these methods.
 
-## Get All Kittens
 
-```ruby
-require 'kittn'
+# Getting started
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+First you need to install the SDK. See each supported language for its way of installing
+### PHP
 
-```python
-import kittn
+You can either download the latest version of the code, or you can install it via composer as follows:
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+`composer require ems-api/php-client`
 
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
+Then follow the instructions from examples/setup.php file.
 
-```javascript
-const kittn = require('kittn');
+### Python
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
+You can either download the latest version of the code, or you can install it via pip as follows:
 
-> The above command returns JSON structured like this:
+`pip install mailwizz-python-sdk`
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+Then follow the instructions from examples/setup_api.py file.
 
-This endpoint retrieves all kittens.
+### Ruby
 
-### HTTP Request
+You can download or clone the latest version of the code.
 
-`GET http://example.com/api/kittens`
+`git clone https://github.com/twisted1919/mailwizz-ruby-sdk.git`
 
-### Query Parameters
+You will need to have Ruby installed:
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+`https://www.ruby-lang.org/en/documentation/installation/`
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+The following gem is required: `excon`
 
-## Get a Specific Kitten
+`sudo gem install excon`
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+Then, follow the instructions from `examples/setup_api.rb` file.
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Mailwizz API documentation</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -291,7 +291,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;php&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -301,7 +301,7 @@
     <div class="toc-wrapper">
       <img src="images/logo-1e815a84.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="php">php</a>
               <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
@@ -315,19 +315,33 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting started">Getting started</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#php" class="toc-h2 toc-link" data-title="PHP">PHP</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#python" class="toc-h2 toc-link" data-title="Python">Python</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#ruby" class="toc-h2 toc-link" data-title="Ruby">Ruby</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#setup" class="toc-h1 toc-link" data-title="Setup">Setup</a>
+          </li>
+          <li>
+            <a href="#campaign-bounces" class="toc-h1 toc-link" data-title="Campaign bounces">Campaign bounces</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-the-endpoint" class="toc-h2 toc-link" data-title="Create the endpoint">Create the endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-bounces" class="toc-h2 toc-link" data-title="Get all bounces">Get all bounces</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-bounce" class="toc-h2 toc-link" data-title="Create a bounce">Create a bounce</a>
                   </li>
               </ul>
           </li>
@@ -336,7 +350,6 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -344,79 +357,177 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>This is the documentation for the MailWizz API.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>In order to integrate MailWizz with 3rd-party apps or any custom apps, you can use its powerful API.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+<p>The API is providing the basic operations needed for your implementation. </p>
+
+<p>This document will drive you through the Mailwizz available SDKs .</p>
+
+<p><strong>Available implementations</strong>:</p>
+
+<p><a href="https://github.com/twisted1919/mailwizz-php-sdk">https://github.com/twisted1919/mailwizz-php-sdk</a> - The PHP SDK.</p>
+
+<p><a href="https://github.com/twisted1919/mailwizz-python-sdk">https://github.com/twisted1919/mailwizz-python-sdk</a> - The Python SDK.</p>
+
+<p><a href="https://github.com/twisted1919/mailwizz-ruby-sdk">https://github.com/twisted1919/mailwizz-ruby-sdk</a> - The Ruby SDK.</p>
+
+<p><a href="https://github.com/thangtx/mailwizzphpapi-wrap">https://github.com/thangtx/mailwizzphpapi-wrap</a> - A small rest app that acts as a proxy between mailwizz and any other software.</p>
+
+<p><a href="https://www.npmjs.com/package/node-mailwizz">https://www.npmjs.com/package/node-mailwizz</a> - Node.js implementations</p>
+
+<p><strong>HTTP Methods used</strong></p>
+
+<p>We follow the REST standards for MailWizz&#39;s API interaction, which means that we use following HTTP methods during communication:</p>
+
+<ul>
+<li><p>POST - when items are created</p></li>
+<li><p>GET - when items are listed</p></li>
+<li><p>PUT - when items are updated</p></li>
+<li><p>DELETE - when items are deleted</p></li>
+</ul>
+
+<p>You will have to make sure your server supports all these methods.</p>
+
+<p>If you are doing API calls and get HTTP Forbidden errors, when updating or deleting items, it means your server does not support PUT/DELETE and you must change it&#39;s configuration to allow these methods.</p>
+<h1 id='getting-started'>Getting started</h1>
+<p>First you need to install the SDK. See each supported language for its way of installing</p>
+<h3 id='php'>PHP</h3>
+<p>You can either download the latest version of the code, or you can install it via composer as follows:</p>
+
+<p><code>composer require ems-api/php-client</code></p>
+
+<p>Then follow the instructions from examples/setup.php file.</p>
+<h3 id='python'>Python</h3>
+<p>You can either download the latest version of the code, or you can install it via pip as follows:</p>
+
+<p><code>pip install mailwizz-python-sdk</code></p>
+
+<p>Then follow the instructions from examples/setup_api.py file.</p>
+<h3 id='ruby'>Ruby</h3>
+<p>You can download or clone the latest version of the code.</p>
+
+<p><code>git clone https://github.com/twisted1919/mailwizz-ruby-sdk.git</code></p>
+
+<p>You will need to have Ruby installed:</p>
+
+<p><code>https://www.ruby-lang.org/en/documentation/installation/</code></p>
+
+<p>The following gem is required: <code>excon</code></p>
+
+<p><code>sudo gem install excon</code></p>
+
+<p>Then, follow the instructions from <code>examples/setup_api.rb</code> file.</p>
+<h1 id='setup'>Setup</h1>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Please make sure to replace <code>API-URL</code> <code>PUBLIC-KEY</code> <code>PRIVATE-KEY</code>, with their proper values:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">//Require the autoloader class if you haven't used composer to install the package</span>
+<span class="k">require_once</span> <span class="k">__DIR__</span> <span class="mf">.</span> <span class="s1">'/../vendor/autoload.php'</span><span class="p">;</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="c1">//Configuration object (Get your API info from: https://kb.mailwizz.com/articles/find-api-info/) :</span>
+<span class="nv">$config</span> <span class="o">=</span> <span class="k">new</span> <span class="err">\</span><span class="nf">EmsApi\Config</span><span class="p">([</span>
+    <span class="s1">'apiUrl'</span>    <span class="o">=&gt;</span> <span class="s1">'API-URL'</span><span class="p">,</span>
+    <span class="s1">'apiKey'</span>    <span class="o">=&gt;</span> <span class="s1">'PUBLIC-KEY'</span><span class="p">,</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+    <span class="c1">// components</span>
+    <span class="s1">'components'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">'cache'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">'class'</span>     <span class="o">=&gt;</span> <span class="err">\</span><span class="nc">EmsApi\Cache\File</span><span class="o">::</span><span class="n">class</span><span class="p">,</span>
+            <span class="s1">'filesPath'</span> <span class="o">=&gt;</span> <span class="k">__DIR__</span> <span class="mf">.</span> <span class="s1">'/data/cache'</span><span class="p">,</span> <span class="c1">// make sure it is writable by webserver</span>
+        <span class="p">]</span>
+    <span class="p">],</span>
+<span class="p">]);</span>
+<span class="c1">//Now inject the configuration and we are ready to make api calls</span>
+<span class="err">\</span><span class="nc">EmsApi\Base</span><span class="o">::</span><span class="nf">setConfig</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="c1">//Start UTC</span>
+<span class="nb">date_default_timezone_set</span><span class="p">(</span><span class="s1">'UTC'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'../mailwizz/mailwizz'</span>
+
+<span class="kp">include</span> <span class="no">Mailwizz</span>
+<span class="kp">include</span> <span class="no">Endpoint</span>
+
+<span class="c1"># noinspection SpellCheckingInspection</span>
+<span class="n">config</span> <span class="o">=</span> <span class="no">Config</span><span class="p">.</span><span class="nf">new</span><span class="p">({</span>
+                        <span class="s1">'api_url'</span><span class="p">:</span> <span class="s1">'API-URL'</span><span class="p">,</span>
+                        <span class="s1">'public_key'</span><span class="p">:</span> <span class="s1">'PUBLIC-KEY'</span><span class="p">,</span>
+                        <span class="s1">'private_key'</span><span class="p">:</span> <span class="s1">'PRIVATE-KEY'</span><span class="p">,</span>
+                        <span class="s1">'charset'</span><span class="p">:</span> <span class="s1">'utf-8'</span>
+                    <span class="p">})</span>
+
+<span class="c1"># now inject the configuration and we are ready to make api calls</span>
+<span class="no">Base</span><span class="p">.</span><span class="nf">config</span> <span class="o">=</span> <span class="n">config</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">mailwizz.base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="nn">mailwizz.config</span> <span class="kn">import</span> <span class="n">Config</span>
+
+<span class="k">def</span> <span class="nf">setup</span><span class="p">():</span>
+
+    <span class="c1"># configuration object
+</span>    <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">({</span>
+        <span class="s">'api_url'</span><span class="p">:</span> <span class="s">'API-URL'</span><span class="p">,</span>
+        <span class="s">'public_key'</span><span class="p">:</span> <span class="s">'PUBLIC-KEY'</span><span class="p">,</span>
+        <span class="s">'private_key'</span><span class="p">:</span> <span class="s">'PRIVATE-KEY'</span><span class="p">,</span>
+        <span class="s">'charset'</span><span class="p">:</span> <span class="s">'utf-8'</span>
+    <span class="p">})</span>
+
+    <span class="c1"># now inject the configuration and we are ready to make api calls
+</span>    <span class="n">Base</span><span class="p">.</span><span class="n">set_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 </code></pre></div>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p>See each language tab for the setup instructions.</p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><strong>Notes</strong>
+<aside class="notice">
+If SSL present on the webhost, the api can be accessed via SSL as well (https://...). A self signed SSL certificate will work just fine
+</aside></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+If the MailWizz powered website doesn't use clean urls, make sure your apiUrl has the index.php part of url included, i.e: http://www.mailwizz-powered-website.tld/api/index.php
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<aside class="notice">
+<b>Configuration components</b>: The api for the MailWizz EMA is designed to return proper etags when GET requests are made. We can use this to cache the request response in order to decrease loading time therefore improving performance. In this case, we will need to use a cache component that will store the responses and a file cache will do it just fine. Please see MailWizzApi/Cache for a list of available cache components and their usage.
+</aside>
+<h1 id='campaign-bounces'>Campaign bounces</h1><h2 id='create-the-endpoint'>Create the endpoint</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// require the setup which has registered the autoloader</span>
+<span class="k">require_once</span> <span class="k">__DIR__</span> <span class="mf">.</span> <span class="s1">'/setup.php'</span><span class="p">;</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+<span class="c1">// CREATE THE ENDPOINT</span>
+<span class="nv">$endpoint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">EmsApi\Endpoint\CampaignBounces</span><span class="p">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="c1"># SETUP THE API</span>
+<span class="nb">require</span> <span class="s1">'../examples/setup_api'</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+<span class="c1"># CREATE THE ENDPOINT</span>
+<span class="n">endpoint</span> <span class="o">=</span> <span class="no">CampaignBounces</span><span class="p">.</span><span class="nf">new</span> 
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">setup_api</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="kn">from</span> <span class="nn">mailwizz.endpoint.campaign_bounces</span> <span class="kn">import</span> <span class="n">CampaignBounces</span>
+
+<span class="s">"""
+SETUP THE API
+"""</span>
+<span class="n">setup</span><span class="p">()</span>
+
+<span class="s">"""
+CREATE THE ENDPOINT
+"""</span>
+<span class="n">endpoint</span> <span class="o">=</span> <span class="n">CampaignBounces</span><span class="p">()</span>
 </code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
+<aside class="success">Do not forget to require the setup</aside>
+<h2 id='get-all-bounces'>Get all bounces</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ALL ITEMS</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">getBounces</span><span class="p">(</span><span class="nv">$campaignUid</span> <span class="o">=</span> <span class="no">CAMPAIGN</span><span class="o">-</span><span class="no">UNIQUE</span><span class="o">-</span><span class="no">ID</span><span class="p">,</span> <span class="nv">$pageNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$perPage</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// DISPLAY RESPONSE</span>
+<span class="k">echo</span> <span class="s2">"&lt;pre&gt;"</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">"&lt;/pre&gt;"</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="sr">//</span> 
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">//</span> 
+
+</code></pre></div>
+<p>This endpoint retrieves all the bounces of a campaign.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code>GET API-URL/campaigns/CAMPAIGN_UID/bounces/</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -426,100 +537,57 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>pageNumber</td>
+<td>1</td>
+<td>Current page to retrieve.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>perPage</td>
+<td>10</td>
+<td>Items per page to retrieve.</td>
 </tr>
 </tbody></table>
+<h2 id='create-a-bounce'>Create a bounce</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// CREATE BOUNCE</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">create</span><span class="p">(</span><span class="s1">'CAMPAIGN-UNIQUE-ID'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'message'</span>        <span class="o">=&gt;</span> <span class="s1">'The reason why this email bounced'</span><span class="p">,</span> <span class="c1">// max 250 chars</span>
+    <span class="s1">'bounce_type'</span>    <span class="o">=&gt;</span> <span class="s1">'hard'</span><span class="p">,</span> <span class="c1">// hard, soft or internal</span>
+    <span class="s1">'subscriber_uid'</span> <span class="o">=&gt;</span> <span class="s1">'SUBSCRIBER-UNIQUE-ID'</span> <span class="c1">// 13 chars unique subscriber identifier</span>
+<span class="p">]);</span>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<span class="c1">// DISPLAY RESPONSE</span>
+<span class="k">echo</span> <span class="s1">'&lt;hr /&gt;&lt;pre&gt;'</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="sr">//</span> 
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">//</span> 
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint creates a campaign bounce</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<p><code>POST API-URL/campaigns/CAMPAIGN_UID/bounces</code></p>
+<h3 id='post-parameters'>POST Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>message</td>
+<td>yes</td>
+<td>The bounce message to be recorded.</td>
 </tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<td>bounce_type</td>
+<td>yes</td>
+<td>Bounce type (hard, soft or internal).</td>
 </tr>
-</thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>subscriber_uid</td>
+<td>yes</td>
+<td>The subscriber for which we record the bounce</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
@@ -584,7 +652,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="php">php</a>
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>

@@ -1,77 +1,191 @@
 # Campaigns tracking
- 
-> Please make sure to replace `API-URL` `PUBLIC-KEY` `PRIVATE-KEY`, with their proper values:
 
+## Create the campaigns tracking endpoint
 ```php
-//Require the autoloader class if you haven't used composer to install the package
-require_once __DIR__ . '/../vendor/autoload.php';
-
-//Configuration object (Get your API info from: https://kb.mailwizz.com/articles/find-api-info/) :
-$config = new \EmsApi\Config([
-    'apiUrl'    => 'API-URL',
-    'apiKey'    => 'PUBLIC-KEY',
-
-    // components
-    'components' => [
-        'cache' => [
-            'class'     => \EmsApi\Cache\File::class,
-            'filesPath' => __DIR__ . '/data/cache', // make sure it is writable by webserver
-        ]
-    ],
-]);
-//Now inject the configuration and we are ready to make api calls
-\EmsApi\Base::setConfig($config);
-
-//Start UTC
-date_default_timezone_set('UTC');
+// CREATE THE ENDPOINT
+$endpoint = new EmsApi\Endpoint\CampaignsTracking();
 ```
 
 ```ruby
-require '../mailwizz/mailwizz'
-
-include Mailwizz
-include Endpoint
-
-# noinspection SpellCheckingInspection
-config = Config.new({
-                        'api_url': 'API-URL',
-                        'public_key': 'PUBLIC-KEY',
-                        'private_key': 'PRIVATE-KEY',
-                        'charset': 'utf-8'
-                    })
-
-# now inject the configuration and we are ready to make api calls
-Base.config = config
+# CREATE THE ENDPOINT
+endpoint = CampaignsTracking.new
 ```
 
 ```python
-from mailwizz.base import Base
-from mailwizz.config import Config
+from mailwizz.endpoint.campaigns_tracking import CampaignsTracking
 
-def setup():
-  
-    # configuration object
-    config = Config({
-        'api_url': 'API-URL',
-        'public_key': 'PUBLIC-KEY',
-        'private_key': 'PRIVATE-KEY',
-        'charset': 'utf-8'
-    })
-
-    # now inject the configuration and we are ready to make api calls
-    Base.set_config(config)
+"""
+CREATE THE ENDPOINT
+"""
+endpoint = CampaignsTracking()
 ```
-See each language tab for the setup instructions.
+<aside class="success"> PLEASE NOTE THAT THIS ENDPOINT ONLY WORKS WITH MAILWIZZ >= 1.3.7.3</aside>
 
-**Notes**
-<aside class="notice">
-If SSL present on the webhost, the api can be accessed via SSL as well (https://...). A self signed SSL certificate will work just fine
-</aside>
+## Track subscriber click for campaign
+```php
+// Track subscriber click for campaign click
+$response = $endpoint->trackUrl('CAMPAIGN-UNIQUE-ID', 'SUBSCRIBER-UNIQUE-ID', 'URL-HASH');
 
-<aside class="notice">
-If the MailWizz powered website doesn't use clean urls, make sure your apiUrl has the index.php part of url included, i.e: http://www.mailwizz-powered-website.tld/api/index.php
-</aside>
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+```
 
-<aside class="notice">
-<b>Configuration components</b>: The api for the MailWizz EMA is designed to return proper etags when GET requests are made. We can use this to cache the request response in order to decrease loading time therefore improving performance. In this case, we will need to use a cache component that will store the responses and a file cache will do it just fine. Please see MailWizzApi/Cache for a list of available cache components and their usage.
-</aside>
+```ruby
+# Track subscriber click for campaign click
+response = endpoint.track_url('CAMPAIGN_UID', 'SUBSCRIBER_UID', 'HASH_URL')
+
+# DISPLAY RESPONSE
+puts response.body
+```
+
+```python
+"""
+Track subscriber click for campaign click
+"""
+response = endpoint.track_url(campaign_uid='CAMPAIGN_UID', subscriber_uid='SUBSCRIBER_UID', hash_string='')
+
+"""
+DISPLAY RESPONSE
+"""
+print(response.content)
+```
+> The above command returns an object structured like this JSON:
+
+```json
+{
+  "status": "success",
+  "data": {}
+}
+```
+This endpoint set a campaign tracking url click action.
+
+### HTTP Request
+
+`GET API-URL/campaigns/CAMPAIGN-UID/track-url/SUBSCRIBER-UNIQUE-ID/URL-HASH`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+CAMPAIGN-UID | Yes | Campaign unique identifier.
+SUBSCRIBER-UNIQUE-ID | Yes | Subscriber unique identifier.
+URL-HASH | Yes | The url hash which the subscriber clicked.
+
+## Track subscriber open
+```php 
+// Track subscriber open for campaign
+$response = $endpoint->trackOpening('CAMPAIGN-UNIQUE-ID', 'SUBSCRIBER-UNIQUE-ID');
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+```
+
+```ruby
+# Track subscriber open for campaign
+response = endpoint.track_opening('CAMPAIGN_UID', 'SUBSCRIBER_UID')
+
+# DISPLAY RESPONSE
+puts response.body
+```
+
+```python
+"""
+Track subscriber open for campaign
+"""
+response = endpoint.track_opening(campaign_uid='CAMPAIGN_UID', subscriber_uid='SUBSCRIBER_UID')
+
+"""
+DISPLAY RESPONSE
+"""
+print(response.content) 
+```
+> The above command returns an object structured like this JSON:
+
+```json
+{
+  "status": "success",
+  "data": {}
+}
+```
+This endpoint sets the track campaign open for a certain subscriber.
+
+### HTTP Request
+
+`GET API-URL/campaigns/CAMPAIGN-UID/track-opening/SUBSCRIBER-UID`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+CAMPAIGN-UID | Yes | Campaign unique identifier.
+SUBSCRIBER-UNIQUE-ID | Yes | Subscriber unique identifier.
+
+## Track subscriber unsubscribe
+```php 
+// Track subscriber unsubscribe for campaign
+$response = $endpoint->trackUnsubscribe('CAMPAIGN-UNIQUE-ID', 'SUBSCRIBER-UNIQUE-ID', [
+    'ip_address' => '123.123.123.123',
+    'user_agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+    'reason'     => 'Reason for unsubscribe!',
+]);
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+```
+
+```ruby
+# Track subscriber unsubscribe for campaign
+response = endpoint.track_unsubscribe('CAMPAIGN_UID', 'SUBSCRIBER_UID', {
+    'ip_address': '123.123.123.123',
+    'user_agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+    'reason': 'Reason for unsubscribe!',
+})
+
+# DISPLAY RESPONSE
+puts response.body
+```
+
+```python
+"""
+Track subscriber unsubscribe for campaign
+"""
+response = endpoint.track_unsubscribe(campaign_uid='CAMPAIGN_UID', subscriber_uid='SUBSCRIBER_UID', data={
+    'ip_address': '123.123.123.123',
+    'user_agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+    'reason': 'Reason for unsubscribe!',
+})
+
+"""
+DISPLAY RESPONSE
+"""
+print(response.content)
+```
+> The above command returns an object structured like this JSON:
+
+```json
+{
+  "status": "success",
+  "data": {}
+}
+```
+This endpoint sets the track campaign unsubscribe for a certain subscriber.
+
+### HTTP Request
+
+`POST API-URL/campaigns/CAMPAIGN-UID/track-unsubscribe/SUBSCRIBER-UID`
+
+### POST Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+CAMPAIGN-UID | Yes | Campaign unique identifier.
+SUBSCRIBER-UNIQUE-ID | Yes | Subscriber unique identifier.
+ip_address | No | IP address from which the subscriber unsubscribes
+user_agent | No | Subscriber user agent
+reason | No | Unsubscribe reason

@@ -1,21 +1,28 @@
 ---
-title: Mailwizz API documentation
-
+title: MailWizz v2.x API documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - php
   - ruby
   - python
-  - javascript
 
 toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
   - setup
+  - lists
+  - fields
+  - segments
+  - subscribers
+  - campaigns
+  - campaigns-tracking
   - campaigns-bounces
-  - errors
-
+  - countries
+  - customers
+  - templates
+  - transactional-emails
+  
 search: true
 
 code_clipboard: true
@@ -58,7 +65,6 @@ We follow the REST standards for MailWizz's API interaction, which means that we
 You will have to make sure your server supports all these methods.
 
 If you are doing API calls and get HTTP Forbidden errors, when updating or deleting items, it means your server does not support PUT/DELETE and you must change it's configuration to allow these methods.
-
 
 # Getting started
 

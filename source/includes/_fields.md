@@ -1,77 +1,109 @@
 # Fields
- 
-> Please make sure to replace `API-URL` `PUBLIC-KEY` `PRIVATE-KEY`, with their proper values:
 
+## Create the list fields endpoint
 ```php
-//Require the autoloader class if you haven't used composer to install the package
-require_once __DIR__ . '/../vendor/autoload.php';
-
-//Configuration object (Get your API info from: https://kb.mailwizz.com/articles/find-api-info/) :
-$config = new \EmsApi\Config([
-    'apiUrl'    => 'API-URL',
-    'apiKey'    => 'PUBLIC-KEY',
-
-    // components
-    'components' => [
-        'cache' => [
-            'class'     => \EmsApi\Cache\File::class,
-            'filesPath' => __DIR__ . '/data/cache', // make sure it is writable by webserver
-        ]
-    ],
-]);
-//Now inject the configuration and we are ready to make api calls
-\EmsApi\Base::setConfig($config);
-
-//Start UTC
-date_default_timezone_set('UTC');
+// CREATE THE ENDPOINT
+$endpoint = new EmsApi\Endpoint\ListFields();
 ```
 
 ```ruby
-require '../mailwizz/mailwizz'
-
-include Mailwizz
-include Endpoint
-
-# noinspection SpellCheckingInspection
-config = Config.new({
-                        'api_url': 'API-URL',
-                        'public_key': 'PUBLIC-KEY',
-                        'private_key': 'PRIVATE-KEY',
-                        'charset': 'utf-8'
-                    })
-
-# now inject the configuration and we are ready to make api calls
-Base.config = config
+# CREATE THE ENDPOINT
+endpoint = ListFields.new
 ```
 
 ```python
-from mailwizz.base import Base
-from mailwizz.config import Config
+from mailwizz.endpoint.list_fields import ListFields
 
-def setup():
-  
-    # configuration object
-    config = Config({
-        'api_url': 'API-URL',
-        'public_key': 'PUBLIC-KEY',
-        'private_key': 'PRIVATE-KEY',
-        'charset': 'utf-8'
-    })
-
-    # now inject the configuration and we are ready to make api calls
-    Base.set_config(config)
+"""
+CREATE THE ENDPOINT
+"""
+endpoint = ListFields()
 ```
-See each language tab for the setup instructions.
 
-**Notes**
-<aside class="notice">
-If SSL present on the webhost, the api can be accessed via SSL as well (https://...). A self signed SSL certificate will work just fine
-</aside>
+## Get all list fields
+```php
+// GET ALL ITEMS
+$response = $endpoint->getFields('LIST-UNIQUE-ID');
 
-<aside class="notice">
-If the MailWizz powered website doesn't use clean urls, make sure your apiUrl has the index.php part of url included, i.e: http://www.mailwizz-powered-website.tld/api/index.php
-</aside>
+// DISPLAY RESPONSE
+echo '<pre>';
+print_r($response->body);
+echo '</pre>';
+```
 
-<aside class="notice">
-<b>Configuration components</b>: The api for the MailWizz EMA is designed to return proper etags when GET requests are made. We can use this to cache the request response in order to decrease loading time therefore improving performance. In this case, we will need to use a cache component that will store the responses and a file cache will do it just fine. Please see MailWizzApi/Cache for a list of available cache components and their usage.
-</aside>
+```ruby
+# GET ALL FIELDS OF A LIST
+response = endpoint.get_fields('LIST_UID')
+
+# DISPLAY RESPONSE
+puts response.body
+```
+
+```python
+"""
+GET ALL FIELDS OF A LIST
+"""
+response = endpoint.get_fields(list_uid='LIST_UID')
+
+"""
+DISPLAY RESPONSE
+"""
+print(response.content)
+```
+> The above command returns an object structured like this JSON:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "records": [
+      {
+        "tag": "EMAIL",
+        "label": "Email",
+        "required": "yes",
+        "help_text": null,
+        "type": {
+          "name": "Text",
+          "identifier": "text",
+          "description": "Text"
+        }
+      },
+      {
+        "tag": "FNAME",
+        "label": "First name",
+        "required": "no",
+        "help_text": null,
+        "type": {
+          "name": "Text",
+          "identifier": "text",
+          "description": "Text"
+        }
+      },
+      {
+        "tag": "LNAME",
+        "label": "Last name",
+        "required": "no",
+        "help_text": null,
+        "type": {
+          "name": "Text",
+          "identifier": "text",
+          "description": "Text"
+        }
+      }
+    ]
+  }
+}
+```
+This endpoint retrieves all the fields of a list.
+
+### HTTP Request
+
+`GET API-URL/lists/LIST-UNIQUE-ID/fields`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+pageNumber | 1 | Current page to retrieve.
+perPage | 10 | Items per page to retrieve.
+LIST-UNIQUE-ID | | The list unique identifier

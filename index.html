@@ -589,25 +589,29 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>This is the documentation for the MailWizz API.</p>
+<p>This is the documentation for MailWizz 2.x API.</p>
+
+<p>For MailWizz 1.x API documentation, please see this <a href="/v1">link</a>.  </p>
 
 <p>In order to integrate MailWizz with 3rd-party apps or any custom apps, you can use its powerful API.</p>
 
 <p>The API is providing the basic operations needed for your implementation. </p>
 
-<p>This document will drive you through the Mailwizz available SDKs .</p>
+<p>This document will drive you through the MailWizz available SDKs .</p>
 
 <p><strong>Available implementations</strong>:</p>
 
-<p><a href="https://github.com/twisted1919/mailwizz-php-sdk">https://github.com/twisted1919/mailwizz-php-sdk</a> - The PHP SDK.</p>
+<p><a href="https://github.com/ems-api/php-client">The PHP SDK</a></p>
 
-<p><a href="https://github.com/twisted1919/mailwizz-python-sdk">https://github.com/twisted1919/mailwizz-python-sdk</a> - The Python SDK.</p>
+<p><strong>Compatible implementations</strong>:</p>
 
-<p><a href="https://github.com/twisted1919/mailwizz-ruby-sdk">https://github.com/twisted1919/mailwizz-ruby-sdk</a> - The Ruby SDK.</p>
+<p><a href="https://github.com/twisted1919/mailwizz-python-sdk">The Python SDK</a>.</p>
 
-<p><a href="https://github.com/thangtx/mailwizzphpapi-wrap">https://github.com/thangtx/mailwizzphpapi-wrap</a> - A small rest app that acts as a proxy between mailwizz and any other software.</p>
+<p><a href="https://github.com/twisted1919/mailwizz-ruby-sdk">The Ruby SDK</a>.</p>
 
-<p><a href="https://www.npmjs.com/package/node-mailwizz">https://www.npmjs.com/package/node-mailwizz</a> - Node.js implementations</p>
+<p><a href="https://github.com/thangtx/mailwizzphpapi-wrap">A small rest app that acts as a proxy between MailWizz and any other software</a>.</p>
+
+<p><a href="https://www.npmjs.com/package/node-mailwizz">Node.js implementations</a>.</p>
 
 <p><strong>HTTP Methods used</strong></p>
 
@@ -653,7 +657,7 @@
 <p>Then, follow the instructions from <code>examples/setup_api.rb</code> file.</p>
 <h1 id='setup'>Setup</h1>
 <blockquote>
-<p>Please make sure to replace <code>API-URL</code> <code>PUBLIC-KEY</code> <code>PRIVATE-KEY</code>, with their proper values:</p>
+<p>Please make sure to replace <code>API-URL</code> <code>PUBLIC-KEY</code>, with their proper values:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">//Require the autoloader class if you haven't used composer to install the package</span>
 <span class="k">require_once</span> <span class="k">__DIR__</span> <span class="mf">.</span> <span class="s1">'/../vendor/autoload.php'</span><span class="p">;</span>
@@ -685,7 +689,6 @@
 <span class="n">config</span> <span class="o">=</span> <span class="no">Config</span><span class="p">.</span><span class="nf">new</span><span class="p">({</span>
                         <span class="s1">'api_url'</span><span class="p">:</span> <span class="s1">'API-URL'</span><span class="p">,</span>
                         <span class="s1">'public_key'</span><span class="p">:</span> <span class="s1">'PUBLIC-KEY'</span><span class="p">,</span>
-                        <span class="s1">'private_key'</span><span class="p">:</span> <span class="s1">'PRIVATE-KEY'</span><span class="p">,</span>
                         <span class="s1">'charset'</span><span class="p">:</span> <span class="s1">'utf-8'</span>
                     <span class="p">})</span>
 
@@ -700,7 +703,6 @@
 </span>    <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">({</span>
         <span class="s">'api_url'</span><span class="p">:</span> <span class="s">'API-URL'</span><span class="p">,</span>
         <span class="s">'public_key'</span><span class="p">:</span> <span class="s">'PUBLIC-KEY'</span><span class="p">,</span>
-        <span class="s">'private_key'</span><span class="p">:</span> <span class="s">'PRIVATE-KEY'</span><span class="p">,</span>
         <span class="s">'charset'</span><span class="p">:</span> <span class="s">'utf-8'</span>
     <span class="p">})</span>
 
@@ -3500,7 +3502,7 @@ DISPLAY RESPONSE
 <td>template_uid</td>
 <td>string</td>
 <td>yes</td>
-<td>Template unique id from Mailwizz</td>
+<td>Template unique id from MailWizz</td>
 </tr>
 <tr>
 <td>content</td>

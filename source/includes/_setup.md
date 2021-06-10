@@ -1,6 +1,6 @@
 # Setup
  
-> Please make sure to replace `API-URL` `PUBLIC-KEY` `PRIVATE-KEY`, with their proper values:
+> Please make sure to replace `API-URL` `PUBLIC-KEY`, with their proper values:
 
 ```php
 //Require the autoloader class if you haven't used composer to install the package
@@ -36,7 +36,6 @@ include Endpoint
 config = Config.new({
                         'api_url': 'API-URL',
                         'public_key': 'PUBLIC-KEY',
-                        'private_key': 'PRIVATE-KEY',
                         'charset': 'utf-8'
                     })
 
@@ -54,7 +53,6 @@ def setup():
     config = Config({
         'api_url': 'API-URL',
         'public_key': 'PUBLIC-KEY',
-        'private_key': 'PRIVATE-KEY',
         'charset': 'utf-8'
     })
 

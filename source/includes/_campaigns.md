@@ -404,7 +404,7 @@ options | array | no | The campaign optional block, defaults are shown
 Parameter | Type | Required | Description
 --------- | ------- |------- | -----------
 archive | filePath | yes | Template file zip location 
-template_uid | string | yes | Template unique id from Mailwizz 
+template_uid | string | yes | Template unique id from MailWizz 
 content | string | yes | Template content 
 inline_css | yes/no | yes | Accept inline css 
 plain_text | null/string | no | Send null to autogenerate as default

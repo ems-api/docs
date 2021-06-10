@@ -30,25 +30,29 @@ code_clipboard: true
 
 # Introduction
 
-This is the documentation for the MailWizz API.
+This is the documentation for MailWizz 2.x API.
+
+For MailWizz 1.x API documentation, please see this [link](/v1).  
 
 In order to integrate MailWizz with 3rd-party apps or any custom apps, you can use its powerful API.
 
 The API is providing the basic operations needed for your implementation. 
 
-This document will drive you through the Mailwizz available SDKs .
+This document will drive you through the MailWizz available SDKs .
 
 **Available implementations**:
 
-[https://github.com/twisted1919/mailwizz-php-sdk](https://github.com/twisted1919/mailwizz-php-sdk) - The PHP SDK.
+[The PHP SDK](https://github.com/ems-api/php-client)
 
-[https://github.com/twisted1919/mailwizz-python-sdk](https://github.com/twisted1919/mailwizz-python-sdk) - The Python SDK.
+**Compatible implementations**:
 
-[https://github.com/twisted1919/mailwizz-ruby-sdk](https://github.com/twisted1919/mailwizz-ruby-sdk) - The Ruby SDK.
+[The Python SDK](https://github.com/twisted1919/mailwizz-python-sdk).
 
-[https://github.com/thangtx/mailwizzphpapi-wrap](https://github.com/thangtx/mailwizzphpapi-wrap) - A small rest app that acts as a proxy between mailwizz and any other software.
+[The Ruby SDK](https://github.com/twisted1919/mailwizz-ruby-sdk).
 
-[https://www.npmjs.com/package/node-mailwizz](https://www.npmjs.com/package/node-mailwizz) - Node.js implementations
+[A small rest app that acts as a proxy between MailWizz and any other software](https://github.com/thangtx/mailwizzphpapi-wrap).
+
+[Node.js implementations](https://www.npmjs.com/package/node-mailwizz).
 
 **HTTP Methods used**
 

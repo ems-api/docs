@@ -1,6 +1,6 @@
 # Transactional Emails
 
-## Create the transactional emails endpoint
+## Transactional emails endpoint
 ```php
 // CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\TransactionalEmails();

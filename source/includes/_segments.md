@@ -1,6 +1,6 @@
 # Segments
 
-## Create the list segments endpoint
+## List segments endpoint
 ```php
 // CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\ListSegments();

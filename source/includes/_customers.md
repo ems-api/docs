@@ -1,6 +1,6 @@
 # Customers
 
-## Create the customers endpoint
+## Customers endpoint
 ```php
 // CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\Customers();

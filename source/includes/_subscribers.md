@@ -1,6 +1,6 @@
 # Subscribers
 
-## Create the subscribers endpoint
+## Subscribers endpoint
 ```php
 / CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\ListSubscribers();
@@ -1116,9 +1116,11 @@ This endpoint update the subscriber if exists and created it otherwise, from the
 
 ### HTTP Request
 
-`GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-email`
-`POST API-URL/lists/LIST-UNIQUE-ID/subscribers/update/SUBSCRIBER-UNIQUE-ID`
-`POST API-URL/lists/LIST-UNIQUE-ID/subscribers/create`
+`GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-email`  
+
+`POST API-URL/lists/LIST-UNIQUE-ID/subscribers/update/SUBSCRIBER-UNIQUE-ID`  
+
+`POST API-URL/lists/LIST-UNIQUE-ID/subscribers/create`  
 
 ### GET/POST Parameters
 
@@ -1220,6 +1222,7 @@ This endpoint unsubscribes the subscriber with the given EMAIL from the given LI
 ### HTTP Request
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-email`
+
 `PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID/unsubscribe`
 
 ### Query Parameters
@@ -1370,6 +1373,7 @@ This endpoint deletes a subscriber by his email within the list having the LIST-
 ### HTTP Request
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-email`
+
 `DELETE API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID`
 
 ### Query Parameters

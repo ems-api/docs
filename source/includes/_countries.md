@@ -1,6 +1,6 @@
 # Countries
 
-## Create the countries endpoint
+## Countries endpoint
 ```php
 // CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\Countries();

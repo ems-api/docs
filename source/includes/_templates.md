@@ -1,6 +1,6 @@
 # Templates
 
-## Create the templates endpoint
+## Templates endpoint
 ```php
 // CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\Templates();
@@ -195,8 +195,8 @@ This endpoint retrieves the templates based on the filter keys values.
 
 ### Query Parameters
 
-Parameter | Type| Required | Description
---------- | ------- | -----------
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
 filters | array | yes | Indexed array having template attributes as keys.(i.e.: name )
 
 ## Create a template

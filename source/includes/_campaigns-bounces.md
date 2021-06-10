@@ -1,6 +1,6 @@
 # Campaign bounces
 
-## Create the campaigns bounces endpoint
+## Campaigns bounces endpoint
 ```php
 // CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\CampaignBounces();

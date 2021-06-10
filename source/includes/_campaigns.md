@@ -1,6 +1,6 @@
 # Campaigns
 
-## Create the campaigns endpoint
+## Campaigns endpoint
 ```php
 // CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\Campaigns();

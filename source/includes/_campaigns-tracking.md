@@ -1,6 +1,6 @@
 # Campaigns tracking
 
-## Create the campaigns tracking endpoint
+## Campaigns tracking endpoint
 ```php
 // CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\CampaignsTracking();
@@ -19,7 +19,6 @@ CREATE THE ENDPOINT
 """
 endpoint = CampaignsTracking()
 ```
-<aside class="success"> PLEASE NOTE THAT THIS ENDPOINT ONLY WORKS WITH MAILWIZZ >= 1.3.7.3</aside>
 
 ## Track subscriber click for campaign
 ```php

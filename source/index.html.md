@@ -7,6 +7,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - python
 
 toc_footers:
+  - <a href='https://github.com/ems-api/docs'>Improve these docs</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:

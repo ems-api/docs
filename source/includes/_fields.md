@@ -1,6 +1,6 @@
 # Fields
 
-## Create the list fields endpoint
+## List fields endpoint
 ```php
 // CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\ListFields();

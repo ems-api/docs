@@ -1,6 +1,6 @@
 # Lists
 
-## Create the lists endpoint
+## Lists endpoint
 ```php
 / CREATE THE ENDPOINT
 $endpoint = new EmsApi\Endpoint\Lists();

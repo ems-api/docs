@@ -191,6 +191,7 @@ print(response.content)
         "description": "Testing list"
       },
       "defaults": {
+        "from_email": "from@domain.com",
         "from_name": "User Test",
         "reply_to": "user@example.com",
         "subject": ""

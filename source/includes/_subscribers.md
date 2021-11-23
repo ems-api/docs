@@ -778,7 +778,7 @@ This endpoint creates a subscriber
 
 ### HTTP Request
 
-`POST API-URL/lists/LIST-UNIQUE-ID/subscribers/create`
+`POST API-URL/lists/LIST-UNIQUE-ID/subscribers`
 
 ### POST Parameters
 

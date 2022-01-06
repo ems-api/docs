@@ -84,10 +84,10 @@ This endpoint retrieves all the bounces of a campaign.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
+| Parameter  | Default | Description                 |
+|------------|---------|-----------------------------|
+| pageNumber | 1       | Current page to retrieve.   |
+| perPage    | 10      | Items per page to retrieve. |
 
 ## Create a bounce
 
@@ -160,9 +160,9 @@ This endpoint creates a campaign bounce
 
 ### POST Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-message | yes | The bounce message to be recorded.
-bounce_type | yes | Bounce type (hard, soft or internal).
-subscriber_uid | yes | The subscriber for which we record the bounce
+| Parameter      | Required | Description                                   |
+|----------------|----------|-----------------------------------------------|
+| message        | yes      | The bounce message to be recorded.            |
+| bounce_type    | yes      | Bounce type (hard, soft or internal).         |
+| subscriber_uid | yes      | The subscriber for which we record the bounce |
 

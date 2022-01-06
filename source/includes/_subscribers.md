@@ -174,11 +174,11 @@ This endpoint retrieves all the subscribers of a list.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
-LIST-UNIQUE-ID | | The list unique identifier for which we retrieve the subscribers
+| Parameter      | Default | Description                                                      |
+|----------------|---------|------------------------------------------------------------------|
+| pageNumber     | 1       | Current page to retrieve.                                        |
+| perPage        | 10      | Items per page to retrieve.                                      |
+| LIST-UNIQUE-ID |         | The list unique identifier for which we retrieve the subscribers |
 
 ## Get one subscriber
 ```php
@@ -235,10 +235,10 @@ This endpoint retrieves the subscriber with the given SUBSCRIBER-UNIQUE-ID from 
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List unique id to which the subscriber to retrieve belongs.
-SUBSCRIBER-UNIQUE-ID | yes | Subscriber unique id to retrieve.
+| Parameter            | Required | Description                                                 |
+|----------------------|----------|-------------------------------------------------------------|
+| LIST-UNIQUE-ID       | yes      | List unique id to which the subscriber to retrieve belongs. |
+| SUBSCRIBER-UNIQUE-ID | yes      | Subscriber unique id to retrieve.                           |
 
 ## Search by email
 ```php
@@ -290,10 +290,10 @@ This endpoint searches a subscriber by his email within the list having the LIST
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List unique id to which the subscriber to retrieve belongs.
-email | yes | Subscriber email to retrieve.
+| Parameter      | Required | Description                                                 |
+|----------------|----------|-------------------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | List unique id to which the subscriber to retrieve belongs. |
+| email          | yes      | Subscriber email to retrieve.                               |
 
 ## Search by email in all lists
 ```php
@@ -362,9 +362,9 @@ This endpoint searches a subscriber by his email within the all lists.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-email | yes | Subscriber email to retrieve. 
+| Parameter | Required | Description                   |
+|-----------|----------|-------------------------------|
+| email     | yes      | Subscriber email to retrieve. |
 
 ## Search by custom fields in a list
 ```php
@@ -424,12 +424,12 @@ This endpoint searches a subscriber by his custom fields values within a list gi
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List to search in.
-array | yes | Array of custom fields {'CUSTOM_FIELD' => 'VALUE'}
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
+| Parameter      | Required | Description                                        |
+|----------------|----------|----------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | List to search in.                                 |
+| array          | yes      | Array of custom fields {'CUSTOM_FIELD' => 'VALUE'} |
+| pageNumber     | 1        | Current page to retrieve.                          |
+| perPage        | 10       | Items per page to retrieve.                        |
 
 ## Search by status
 
@@ -477,12 +477,12 @@ This endpoint search for the subscribers having a certain status within the list
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
-LIST-UNIQUE-ID | | The list unique identifier for which we retrieve the subscribers
-status | yes | Subscribers status to retrieve.
+| Parameter      | Required | Description                                                      |
+|----------------|----------|------------------------------------------------------------------|
+| pageNumber     | 1        | Current page to retrieve.                                        |
+| perPage        | 10       | Items per page to retrieve.                                      |
+| LIST-UNIQUE-ID |          | The list unique identifier for which we retrieve the subscribers |
+| status         | yes      | Subscribers status to retrieve.                                  |
 
 ## Get confirmed subscribers
 ```php
@@ -555,11 +555,11 @@ This endpoint retrieves all the confirmed subscribers of a list.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
-LIST-UNIQUE-ID | | The list unique identifier for which we retrieve the subscribers
+| Parameter      | Default | Description                                                      |
+|----------------|---------|------------------------------------------------------------------|
+| pageNumber     | 1       | Current page to retrieve.                                        |
+| perPage        | 10      | Items per page to retrieve.                                      |
+| LIST-UNIQUE-ID |         | The list unique identifier for which we retrieve the subscribers |
 
 ## Get unconfirmed subscribers
 ```php
@@ -632,11 +632,11 @@ This endpoint retrieves all the unconfirmed subscribers of a list.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
-LIST-UNIQUE-ID | | The list unique identifier for which we retrieve the subscribers
+| Parameter      | Default | Description                                                      |
+|----------------|---------|------------------------------------------------------------------|
+| pageNumber     | 1       | Current page to retrieve.                                        |
+| perPage        | 10      | Items per page to retrieve.                                      |
+| LIST-UNIQUE-ID |         | The list unique identifier for which we retrieve the subscribers |
 
 ## Get unsubscribed subscribers
 ```php
@@ -709,11 +709,11 @@ This endpoint retrieves all the unsubscribed subscribers of a list.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
-LIST-UNIQUE-ID | | The list unique identifier for which we retrieve the subscribers
+| Parameter      | Default | Description                                                      |
+|----------------|---------|------------------------------------------------------------------|
+| pageNumber     | 1       | Current page to retrieve.                                        |
+| perPage        | 10      | Items per page to retrieve.                                      |
+| LIST-UNIQUE-ID |         | The list unique identifier for which we retrieve the subscribers |
 
 ## Create a subscriber
 
@@ -782,10 +782,10 @@ This endpoint creates a subscriber
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-LIST-UNIQUE-ID | string | yes | List unique identifier
-data | array | yes | Array with the custom fields {name => value}. The EMAIL key is required.
+| Parameter      | Type   | Required | Description                                                              |
+|----------------|--------|----------|--------------------------------------------------------------------------|
+| LIST-UNIQUE-ID | string | yes      | List unique identifier                                                   |
+| data           | array  | yes      | Array with the custom fields {name => value}. The EMAIL key is required. |
 
 ## Create subscribers in bulk
 
@@ -918,10 +918,10 @@ This endpoint creates subscribers in bulk
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-LIST-UNIQUE-ID | string | yes | List unique identifier
-array | string | yes | Array of arrays with the custom fields {name => value}. The EMAIL key is required.
+| Parameter      | Type   | Required | Description                                                                        |
+|----------------|--------|----------|------------------------------------------------------------------------------------|
+| LIST-UNIQUE-ID | string | yes      | List unique identifier                                                             |
+| array          | string | yes      | Array of arrays with the custom fields {name => value}. The EMAIL key is required. |
 
 ## Update a subscriber
 ```php
@@ -990,11 +990,11 @@ This endpoint update the subscriber with the given SUBSCRIBER-UNIQUE-ID from the
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-LIST-UNIQUE-ID | string | yes | List unique identifier
-SUBSCRIBER-UNIQUE-ID | string | yes | Subscriber unique identifier
-data | array | yes | Array with the custom fields {name => value} to be updated.
+| Parameter            | Type   | Required | Description                                                 |
+|----------------------|--------|----------|-------------------------------------------------------------|
+| LIST-UNIQUE-ID       | string | yes      | List unique identifier                                      |
+| SUBSCRIBER-UNIQUE-ID | string | yes      | Subscriber unique identifier                                |
+| data                 | array  | yes      | Array with the custom fields {name => value} to be updated. |
 
 ## Update a subscriber by email
 ```php
@@ -1047,11 +1047,11 @@ This endpoint update the subscriber with the given EMAIL from the given list LIS
 
 ### GET/POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-LIST-UNIQUE-ID | string | yes | List unique identifier
-EMAIL | string | yes | Email to be searched
-data | array | yes | Array with the custom fields {name => value} to be updated.
+| Parameter      | Type   | Required | Description                                                 |
+|----------------|--------|----------|-------------------------------------------------------------|
+| LIST-UNIQUE-ID | string | yes      | List unique identifier                                      |
+| EMAIL          | string | yes      | Email to be searched                                        |
+| data           | array  | yes      | Array with the custom fields {name => value} to be updated. |
 
 ## Create/Update a subscriber
 ```php
@@ -1124,10 +1124,10 @@ This endpoint update the subscriber if exists and created it otherwise, from the
 
 ### GET/POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-LIST-UNIQUE-ID | string | yes | List unique identifier
-data | array | yes | Array with the custom fields {name => value} to be updated.
+| Parameter      | Type   | Required | Description                                                 |
+|----------------|--------|----------|-------------------------------------------------------------|
+| LIST-UNIQUE-ID | string | yes      | List unique identifier                                      |
+| data           | array  | yes      | Array with the custom fields {name => value} to be updated. |
 
 ## Unsubscribe a subscriber
 ```php
@@ -1175,10 +1175,10 @@ This endpoint unsubscribes the subscriber with the given SUBSCRIBER-UNIQUE-ID fr
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List unique id to which the subscriber belongs.
-SUBSCRIBER-UNIQUE-ID | yes | Subscriber unique id to unsubscribe.
+| Parameter            | Required | Description                                     |
+|----------------------|----------|-------------------------------------------------|
+| LIST-UNIQUE-ID       | yes      | List unique id to which the subscriber belongs. |
+| SUBSCRIBER-UNIQUE-ID | yes      | Subscriber unique id to unsubscribe.            |
 
 ## Unsubscribe a subscriber by email address
 ```php
@@ -1227,10 +1227,10 @@ This endpoint unsubscribes the subscriber with the given EMAIL from the given LI
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List unique id to which the subscriber belongs.
-EMAIL | yes | Subscriber email to unsubscribe.
+| Parameter      | Required | Description                                     |
+|----------------|----------|-------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | List unique id to which the subscriber belongs. |
+| EMAIL          | yes      | Subscriber email to unsubscribe.                |
 
 ## Unsubscribe a subscriber by email address from all the lists
 ```php
@@ -1277,9 +1277,9 @@ This endpoint unsubscribes the subscriber with the given EMAIL from all the list
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-EMAIL | yes | Subscriber email to unsubscribe.
+| Parameter | Required | Description                      |
+|-----------|----------|----------------------------------|
+| EMAIL     | yes      | Subscriber email to unsubscribe. |
 
 ## Delete one subscriber
 ```php
@@ -1326,10 +1326,10 @@ This endpoint deletes the subscriber with the given SUBSCRIBER-UNIQUE-ID from th
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List unique id to which the subscriber belongs.
-SUBSCRIBER-UNIQUE-ID | yes | Subscriber unique id to delete.
+| Parameter            | Required | Description                                     |
+|----------------------|----------|-------------------------------------------------|
+| LIST-UNIQUE-ID       | yes      | List unique id to which the subscriber belongs. |
+| SUBSCRIBER-UNIQUE-ID | yes      | Subscriber unique id to delete.                 |
 
 ## Delete by email
 ```php
@@ -1378,7 +1378,7 @@ This endpoint deletes a subscriber by his email within the list having the LIST-
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List unique id to which the subscriber to retrieve belongs.
-email | yes | Subscriber email to retrieve.
+| Parameter      | Required | Description                                                 |
+|----------------|----------|-------------------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | List unique id to which the subscriber to retrieve belongs. |
+| email          | yes      | Subscriber email to retrieve.                               |

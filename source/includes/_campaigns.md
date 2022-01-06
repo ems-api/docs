@@ -138,10 +138,10 @@ This endpoint retrieves all the campaigns.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
+| Parameter  | Default | Description                 |
+|------------|---------|-----------------------------|
+| pageNumber | 1       | Current page to retrieve.   |
+| perPage    | 10      | Items per page to retrieve. |
 
 ## Get one campaign
 ```php
@@ -210,9 +210,9 @@ This endpoint retrieves the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UNIQUE-ID | yes | Campaign unique id to retrieve.
+| Parameter          | Required | Description                     |
+|--------------------|----------|---------------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to retrieve. |
 
 ## Create a campaign
 
@@ -384,49 +384,49 @@ This endpoint creates a campaign
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-name | string | yes | Campaign name.
-type | string | no | Campaign type: regular or autoresponder. Default is regular.
-from_name | string | yes | The campaign from name
-from_email | string | yes | The campaign from email address
-subject | string | yes | The campaign subject
-from_name | string | yes | The subscriber for which we record the bounce
-reply_to | string | yes | The campaign reply to email address
-send_at | datetime (Y-m-d H:i:s) | yes | This will use the timezone which customer selected
-list_uid | string | yes | The list uid to which this campaign will be sent
-segment_uid | string | no | Narrow down the campaign recipients
-template | array | yes | The campaign template object block. Archive or template_uid or content => required
-options | array | no | The campaign optional block, defaults are shown
+| Parameter   | Type                   | Required | Description                                                                        |
+|-------------|------------------------|----------|------------------------------------------------------------------------------------|
+| name        | string                 | yes      | Campaign name.                                                                     |
+| type        | string                 | no       | Campaign type: regular or autoresponder. Default is regular.                       |
+| from_name   | string                 | yes      | The campaign from name                                                             |
+| from_email  | string                 | yes      | The campaign from email address                                                    |
+| subject     | string                 | yes      | The campaign subject                                                               |
+| from_name   | string                 | yes      | The subscriber for which we record the bounce                                      |
+| reply_to    | string                 | yes      | The campaign reply to email address                                                |
+| send_at     | datetime (Y-m-d H:i:s) | yes      | This will use the timezone which customer selected                                 |
+| list_uid    | string                 | yes      | The list uid to which this campaign will be sent                                   |
+| segment_uid | string                 | no       | Narrow down the campaign recipients                                                |
+| template    | array                  | yes      | The campaign template object block. Archive or template_uid or content => required |
+| options     | array                  | no       | The campaign optional block, defaults are shown                                    |
 
 **Template block**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-archive | filePath | yes | Template file zip location 
-template_uid | string | yes | Template unique id from MailWizz 
-content | string | yes | Template content 
-inline_css | yes/no | yes | Accept inline css 
-plain_text | null/string | no | Send null to autogenerate as default
-auto_plain_text | yes/no | yes | Generate plain text template
+| Parameter       | Type        | Required | Description                          |
+|-----------------|-------------|----------|--------------------------------------|
+| archive         | filePath    | yes      | Template file zip location           |
+| template_uid    | string      | yes      | Template unique id from MailWizz     |
+| content         | string      | yes      | Template content                     |
+| inline_css      | yes/no      | yes      | Accept inline css                    |
+| plain_text      | null/string | no       | Send null to autogenerate as default |
+| auto_plain_text | yes/no      | yes      | Generate plain text template         |
 
 **Options block**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-url_tracking | yes/no | no | Enable/Disable url tracking
-json_feed | yes/no | no | Enable/Disable json feed
-xml_feed | yes/no | no | Enable/Disable xml feed
-plain_text_email | yes/no | no | Enable/Disable the plain text email
-email_stats | string/null | no | A valid email address where the stats will be sent
-autoresponder_event | string | no | Possible values: AFTER-SUBSCRIBE or AFTER-CAMPAIGN-OPEN
-autoresponder_event | string | no | Possible values: AFTER-SUBSCRIBE or AFTER-CAMPAIGN-OPEN
-autoresponder_time_unit | string | no | Possible values: minute, hour, day, week, month, year
-autoresponder_time_value | integer | no | The unit time value
-autoresponder_time_value | integer | no | The unit time value
-autoresponder_open_campaign_id | integer | no | Id of the campaign, only if event is AFTER-CAMPAIGN-OPEN
-cronjob | string | no | If this campaign is advanced recurring, you can set a cron job style frequency
-cronjob_enabled | integer | no | Possible values 1 or 0
+| Parameter                      | Type        | Required | Description                                                                    |
+|--------------------------------|-------------|----------|--------------------------------------------------------------------------------|
+| url_tracking                   | yes/no      | no       | Enable/Disable url tracking                                                    |
+| json_feed                      | yes/no      | no       | Enable/Disable json feed                                                       |
+| xml_feed                       | yes/no      | no       | Enable/Disable xml feed                                                        |
+| plain_text_email               | yes/no      | no       | Enable/Disable the plain text email                                            |
+| email_stats                    | string/null | no       | A valid email address where the stats will be sent                             |
+| autoresponder_event            | string      | no       | Possible values: AFTER-SUBSCRIBE or AFTER-CAMPAIGN-OPEN                        |
+| autoresponder_event            | string      | no       | Possible values: AFTER-SUBSCRIBE or AFTER-CAMPAIGN-OPEN                        |
+| autoresponder_time_unit        | string      | no       | Possible values: minute, hour, day, week, month, year                          |
+| autoresponder_time_value       | integer     | no       | The unit time value                                                            |
+| autoresponder_time_value       | integer     | no       | The unit time value                                                            |
+| autoresponder_open_campaign_id | integer     | no       | Id of the campaign, only if event is AFTER-CAMPAIGN-OPEN                       |
+| cronjob                        | string      | no       | If this campaign is advanced recurring, you can set a cron job style frequency |
+| cronjob_enabled                | integer     | no       | Possible values 1 or 0                                                         |
 
 ## Update a campaign
 ```php
@@ -584,9 +584,9 @@ This endpoint update the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UNIQUE-ID | yes | Campaign unique id to update.
+| Parameter          | Required | Description                   |
+|--------------------|----------|-------------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to update. |
 
 ## Copy a campaign
 ```php
@@ -635,9 +635,9 @@ This endpoint copy the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UNIQUE-ID | yes | Campaign unique id to copy.
+| Parameter          | Required | Description                 |
+|--------------------|----------|-----------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to copy. |
 
 ## Pause/Unpause a campaign
 ```php
@@ -687,9 +687,9 @@ This endpoint pause/unpause the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UNIQUE-ID | yes | Campaign unique id to pause/unpause.
+| Parameter          | Required | Description                          |
+|--------------------|----------|--------------------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to pause/unpause. |
 
 ## Mark a campaign as SENT
 ```php
@@ -740,9 +740,9 @@ This endpoint mark as SENT the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UNIQUE-ID | yes | Campaign unique id to mark as sent.
+| Parameter          | Required | Description                         |
+|--------------------|----------|-------------------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to mark as sent. |
 
 ## Delete a campaign
 ```php
@@ -790,9 +790,9 @@ This endpoint will delete the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UNIQUE-ID | yes | Campaign unique id to delete.
+| Parameter          | Required | Description                   |
+|--------------------|----------|-------------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to delete. |
 
 ## Get stats of a campaign
 ```php
@@ -859,6 +859,6 @@ This endpoint retrieves the campaign stats the given CAMPAIGN-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UNIQUE-ID | yes | Campaign unique id to retrieve.
+| Parameter          | Required | Description                     |
+|--------------------|----------|---------------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to retrieve. |

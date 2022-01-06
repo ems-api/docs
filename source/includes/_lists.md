@@ -142,10 +142,10 @@ This endpoint retrieves all the lists.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
+| Parameter  | Default | Description                 |
+|------------|---------|-----------------------------|
+| pageNumber | 1       | Current page to retrieve.   |
+| perPage    | 10      | Items per page to retrieve. |
 
 ## Get one list
 ```php
@@ -229,9 +229,9 @@ This endpoint retrieves the list with the given LIST-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List unique id which to retrieve.
+| Parameter      | Required | Description                       |
+|----------------|----------|-----------------------------------|
+| LIST-UNIQUE-ID | yes      | List unique id which to retrieve. |
 
 ## Create a list
 
@@ -351,47 +351,47 @@ Please see countries.php example file for a list of allowed countries/zones for 
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-data | array | yes | Array with the list details. The following indexed arrays are accepted: general, defaults, notifications, company
+| Parameter | Type  | Required | Description                                                                                                       |
+|-----------|-------|----------|-------------------------------------------------------------------------------------------------------------------|
+| data      | array | yes      | Array with the list details. The following indexed arrays are accepted: general, defaults, notifications, company |
 
 **General block - required**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-name | string | yes | List name
-description | string | yes | List description
+| Parameter   | Type   | Required | Description      |
+|-------------|--------|----------|------------------|
+| name        | string | yes      | List name        |
+| description | string | yes      | List description |
 
 **Defaults block - required**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-from_name | string | yes | From name
-from_email | string | yes | From email
-reply_to | string | yes | Reply to email
-subject | string | no | List subject
+| Parameter  | Type   | Required | Description    |
+|------------|--------|----------|----------------|
+| from_name  | string | yes      | From name      |
+| from_email | string | yes      | From email     |
+| reply_to   | string | yes      | Reply to email |
+| subject    | string | no       | List subject   |
 
 **Notifications block - optional**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-subscribe | Yes/No | no | Notification when new subscriber added
-unsubscribe | Yes/No | no | Notification when new subscriber unsubscribe
-subscribe_to | string | no | Where to send the notifications on subscribe
-unsubscribe_to | string | no | Where to send the notifications on unsubscribe
+| Parameter      | Type   | Required | Description                                    |
+|----------------|--------|----------|------------------------------------------------|
+| subscribe      | Yes/No | no       | Notification when new subscriber added         |
+| unsubscribe    | Yes/No | no       | Notification when new subscriber unsubscribe   |
+| subscribe_to   | string | no       | Where to send the notifications on subscribe   |
+| unsubscribe_to | string | no       | Where to send the notifications on unsubscribe |
 
 **Company block - optional - if not set customer company data will be used**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-name | string | yes | Company name
-country | string | yes | Company country
-zone | string | yes | Company zone
-address_1 | string | yes | Company address
-address_2 | string | no | Company address 2
-zone_name | string | no | Company address - when country doesn't have required zone.
-city | string | no | Company city
-zipcode | string | no | Company zipcode
+| Parameter | Type   | Required | Description                                                |
+|-----------|--------|----------|------------------------------------------------------------|
+| name      | string | yes      | Company name                                               |
+| country   | string | yes      | Company country                                            |
+| zone      | string | yes      | Company zone                                               |
+| address_1 | string | yes      | Company address                                            |
+| address_2 | string | no       | Company address 2                                          |
+| zone_name | string | no       | Company address - when country doesn't have required zone. |
+| city      | string | no       | Company city                                               |
+| zipcode   | string | no       | Company zipcode                                            |
 
 ## Update a list
 
@@ -498,10 +498,10 @@ This endpoint updates a list.
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-LIST-UNIQUE-ID | string | yes | List unique identifier
-data | array | yes | Array with the list details. The following indexed arrays are accepted: general, defaults, notifications, company. See the create section for details
+| Parameter      | Type   | Required | Description                                                                                                                                           |
+|----------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| LIST-UNIQUE-ID | string | yes      | List unique identifier                                                                                                                                |
+| data           | array  | yes      | Array with the list details. The following indexed arrays are accepted: general, defaults, notifications, company. See the create section for details |
 
 ## Copy a list
 ```php
@@ -550,9 +550,9 @@ This endpoint copy the list with the given LIST-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List unique id to copy.
+| Parameter      | Required | Description             |
+|----------------|----------|-------------------------|
+| LIST-UNIQUE-ID | yes      | List unique id to copy. |
 
 ## Delete a list
 ```php
@@ -600,6 +600,6 @@ This endpoint will delete the list with the given LIST-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-LIST-UNIQUE-ID | yes | List unique id to delete.
+| Parameter      | Required | Description               |
+|----------------|----------|---------------------------|
+| LIST-UNIQUE-ID | yes      | List unique id to delete. |

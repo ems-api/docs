@@ -74,10 +74,10 @@ This endpoint retrieves all the templates.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
+| Parameter  | Default | Description                 |
+|------------|---------|-----------------------------|
+| pageNumber | 1       | Current page to retrieve.   |
+| perPage    | 10      | Items per page to retrieve. |
 
 ## Get one template
 ```php
@@ -131,9 +131,9 @@ This endpoint retrieves the template with the given TEMPLATE-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-TEMPLATE-UNIQUE-ID | yes | Template unique id which to retrieve.
+| Parameter          | Required | Description                           |
+|--------------------|----------|---------------------------------------|
+| TEMPLATE-UNIQUE-ID | yes      | Template unique id which to retrieve. |
 
 ## Search templates
 ```php
@@ -195,9 +195,9 @@ This endpoint retrieves the templates based on the filter keys values.
 
 ### Query Parameters
 
-Parameter | Type | Required | Description
---------- | ---- | -------- | -----------
-filters | array | yes | Indexed array having template attributes as keys.(i.e.: name )
+| Parameter | Type  | Required | Description                                                    |
+|-----------|-------|----------|----------------------------------------------------------------|
+| filters   | array | yes      | Indexed array having template attributes as keys.(i.e.: name ) |
 
 ## Create a template
 
@@ -264,18 +264,18 @@ This endpoint creates a template.
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-data | array | yes | Array with the template details.
+| Parameter | Type  | Required | Description                      |
+|-----------|-------|----------|----------------------------------|
+| data      | array | yes      | Array with the template details. |
 
 **Data block - required**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-name | string | yes | Template name
-content | string | yes | The template content
-archive | string | no | Zip archive name on the disk. This can be used when not using the plain content key
-inline_css| Yes/No | no | Allow/disallow inline css
+| Parameter  | Type   | Required | Description                                                                         |
+|------------|--------|----------|-------------------------------------------------------------------------------------|
+| name       | string | yes      | Template name                                                                       |
+| content    | string | yes      | The template content                                                                |
+| archive    | string | no       | Zip archive name on the disk. This can be used when not using the plain content key |
+| inline_css | Yes/No | no       | Allow/disallow inline css                                                           |
 
 ## Update a template
 
@@ -338,10 +338,10 @@ This endpoint updates a template.
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-TEMPLATE-UNIQUE-ID | string | yes | Template unique identifier
-data | array | yes | Array with the template details. See the create section for details
+| Parameter          | Type   | Required | Description                                                         |
+|--------------------|--------|----------|---------------------------------------------------------------------|
+| TEMPLATE-UNIQUE-ID | string | yes      | Template unique identifier                                          |
+| data               | array  | yes      | Array with the template details. See the create section for details |
 
 ## Delete a template
 ```php
@@ -388,6 +388,6 @@ This endpoint will delete the template with the given TEMPLATE-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-TEMPLATE-UNIQUE-ID | yes | Template unique id to delete.
+| Parameter          | Required | Description                   |
+|--------------------|----------|-------------------------------|
+| TEMPLATE-UNIQUE-ID | yes      | Template unique id to delete. |

@@ -124,10 +124,10 @@ This endpoint retrieves all the countries.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
+| Parameter  | Default | Description                 |
+|------------|---------|-----------------------------|
+| pageNumber | 1       | Current page to retrieve.   |
+| perPage    | 10      | Items per page to retrieve. |
 
 ## Get all zones of a country
 ```php
@@ -233,8 +233,8 @@ This endpoint retrieves all the zones of a country.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
-COUNTRY-ID | | Country MailWizz ID to retrieve zones for 
+| Parameter  | Default | Description                               |
+|------------|---------|-------------------------------------------|
+| pageNumber | 1       | Current page to retrieve.                 |
+| perPage    | 10      | Items per page to retrieve.               |
+| COUNTRY-ID |         | Country MailWizz ID to retrieve zones for |

@@ -135,10 +135,10 @@ This endpoint retrieves all the transactional emails.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-pageNumber | 1 | Current page to retrieve.
-perPage | 10 | Items per page to retrieve.
+| Parameter  | Default | Description                 |
+|------------|---------|-----------------------------|
+| pageNumber | 1       | Current page to retrieve.   |
+| perPage    | 10      | Items per page to retrieve. |
 
 ## Get one transactional email
 ```php
@@ -208,9 +208,9 @@ This endpoint retrieves the transactional email with the given EMAIL-UNIQUE-ID.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-EMAIL-UNIQUE-ID | yes | Email unique id which to retrieve.
+| Parameter       | Required | Description                        |
+|-----------------|----------|------------------------------------|
+| EMAIL-UNIQUE-ID | yes      | Email unique id which to retrieve. |
 
 ## Create a transactional email
 
@@ -292,24 +292,24 @@ This endpoint creates a transactional email.
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-data | array | yes | Array with the email details.
+| Parameter | Type  | Required | Description                   |
+|-----------|-------|----------|-------------------------------|
+| data      | array | yes      | Array with the email details. |
 
 **Data block - required**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-to_name | string | yes | Recipient name
-to_email | string | yes | Recipient email
-from_name | string | yes | Sender name
-subject | string | yes | Email subject
-body | string | yes | Email body
-send_at | datetime | yes| UTC datetime (Y-m-d H:i:s format)  
-plain_text | string | no | Email plain text. Auto generated if missing
-from_email | string | no | Sender email
-reply_to_name | string | no | Reply to name
-reply_to_email | string | no | Reply to email
+| Parameter      | Type     | Required | Description                                 |
+|----------------|----------|----------|---------------------------------------------|
+| to_name        | string   | yes      | Recipient name                              |
+| to_email       | string   | yes      | Recipient email                             |
+| from_name      | string   | yes      | Sender name                                 |
+| subject        | string   | yes      | Email subject                               |
+| body           | string   | yes      | Email body                                  |
+| send_at        | datetime | yes      | UTC datetime (Y-m-d H:i:s format)           |
+| plain_text     | string   | no       | Email plain text. Auto generated if missing |
+| from_email     | string   | no       | Sender email                                |
+| reply_to_name  | string   | no       | Reply to name                               |
+| reply_to_email | string   | no       | Reply to email                              |
 
 ## Delete a transactional email
 ```php
@@ -356,6 +356,6 @@ This endpoint will delete the transactional email with the given TEMPLATE-UNIQUE
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-EMAIL-UNIQUE-ID | yes | Email unique id to delete.
+| Parameter       | Required | Description                |
+|-----------------|----------|----------------------------|
+| EMAIL-UNIQUE-ID | yes      | Email unique id to delete. |

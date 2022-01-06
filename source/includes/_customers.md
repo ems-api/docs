@@ -123,29 +123,29 @@ This endpoint creates a customer
 
 ### POST Parameters
 
-Parameter | Type | Required | Description
---------- | ---- | -------- | -----------
-customer | array| yes | The array with the customer details.
-company | array | no | The array with the company details if required by the MailWizz settings.
+| Parameter | Type  | Required | Description                                                              |
+|-----------|-------|----------|--------------------------------------------------------------------------|
+| customer  | array | yes      | The array with the customer details.                                     |
+| company   | array | no       | The array with the company details if required by the MailWizz settings. |
 
 **Customer block**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-first_name | string | yes | Customer first name
-last_name | string | yes | Customer last name
-email | string | yes | Customer email
-password | string | yes | Customer password
-timezone | string | yes | Customer timezone(i.e. UTC)
+| Parameter  | Type   | Required | Description                 |
+|------------|--------|----------|-----------------------------|
+| first_name | string | yes      | Customer first name         |
+| last_name  | string | yes      | Customer last name          |
+| email      | string | yes      | Customer email              |
+| password   | string | yes      | Customer password           |
+| timezone   | string | yes      | Customer timezone(i.e. UTC) |
 
 **Company block**
 
-Parameter | Type | Required | Description
---------- | ------- |------- | -----------
-name | string | yes | Company name
-country | string | yes | Company country (See the Countries endpoint for available countries and zones) 
-zone | string | yes | Company zone
-city | string | yes | Company city
-zip_code | string | yes | Company zipcode
-address_1 | string | yes | Company address
-address_2 | string | yes | Company another address
+| Parameter | Type   | Required | Description                                                                    |
+|-----------|--------|----------|--------------------------------------------------------------------------------|
+| name      | string | yes      | Company name                                                                   |
+| country   | string | yes      | Company country (See the Countries endpoint for available countries and zones) |
+| zone      | string | yes      | Company zone                                                                   |
+| city      | string | yes      | Company city                                                                   |
+| zip_code  | string | yes      | Company zipcode                                                                |
+| address_1 | string | yes      | Company address                                                                |
+| address_2 | string | yes      | Company another address                                                        |

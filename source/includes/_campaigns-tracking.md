@@ -66,11 +66,11 @@ This endpoint set a campaign tracking url click action.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UID | Yes | Campaign unique identifier.
-SUBSCRIBER-UNIQUE-ID | Yes | Subscriber unique identifier.
-URL-HASH | Yes | The url hash which the subscriber clicked.
+| Parameter            | Required | Description                                |
+|----------------------|----------|--------------------------------------------|
+| CAMPAIGN-UID         | Yes      | Campaign unique identifier.                |
+| SUBSCRIBER-UNIQUE-ID | Yes      | Subscriber unique identifier.              |
+| URL-HASH             | Yes      | The url hash which the subscriber clicked. |
 
 ## Track subscriber open
 ```php 
@@ -118,10 +118,10 @@ This endpoint sets the track campaign open for a certain subscriber.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UID | Yes | Campaign unique identifier.
-SUBSCRIBER-UNIQUE-ID | Yes | Subscriber unique identifier.
+| Parameter            | Required | Description                   |
+|----------------------|----------|-------------------------------|
+| CAMPAIGN-UID         | Yes      | Campaign unique identifier.   |
+| SUBSCRIBER-UNIQUE-ID | Yes      | Subscriber unique identifier. |
 
 ## Track subscriber unsubscribe
 ```php 
@@ -181,10 +181,10 @@ This endpoint sets the track campaign unsubscribe for a certain subscriber.
 
 ### POST Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-CAMPAIGN-UID | Yes | Campaign unique identifier.
-SUBSCRIBER-UNIQUE-ID | Yes | Subscriber unique identifier.
-ip_address | No | IP address from which the subscriber unsubscribes
-user_agent | No | Subscriber user agent
-reason | No | Unsubscribe reason
+| Parameter            | Required | Description                                       |
+|----------------------|----------|---------------------------------------------------|
+| CAMPAIGN-UID         | Yes      | Campaign unique identifier.                       |
+| SUBSCRIBER-UNIQUE-ID | Yes      | Subscriber unique identifier.                     |
+| ip_address           | No       | IP address from which the subscriber unsubscribes |
+| user_agent           | No       | Subscriber user agent                             |
+| reason               | No       | Unsubscribe reason                                |

@@ -1120,7 +1120,7 @@ This endpoint update the subscriber if exists and created it otherwise, from the
 
 `POST API-URL/lists/LIST-UNIQUE-ID/subscribers/update/SUBSCRIBER-UNIQUE-ID`  
 
-`POST API-URL/lists/LIST-UNIQUE-ID/subscribers/create`  
+`POST API-URL/lists/LIST-UNIQUE-ID/subscribers`  
 
 ### GET/POST Parameters
 

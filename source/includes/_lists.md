@@ -347,7 +347,7 @@ Please see countries.php example file for a list of allowed countries/zones for 
 
 ### HTTP Request
 
-`POST API-URL/lists/create`
+`POST API-URL/lists`
 
 ### POST Parameters
 
@@ -494,7 +494,7 @@ This endpoint updates a list.
 
 ### HTTP Request
 
-`PUT API-URL/lists/update/LIST-UNIQUE-ID`
+`PUT API-URL/lists/LIST-UNIQUE-ID`
 
 ### POST Parameters
 

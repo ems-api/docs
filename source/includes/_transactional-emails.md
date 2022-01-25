@@ -288,7 +288,7 @@ This endpoint creates a transactional email.
 
 ### HTTP Request
 
-`POST API-URL/transactional-emails/create`
+`POST API-URL/transactional-emails`
 
 ### POST Parameters
 

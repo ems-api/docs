@@ -260,7 +260,7 @@ This endpoint creates a template.
 
 ### HTTP Request
 
-`POST API-URL/templates/create`
+`POST API-URL/templates`
 
 ### POST Parameters
 
@@ -334,7 +334,7 @@ This endpoint updates a template.
 
 ### HTTP Request
 
-`PUT API-URL/templates/update/TEMPLATE-UNIQUE-ID`
+`PUT API-URL/templates/TEMPLATE-UNIQUE-ID`
 
 ### POST Parameters
 

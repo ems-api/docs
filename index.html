@@ -931,10 +931,10 @@ DISPLAY RESPONSE
 <p>This endpoint retrieves the list with the given LIST-UNIQUE-ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='url-segments'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -1312,10 +1312,10 @@ DISPLAY RESPONSE
 <p>This endpoint updates a list.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT API-URL/lists/LIST-UNIQUE-ID</code></p>
-<h3 id='post-parameters-2'>POST Parameters</h3>
+<h3 id='url-segment'>URL Segment</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Type</th>
 <th>Required</th>
 <th>Description</th>
@@ -1327,6 +1327,16 @@ DISPLAY RESPONSE
 <td>yes</td>
 <td>List unique identifier</td>
 </tr>
+</tbody></table>
+<h3 id='post-parameters-2'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>data</td>
 <td>array</td>
@@ -1367,10 +1377,10 @@ DISPLAY RESPONSE
 <p>This endpoint copy the list with the given LIST-UNIQUE-ID.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST API-URL/lists/LIST-UNIQUE-ID/copy</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='url-segments-2'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -1413,10 +1423,10 @@ DISPLAY RESPONSE
 <p>This endpoint will delete the list with the given LIST-UNIQUE-ID.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>DELETE API-URL/lists/LIST-UNIQUE-ID</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='url-segments-3'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -1506,6 +1516,20 @@ DISPLAY RESPONSE
 <p>This endpoint retrieves all the fields of a list.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/fields</code></p>
+<h3 id='url-segments'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>The list unique identifier</td>
+</tr>
+</tbody></table>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1523,11 +1547,6 @@ DISPLAY RESPONSE
 <td>perPage</td>
 <td>10</td>
 <td>Items per page to retrieve.</td>
-</tr>
-<tr>
-<td>LIST-UNIQUE-ID</td>
-<td></td>
-<td>The list unique identifier</td>
 </tr>
 </tbody></table>
 <h1 id='segments'>Segments</h1><h2 id='list-segments-endpoint'>List segments endpoint</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// CREATE THE ENDPOINT</span>
@@ -1586,6 +1605,20 @@ DISPLAY RESPONSE
 <p>This endpoint retrieves all the segments of a list.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/segments</code></p>
+<h3 id='url-segments'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>The list unique identifier</td>
+</tr>
+</tbody></table>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1603,11 +1636,6 @@ DISPLAY RESPONSE
 <td>perPage</td>
 <td>10</td>
 <td>Items per page to retrieve.</td>
-</tr>
-<tr>
-<td>LIST-UNIQUE-ID</td>
-<td></td>
-<td>The list unique identifier</td>
 </tr>
 </tbody></table>
 <h1 id='subscribers'>Subscribers</h1><h2 id='subscribers-endpoint'>Subscribers endpoint</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="o">/</span> <span class="no">CREATE</span> <span class="no">THE</span> <span class="no">ENDPOINT</span>
@@ -1761,6 +1789,20 @@ DISPLAY RESPONSE
 <p>This endpoint retrieves all the subscribers of a list.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers</code></p>
+<h3 id='url-segments'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>The list unique identifier for which we retrieve the subscribers</td>
+</tr>
+</tbody></table>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1778,11 +1820,6 @@ DISPLAY RESPONSE
 <td>perPage</td>
 <td>10</td>
 <td>Items per page to retrieve.</td>
-</tr>
-<tr>
-<td>LIST-UNIQUE-ID</td>
-<td></td>
-<td>The list unique identifier for which we retrieve the subscribers</td>
 </tr>
 </tbody></table>
 <h2 id='get-one-subscriber'>Get one subscriber</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ONE ITEM</span>
@@ -1827,10 +1864,10 @@ DISPLAY RESPONSE
 <p>This endpoint retrieves the subscriber with the given SUBSCRIBER-UNIQUE-ID from the given LIST-UNIQUE-ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='url-segments-2'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -1883,10 +1920,10 @@ DISPLAY RESPONSE
 <p>This endpoint searches a subscriber by his email within the list having the LIST-UNIQUE-ID.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-email</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='url-segments-3'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -1896,6 +1933,15 @@ DISPLAY RESPONSE
 <td>yes</td>
 <td>List unique id to which the subscriber to retrieve belongs.</td>
 </tr>
+</tbody></table>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>email</td>
 <td>yes</td>
@@ -1956,7 +2002,7 @@ DISPLAY RESPONSE
 <p>This endpoint searches a subscriber by his email within the all lists.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET API-URL/lists/subscribers/search-by-email-in-all-lists</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2015,10 +2061,10 @@ DISPLAY RESPONSE
 <p>This endpoint searches a subscriber by his custom fields values within a list given by LIST-UNIQUE-ID.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-custom-fields</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='url-segments-4'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -2028,6 +2074,15 @@ DISPLAY RESPONSE
 <td>yes</td>
 <td>List to search in.</td>
 </tr>
+</tbody></table>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required/Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>array</td>
 <td>yes</td>
@@ -2076,7 +2131,21 @@ TODO - implement
 <p>This endpoint search for the subscribers having a certain status within the list having the LIST-UNIQUE-ID.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='url-segments-5'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>The list unique identifier for which we retrieve the subscribers</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2093,11 +2162,6 @@ TODO - implement
 <td>perPage</td>
 <td>10</td>
 <td>Items per page to retrieve.</td>
-</tr>
-<tr>
-<td>LIST-UNIQUE-ID</td>
-<td></td>
-<td>The list unique identifier for which we retrieve the subscribers</td>
 </tr>
 <tr>
 <td>status</td>
@@ -2163,7 +2227,21 @@ TODO - Implement
 <p>This endpoint retrieves all the confirmed subscribers of a list.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='url-segments-6'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>The list unique identifier for which we retrieve the subscribers</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2182,9 +2260,9 @@ TODO - Implement
 <td>Items per page to retrieve.</td>
 </tr>
 <tr>
-<td>LIST-UNIQUE-ID</td>
-<td></td>
-<td>The list unique identifier for which we retrieve the subscribers</td>
+<td>status</td>
+<td>confirmed</td>
+<td>The confirmed status value</td>
 </tr>
 </tbody></table>
 <h2 id='get-unconfirmed-subscribers'>Get unconfirmed subscribers</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ALL ITEMS</span>
@@ -2245,7 +2323,21 @@ TODO - Implement
 <p>This endpoint retrieves all the unconfirmed subscribers of a list.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='url-segments-7'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>The list unique identifier for which we retrieve the subscribers</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2264,9 +2356,9 @@ TODO - Implement
 <td>Items per page to retrieve.</td>
 </tr>
 <tr>
-<td>LIST-UNIQUE-ID</td>
-<td></td>
-<td>The list unique identifier for which we retrieve the subscribers</td>
+<td>status</td>
+<td>unconfirmed</td>
+<td>The unconfirmed status value</td>
 </tr>
 </tbody></table>
 <h2 id='get-unsubscribed-subscribers'>Get unsubscribed subscribers</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ALL ITEMS</span>
@@ -2327,7 +2419,21 @@ TODO - Implement
 <p>This endpoint retrieves all the unsubscribed subscribers of a list.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers</code></p>
-<h3 id='query-parameters-9'>Query Parameters</h3>
+<h3 id='url-segments-8'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>The list unique identifier for which we retrieve the subscribers</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2346,9 +2452,9 @@ TODO - Implement
 <td>Items per page to retrieve.</td>
 </tr>
 <tr>
-<td>LIST-UNIQUE-ID</td>
-<td></td>
-<td>The list unique identifier for which we retrieve the subscribers</td>
+<td>status</td>
+<td>unsubscribed</td>
+<td>The unsubscribe status value</td>
 </tr>
 </tbody></table>
 <h2 id='create-a-subscriber'>Create a subscriber</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// ADD SUBSCRIBER</span>
@@ -2404,6 +2510,20 @@ DISPLAY RESPONSE
 <p>This endpoint creates a subscriber</p>
 <h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST API-URL/lists/LIST-UNIQUE-ID/subscribers</code></p>
+<h3 id='url-segments-9'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>List unique identifier.</td>
+</tr>
+</tbody></table>
 <h3 id='post-parameters'>POST Parameters</h3>
 <table><thead>
 <tr>
@@ -2413,12 +2533,6 @@ DISPLAY RESPONSE
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>LIST-UNIQUE-ID</td>
-<td>string</td>
-<td>yes</td>
-<td>List unique identifier</td>
-</tr>
 <tr>
 <td>data</td>
 <td>array</td>
@@ -2543,6 +2657,20 @@ DISPLAY RESPONSE
 <p>This endpoint creates subscribers in bulk</p>
 <h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST API-URL/lists/LIST-UNIQUE-ID/subscribers/bulk</code></p>
+<h3 id='url-segments-10'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>List unique identifier.</td>
+</tr>
+</tbody></table>
 <h3 id='post-parameters-2'>POST Parameters</h3>
 <table><thead>
 <tr>
@@ -2552,12 +2680,6 @@ DISPLAY RESPONSE
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>LIST-UNIQUE-ID</td>
-<td>string</td>
-<td>yes</td>
-<td>List unique identifier</td>
-</tr>
 <tr>
 <td>array</td>
 <td>string</td>
@@ -2619,7 +2741,26 @@ DISPLAY RESPONSE
 <p>This endpoint update the subscriber with the given SUBSCRIBER-UNIQUE-ID from the given list LIST-UNIQUE-ID.</p>
 <h3 id='http-request-12'>HTTP Request</h3>
 <p><code>PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID</code></p>
-<h3 id='post-parameters-3'>POST Parameters</h3>
+<h3 id='url-segments-11'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>List unique identifier</td>
+</tr>
+<tr>
+<td>SUBSCRIBER-UNIQUE-ID</td>
+<td>yes</td>
+<td>Subscriber unique identifier</td>
+</tr>
+</tbody></table>
+<h3 id='put-parameters'>PUT Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2628,18 +2769,6 @@ DISPLAY RESPONSE
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>LIST-UNIQUE-ID</td>
-<td>string</td>
-<td>yes</td>
-<td>List unique identifier</td>
-</tr>
-<tr>
-<td>SUBSCRIBER-UNIQUE-ID</td>
-<td>string</td>
-<td>yes</td>
-<td>Subscriber unique identifier</td>
-</tr>
 <tr>
 <td>data</td>
 <td>array</td>
@@ -2685,7 +2814,26 @@ TODO - to be implemented
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-email</code></p>
 
 <p><code>PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID</code></p>
-<h3 id='get-post-parameters'>GET/POST Parameters</h3>
+<h3 id='url-segments-12'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>List unique identifier</td>
+</tr>
+<tr>
+<td>SUBSCRIBER-UNIQUE-ID</td>
+<td>yes</td>
+<td>Found subscriber unique identifier</td>
+</tr>
+</tbody></table>
+<h3 id='get-put-parameters'>GET/PUT Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2694,12 +2842,6 @@ TODO - to be implemented
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>LIST-UNIQUE-ID</td>
-<td>string</td>
-<td>yes</td>
-<td>List unique identifier</td>
-</tr>
 <tr>
 <td>EMAIL</td>
 <td>string</td>
@@ -2771,7 +2913,26 @@ DISPLAY RESPONSE
 <p><code>PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID</code>  </p>
 
 <p><code>POST API-URL/lists/LIST-UNIQUE-ID/subscribers</code>  </p>
-<h3 id='get-post-parameters-2'>GET/POST Parameters</h3>
+<h3 id='url-segments-13'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>List unique identifier</td>
+</tr>
+<tr>
+<td>SUBSCRIBER-UNIQUE-ID</td>
+<td>yes</td>
+<td>Found subscriber unique identifier</td>
+</tr>
+</tbody></table>
+<h3 id='get-put-post-parameters'>GET/PUT/POST Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2781,16 +2942,16 @@ DISPLAY RESPONSE
 </tr>
 </thead><tbody>
 <tr>
-<td>LIST-UNIQUE-ID</td>
-<td>string</td>
-<td>yes</td>
-<td>List unique identifier</td>
-</tr>
-<tr>
 <td>data</td>
 <td>array</td>
 <td>yes</td>
 <td>Array with the custom fields {name =&gt; value} to be updated.</td>
+</tr>
+<tr>
+<td>EMAIL</td>
+<td>string</td>
+<td>yes</td>
+<td>Email to be searched</td>
 </tr>
 </tbody></table>
 <h2 id='unsubscribe-a-subscriber'>Unsubscribe a subscriber</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// UNSUBSCRIBE existing subscriber, no email is sent, unsubscribe is silent</span>
@@ -2826,10 +2987,10 @@ DISPLAY RESPONSE
 <p>This endpoint unsubscribes the subscriber with the given SUBSCRIBER-UNIQUE-ID from the given LIST-UNIQUE-ID.</p>
 <h3 id='http-request-15'>HTTP Request</h3>
 <p><code>PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID/unsubscribe</code></p>
-<h3 id='query-parameters-10'>Query Parameters</h3>
+<h3 id='url-segments-14'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -2879,10 +3040,10 @@ DISPLAY RESPONSE
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-email</code></p>
 
 <p><code>PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID/unsubscribe</code></p>
-<h3 id='query-parameters-11'>Query Parameters</h3>
+<h3 id='url-segments-15'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -2892,6 +3053,20 @@ DISPLAY RESPONSE
 <td>yes</td>
 <td>List unique id to which the subscriber belongs.</td>
 </tr>
+<tr>
+<td>SUBSCRIBER-UNIQUE-ID</td>
+<td>yes</td>
+<td>Subscriber unique id to unsubscribe.</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-9'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>EMAIL</td>
 <td>yes</td>
@@ -2930,7 +3105,7 @@ DISPLAY RESPONSE
 <p>This endpoint unsubscribes the subscriber with the given EMAIL from all the lists.</p>
 <h3 id='http-request-17'>HTTP Request</h3>
 <p><code>PUT API-URL/lists/subscribers/unsubscribe-by-email-from-all-lists</code></p>
-<h3 id='query-parameters-12'>Query Parameters</h3>
+<h3 id='put-parameters-2'>PUT Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2976,10 +3151,10 @@ DISPLAY RESPONSE
 <p>This endpoint deletes the subscriber with the given SUBSCRIBER-UNIQUE-ID from the given LIST-UNIQUE-ID.</p>
 <h3 id='http-request-18'>HTTP Request</h3>
 <p><code>DELETE API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID</code></p>
-<h3 id='query-parameters-13'>Query Parameters</h3>
+<h3 id='url-segments-16'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -3029,10 +3204,10 @@ DISPLAY RESPONSE
 <p><code>GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-email</code></p>
 
 <p><code>DELETE API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID</code></p>
-<h3 id='query-parameters-14'>Query Parameters</h3>
+<h3 id='url-segments-17'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -3040,8 +3215,22 @@ DISPLAY RESPONSE
 <tr>
 <td>LIST-UNIQUE-ID</td>
 <td>yes</td>
-<td>List unique id to which the subscriber to retrieve belongs.</td>
+<td>List unique id to which the subscriber belongs.</td>
 </tr>
+<tr>
+<td>SUBSCRIBER-UNIQUE-ID</td>
+<td>yes</td>
+<td>Subscriber unique id to delete.</td>
+</tr>
+</tbody></table>
+<h3 id='get-parameters'>GET Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>email</td>
 <td>yes</td>
@@ -3234,11 +3423,11 @@ DISPLAY RESPONSE
 </span></code></pre></div>
 <p>This endpoint retrieves the campaign with the given CAMPAIGN-UNIQUE-ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET API-URL/campaigns</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<p><code>GET API-URL/campaigns/CAMPAIGN-UNIQUE-ID</code></p>
+<h3 id='url-segments'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -3767,10 +3956,10 @@ DISPLAY RESPONSE
 <p>This endpoint update the campaign with the given CAMPAIGN-UNIQUE-ID.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT API-URL/campaigns/CAMPAIGN-UNIQUE-ID</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='url-segments-2'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -3781,6 +3970,8 @@ DISPLAY RESPONSE
 <td>Campaign unique id to update.</td>
 </tr>
 </tbody></table>
+<h3 id='post-parameters-2'>POST Parameters</h3>
+<p>Same as for the create campaign call.</p>
 <h2 id='copy-a-campaign'>Copy a campaign</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// Copy CAMPAIGN</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nb">copy</span><span class="p">(</span><span class="s1">'CAMPAIGN-UNIQUE-ID'</span><span class="p">);</span>
 
@@ -3814,10 +4005,10 @@ DISPLAY RESPONSE
 <p>This endpoint copy the campaign with the given CAMPAIGN-UNIQUE-ID.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST API-URL/campaigns/CAMPAIGN-UNIQUE-ID/copy</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='url-segments-3'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -3863,10 +4054,10 @@ DISPLAY RESPONSE
 <p>This endpoint pause/unpause the campaign with the given CAMPAIGN-UNIQUE-ID.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>PUT API-URL/campaigns/CAMPAIGN-UNIQUE-ID/pause-unpause</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='url-segments-4'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -3912,10 +4103,10 @@ DISPLAY RESPONSE
 <p>This endpoint mark as SENT the campaign with the given CAMPAIGN-UNIQUE-ID.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <p><code>PUT API-URL/campaigns/CAMPAIGN-UNIQUE-ID/mark-sent</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='url-segments-5'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -3958,10 +4149,10 @@ DISPLAY RESPONSE
 <p>This endpoint will delete the campaign with the given CAMPAIGN-UNIQUE-ID.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
 <p><code>DELETE API-URL/campaigns/CAMPAIGN-UNIQUE-ID</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='url-segments-6'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -4023,10 +4214,10 @@ TODO - Implement
 <p>This endpoint retrieves the campaign stats the given CAMPAIGN-UNIQUE-ID.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET API-URL/campaigns/CAMPAIGN-UNIQUE-ID/stats</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='url-segments-7'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -4080,10 +4271,10 @@ DISPLAY RESPONSE
 <p>This endpoint set a campaign tracking url click action.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET API-URL/campaigns/CAMPAIGN-UID/track-url/SUBSCRIBER-UNIQUE-ID/URL-HASH</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='url-segments'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -4137,10 +4328,10 @@ DISPLAY RESPONSE
 <p>This endpoint sets the track campaign open for a certain subscriber.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET API-URL/campaigns/CAMPAIGN-UID/track-opening/SUBSCRIBER-UID</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='url-segments-2'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -4201,10 +4392,10 @@ DISPLAY RESPONSE
 <p>This endpoint sets the track campaign unsubscribe for a certain subscriber.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST API-URL/campaigns/CAMPAIGN-UID/track-unsubscribe/SUBSCRIBER-UID</code></p>
-<h3 id='post-parameters'>POST Parameters</h3>
+<h3 id='url-segments-3'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -4219,6 +4410,15 @@ DISPLAY RESPONSE
 <td>Yes</td>
 <td>Subscriber unique identifier.</td>
 </tr>
+</tbody></table>
+<h3 id='post-parameters'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>ip_address</td>
 <td>No</td>
@@ -4294,7 +4494,21 @@ DISPLAY RESPONSE
 </span></code></pre></div>
 <p>This endpoint retrieves all the bounces of a campaign.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET API-URL/campaigns/CAMAPAIGN-UNIQUE-ID/bounces</code></p>
+<p><code>GET API-URL/campaigns/CAMPAIGN-UNIQUE-ID/bounces</code></p>
+<h3 id='url-segments'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CAMPAIGN-UNIQUE-ID</td>
+<td>yes</td>
+<td>Campaign unique id to retrieve the bounce.</td>
+</tr>
+</tbody></table>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -4370,7 +4584,21 @@ DISPLAY RESPONSE
 </span></code></pre></div>
 <p>This endpoint creates a campaign bounce</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST API-URL/campaigns/CAMAPAIGN-UNIQUE-ID/bounces</code></p>
+<p><code>POST API-URL/campaigns/CAMPAIGN-UNIQUE-ID/bounces</code></p>
+<h3 id='url-segments-2'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CAMPAIGN-UNIQUE-ID</td>
+<td>yes</td>
+<td>Campaign unique id to create the bounce.</td>
+</tr>
+</tbody></table>
 <h3 id='post-parameters'>POST Parameters</h3>
 <table><thead>
 <tr>
@@ -4606,6 +4834,20 @@ DISPLAY RESPONSE
 <p>This endpoint retrieves all the zones of a country.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET API-URL/countries/COUNTRY-ID/zones</code></p>
+<h3 id='url-segments'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>COUNTRY-ID</td>
+<td>Yes</td>
+<td>Country MailWizz ID to retrieve zones for.</td>
+</tr>
+</tbody></table>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -4623,11 +4865,6 @@ DISPLAY RESPONSE
 <td>perPage</td>
 <td>10</td>
 <td>Items per page to retrieve.</td>
-</tr>
-<tr>
-<td>COUNTRY-ID</td>
-<td></td>
-<td>Country MailWizz ID to retrieve zones for</td>
 </tr>
 </tbody></table>
 <h1 id='customers'>Customers</h1><h2 id='customers-endpoint'>Customers endpoint</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// CREATE THE ENDPOINT</span>
@@ -4957,10 +5194,10 @@ DISPLAY RESPONSE
 <p>This endpoint retrieves the template with the given TEMPLATE-UNIQUE-ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET API-URL/templates/TEMPLATE-UNIQUE-ID</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='url-segments'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -5018,15 +5255,27 @@ DISPLAY RESPONSE
 <p>This endpoint retrieves the templates based on the filter keys values.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET API-URL/templates</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
 <th>Type</th>
-<th>Required</th>
+<th>Required/Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>page</td>
+<td>int</td>
+<td>1</td>
+<td>Current page to retrieve.</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>int</td>
+<td>10</td>
+<td>Items per page to retrieve.</td>
+</tr>
 <tr>
 <td>filters</td>
 <td>array</td>
@@ -5184,7 +5433,21 @@ DISPLAY RESPONSE
 <p>This endpoint updates a template.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>PUT API-URL/templates/TEMPLATE-UNIQUE-ID</code></p>
-<h3 id='post-parameters-2'>POST Parameters</h3>
+<h3 id='url-segments-2'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEMPLATE-UNIQUE-ID</td>
+<td>yes</td>
+<td>Template unique identifier</td>
+</tr>
+</tbody></table>
+<h3 id='put-parameters'>PUT Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5193,12 +5456,6 @@ DISPLAY RESPONSE
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>TEMPLATE-UNIQUE-ID</td>
-<td>string</td>
-<td>yes</td>
-<td>Template unique identifier</td>
-</tr>
 <tr>
 <td>data</td>
 <td>array</td>
@@ -5238,10 +5495,10 @@ DISPLAY RESPONSE
 <p>This endpoint will delete the template with the given TEMPLATE-UNIQUE-ID.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>DELETE API-URL/templates/TEMPLATE-UNIQUE-ID</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='url-segments-3'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -5438,10 +5695,10 @@ DISPLAY RESPONSE
 <p>This endpoint retrieves the transactional email with the given EMAIL-UNIQUE-ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET API-URL/transactional-emails/EMAIL-UNIQUE-ID</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='url-segment'>URL Segment</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
@@ -5638,10 +5895,10 @@ DISPLAY RESPONSE
 <p>This endpoint will delete the transactional email with the given TEMPLATE-UNIQUE-ID.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE API-URL/transactional-emails/EMAIL-UNIQUE-ID</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='url-segments'>URL Segments</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Segment</th>
 <th>Required</th>
 <th>Description</th>
 </tr>

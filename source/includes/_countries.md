@@ -231,10 +231,15 @@ This endpoint retrieves all the zones of a country.
 
 `GET API-URL/countries/COUNTRY-ID/zones`
 
+### URL Segments
+
+| Segment    | Required | Description                                |
+|------------|----------|--------------------------------------------|
+| COUNTRY-ID | Yes      | Country MailWizz ID to retrieve zones for. |
+
 ### Query Parameters
 
 | Parameter  | Default | Description                               |
 |------------|---------|-------------------------------------------|
 | pageNumber | 1       | Current page to retrieve.                 |
 | perPage    | 10      | Items per page to retrieve.               |
-| COUNTRY-ID |         | Country MailWizz ID to retrieve zones for |

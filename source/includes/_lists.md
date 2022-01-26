@@ -227,9 +227,9 @@ This endpoint retrieves the list with the given LIST-UNIQUE-ID.
 
 `GET API-URL/lists/LIST-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter      | Required | Description                       |
+| Segment        | Required | Description                       |
 |----------------|----------|-----------------------------------|
 | LIST-UNIQUE-ID | yes      | List unique id which to retrieve. |
 
@@ -496,11 +496,16 @@ This endpoint updates a list.
 
 `PUT API-URL/lists/LIST-UNIQUE-ID`
 
+### URL Segment
+
+| Segment        | Type   | Required | Description                                                                                                                                           |
+|----------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| LIST-UNIQUE-ID | string | yes      | List unique identifier                                                                                                                                |
+
 ### POST Parameters
 
 | Parameter      | Type   | Required | Description                                                                                                                                           |
 |----------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| LIST-UNIQUE-ID | string | yes      | List unique identifier                                                                                                                                |
 | data           | array  | yes      | Array with the list details. The following indexed arrays are accepted: general, defaults, notifications, company. See the create section for details |
 
 ## Copy a list
@@ -548,9 +553,9 @@ This endpoint copy the list with the given LIST-UNIQUE-ID.
 
 `POST API-URL/lists/LIST-UNIQUE-ID/copy`
 
-### Query Parameters
+### URL Segments
 
-| Parameter      | Required | Description             |
+| Segment        | Required | Description             |
 |----------------|----------|-------------------------|
 | LIST-UNIQUE-ID | yes      | List unique id to copy. |
 
@@ -598,8 +603,8 @@ This endpoint will delete the list with the given LIST-UNIQUE-ID.
 
 `DELETE API-URL/lists/LIST-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter      | Required | Description               |
+| Segment        | Required | Description               |
 |----------------|----------|---------------------------|
 | LIST-UNIQUE-ID | yes      | List unique id to delete. |

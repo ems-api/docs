@@ -172,13 +172,18 @@ This endpoint retrieves all the subscribers of a list.
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers`
 
+### URL Segments
+
+| Segment        | Required | Description                                                      |
+|----------------|----------|------------------------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | The list unique identifier for which we retrieve the subscribers |
+
 ### Query Parameters
 
 | Parameter      | Default | Description                                                      |
 |----------------|---------|------------------------------------------------------------------|
 | pageNumber     | 1       | Current page to retrieve.                                        |
 | perPage        | 10      | Items per page to retrieve.                                      |
-| LIST-UNIQUE-ID |         | The list unique identifier for which we retrieve the subscribers |
 
 ## Get one subscriber
 ```php
@@ -233,9 +238,9 @@ This endpoint retrieves the subscriber with the given SUBSCRIBER-UNIQUE-ID from 
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter            | Required | Description                                                 |
+| Segment              | Required | Description                                                 |
 |----------------------|----------|-------------------------------------------------------------|
 | LIST-UNIQUE-ID       | yes      | List unique id to which the subscriber to retrieve belongs. |
 | SUBSCRIBER-UNIQUE-ID | yes      | Subscriber unique id to retrieve.                           |
@@ -288,11 +293,16 @@ This endpoint searches a subscriber by his email within the list having the LIST
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-email`
 
+### URL Segments
+
+| Segment        | Required | Description                                                 |
+|----------------|----------|-------------------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | List unique id to which the subscriber to retrieve belongs. |
+
 ### Query Parameters
 
 | Parameter      | Required | Description                                                 |
 |----------------|----------|-------------------------------------------------------------|
-| LIST-UNIQUE-ID | yes      | List unique id to which the subscriber to retrieve belongs. |
 | email          | yes      | Subscriber email to retrieve.                               |
 
 ## Search by email in all lists
@@ -422,14 +432,19 @@ This endpoint searches a subscriber by his custom fields values within a list gi
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers/search-by-custom-fields`
 
-### Query Parameters
+### URL Segments
 
-| Parameter      | Required | Description                                        |
+| Segment        | Required | Description                                        |
 |----------------|----------|----------------------------------------------------|
 | LIST-UNIQUE-ID | yes      | List to search in.                                 |
-| array          | yes      | Array of custom fields {'CUSTOM_FIELD' => 'VALUE'} |
-| pageNumber     | 1        | Current page to retrieve.                          |
-| perPage        | 10       | Items per page to retrieve.                        |
+
+### Query Parameters
+
+| Parameter      | Required/Default | Description                                        |
+|----------------|------------------|----------------------------------------------------|
+| array          | yes              | Array of custom fields {'CUSTOM_FIELD' => 'VALUE'} |
+| pageNumber     | 1                | Current page to retrieve.                          |
+| perPage        | 10               | Items per page to retrieve.                        |
 
 ## Search by status
 
@@ -475,13 +490,18 @@ This endpoint search for the subscribers having a certain status within the list
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers`
 
+### URL Segments
+
+| Segment        | Required | Description                                                      |
+|----------------|----------|------------------------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | The list unique identifier for which we retrieve the subscribers |
+
 ### Query Parameters
 
 | Parameter      | Required | Description                                                      |
 |----------------|----------|------------------------------------------------------------------|
 | pageNumber     | 1        | Current page to retrieve.                                        |
 | perPage        | 10       | Items per page to retrieve.                                      |
-| LIST-UNIQUE-ID |          | The list unique identifier for which we retrieve the subscribers |
 | status         | yes      | Subscribers status to retrieve.                                  |
 
 ## Get confirmed subscribers
@@ -553,13 +573,19 @@ This endpoint retrieves all the confirmed subscribers of a list.
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers`
 
+### URL Segments
+
+| Segment        | Required | Description                                                      |
+|----------------|----------|------------------------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | The list unique identifier for which we retrieve the subscribers |
+
 ### Query Parameters
 
-| Parameter      | Default | Description                                                      |
-|----------------|---------|------------------------------------------------------------------|
-| pageNumber     | 1       | Current page to retrieve.                                        |
-| perPage        | 10      | Items per page to retrieve.                                      |
-| LIST-UNIQUE-ID |         | The list unique identifier for which we retrieve the subscribers |
+| Parameter      | Default   | Description                 |
+|----------------|-----------|-----------------------------|
+| pageNumber     | 1         | Current page to retrieve.   |
+| perPage        | 10        | Items per page to retrieve. |
+| status         | confirmed | The confirmed status value  |
 
 ## Get unconfirmed subscribers
 ```php
@@ -630,13 +656,19 @@ This endpoint retrieves all the unconfirmed subscribers of a list.
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers`
 
+### URL Segments
+
+| Segment        | Required | Description                                                      |
+|----------------|----------|------------------------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | The list unique identifier for which we retrieve the subscribers |
+
 ### Query Parameters
 
-| Parameter      | Default | Description                                                      |
-|----------------|---------|------------------------------------------------------------------|
-| pageNumber     | 1       | Current page to retrieve.                                        |
-| perPage        | 10      | Items per page to retrieve.                                      |
-| LIST-UNIQUE-ID |         | The list unique identifier for which we retrieve the subscribers |
+| Parameter      | Default     | Description                  |
+|----------------|-------------|------------------------------|
+| pageNumber     | 1           | Current page to retrieve.    |
+| perPage        | 10          | Items per page to retrieve.  |
+| status         | unconfirmed | The unconfirmed status value |
 
 ## Get unsubscribed subscribers
 ```php
@@ -707,13 +739,19 @@ This endpoint retrieves all the unsubscribed subscribers of a list.
 
 `GET API-URL/lists/LIST-UNIQUE-ID/subscribers`
 
+### URL Segments
+
+| Segment        | Required | Description                                                      |
+|----------------|----------|------------------------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | The list unique identifier for which we retrieve the subscribers |
+
 ### Query Parameters
 
-| Parameter      | Default | Description                                                      |
-|----------------|---------|------------------------------------------------------------------|
-| pageNumber     | 1       | Current page to retrieve.                                        |
-| perPage        | 10      | Items per page to retrieve.                                      |
-| LIST-UNIQUE-ID |         | The list unique identifier for which we retrieve the subscribers |
+| Parameter      | Default      | Description                                                      |
+|----------------|--------------|------------------------------------------------------------------|
+| pageNumber     | 1            | Current page to retrieve.                                        |
+| perPage        | 10           | Items per page to retrieve.                                      |
+| status         | unsubscribed | The unsubscribe status value                                     |
 
 ## Create a subscriber
 
@@ -780,11 +818,16 @@ This endpoint creates a subscriber
 
 `POST API-URL/lists/LIST-UNIQUE-ID/subscribers`
 
+### URL Segments
+
+| Segment        | Required | Description             |
+|----------------|----------|-------------------------|
+| LIST-UNIQUE-ID | yes      | List unique identifier. |
+
 ### POST Parameters
 
 | Parameter      | Type   | Required | Description                                                              |
 |----------------|--------|----------|--------------------------------------------------------------------------|
-| LIST-UNIQUE-ID | string | yes      | List unique identifier                                                   |
 | data           | array  | yes      | Array with the custom fields {name => value}. The EMAIL key is required. |
 
 ## Create subscribers in bulk
@@ -916,11 +959,16 @@ This endpoint creates subscribers in bulk
 
 `POST API-URL/lists/LIST-UNIQUE-ID/subscribers/bulk`
 
+### URL Segments
+
+| Segment        | Required | Description             |
+|----------------|----------|-------------------------|
+| LIST-UNIQUE-ID | yes      | List unique identifier. |
+
 ### POST Parameters
 
 | Parameter      | Type   | Required | Description                                                                        |
 |----------------|--------|----------|------------------------------------------------------------------------------------|
-| LIST-UNIQUE-ID | string | yes      | List unique identifier                                                             |
 | array          | string | yes      | Array of arrays with the custom fields {name => value}. The EMAIL key is required. |
 
 ## Update a subscriber
@@ -988,12 +1036,17 @@ This endpoint update the subscriber with the given SUBSCRIBER-UNIQUE-ID from the
 
 `PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID`
 
-### POST Parameters
+### URL Segments
+
+| Parameter            | Required | Description                                                 |
+|----------------------|----------|-------------------------------------------------------------|
+| LIST-UNIQUE-ID       | yes      | List unique identifier                                      |
+| SUBSCRIBER-UNIQUE-ID | yes      | Subscriber unique identifier                                |
+
+### PUT Parameters
 
 | Parameter            | Type   | Required | Description                                                 |
 |----------------------|--------|----------|-------------------------------------------------------------|
-| LIST-UNIQUE-ID       | string | yes      | List unique identifier                                      |
-| SUBSCRIBER-UNIQUE-ID | string | yes      | Subscriber unique identifier                                |
 | data                 | array  | yes      | Array with the custom fields {name => value} to be updated. |
 
 ## Update a subscriber by email
@@ -1045,11 +1098,17 @@ This endpoint update the subscriber with the given EMAIL from the given list LIS
 
 `PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID`
 
-### GET/POST Parameters
+### URL Segments
+
+| Segment              | Required | Description                        |
+|----------------------|----------|------------------------------------|
+| LIST-UNIQUE-ID       | yes      | List unique identifier             |
+| SUBSCRIBER-UNIQUE-ID | yes      | Found subscriber unique identifier |
+
+### GET/PUT Parameters
 
 | Parameter      | Type   | Required | Description                                                 |
 |----------------|--------|----------|-------------------------------------------------------------|
-| LIST-UNIQUE-ID | string | yes      | List unique identifier                                      |
 | EMAIL          | string | yes      | Email to be searched                                        |
 | data           | array  | yes      | Array with the custom fields {name => value} to be updated. |
 
@@ -1122,12 +1181,19 @@ This endpoint update the subscriber if exists and created it otherwise, from the
 
 `POST API-URL/lists/LIST-UNIQUE-ID/subscribers`  
 
-### GET/POST Parameters
+### URL Segments
+
+| Segment              | Required | Description                        |
+|----------------------|----------|------------------------------------|
+| LIST-UNIQUE-ID       | yes      | List unique identifier             |
+| SUBSCRIBER-UNIQUE-ID | yes      | Found subscriber unique identifier |
+
+### GET/PUT/POST Parameters
 
 | Parameter      | Type   | Required | Description                                                 |
 |----------------|--------|----------|-------------------------------------------------------------|
-| LIST-UNIQUE-ID | string | yes      | List unique identifier                                      |
 | data           | array  | yes      | Array with the custom fields {name => value} to be updated. |
+| EMAIL          | string | yes      | Email to be searched                                        |
 
 ## Unsubscribe a subscriber
 ```php
@@ -1173,9 +1239,9 @@ This endpoint unsubscribes the subscriber with the given SUBSCRIBER-UNIQUE-ID fr
 
 `PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID/unsubscribe`
 
-### Query Parameters
+### URL Segments
 
-| Parameter            | Required | Description                                     |
+| Segment              | Required | Description                                     |
 |----------------------|----------|-------------------------------------------------|
 | LIST-UNIQUE-ID       | yes      | List unique id to which the subscriber belongs. |
 | SUBSCRIBER-UNIQUE-ID | yes      | Subscriber unique id to unsubscribe.            |
@@ -1225,11 +1291,17 @@ This endpoint unsubscribes the subscriber with the given EMAIL from the given LI
 
 `PUT API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID/unsubscribe`
 
+### URL Segments
+
+| Segment              | Required | Description                                     |
+|----------------------|----------|-------------------------------------------------|
+| LIST-UNIQUE-ID       | yes      | List unique id to which the subscriber belongs. |
+| SUBSCRIBER-UNIQUE-ID | yes      | Subscriber unique id to unsubscribe.            |
+
 ### Query Parameters
 
 | Parameter      | Required | Description                                     |
 |----------------|----------|-------------------------------------------------|
-| LIST-UNIQUE-ID | yes      | List unique id to which the subscriber belongs. |
 | EMAIL          | yes      | Subscriber email to unsubscribe.                |
 
 ## Unsubscribe a subscriber by email address from all the lists
@@ -1275,7 +1347,7 @@ This endpoint unsubscribes the subscriber with the given EMAIL from all the list
 
 `PUT API-URL/lists/subscribers/unsubscribe-by-email-from-all-lists`
 
-### Query Parameters
+### PUT Parameters
 
 | Parameter | Required | Description                      |
 |-----------|----------|----------------------------------|
@@ -1324,9 +1396,9 @@ This endpoint deletes the subscriber with the given SUBSCRIBER-UNIQUE-ID from th
 
 `DELETE API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter            | Required | Description                                     |
+| Segment              | Required | Description                                     |
 |----------------------|----------|-------------------------------------------------|
 | LIST-UNIQUE-ID       | yes      | List unique id to which the subscriber belongs. |
 | SUBSCRIBER-UNIQUE-ID | yes      | Subscriber unique id to delete.                 |
@@ -1376,9 +1448,15 @@ This endpoint deletes a subscriber by his email within the list having the LIST-
 
 `DELETE API-URL/lists/LIST-UNIQUE-ID/subscribers/SUBSCRIBER-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
+
+| Segment              | Required | Description                                     |
+|----------------------|----------|-------------------------------------------------|
+| LIST-UNIQUE-ID       | yes      | List unique id to which the subscriber belongs. |
+| SUBSCRIBER-UNIQUE-ID | yes      | Subscriber unique id to delete.                 |
+
+### GET Parameters
 
 | Parameter      | Required | Description                                                 |
 |----------------|----------|-------------------------------------------------------------|
-| LIST-UNIQUE-ID | yes      | List unique id to which the subscriber to retrieve belongs. |
 | email          | yes      | Subscriber email to retrieve.                               |

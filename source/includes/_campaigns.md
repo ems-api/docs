@@ -206,11 +206,11 @@ This endpoint retrieves the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 ### HTTP Request
 
-`GET API-URL/campaigns`
+`GET API-URL/campaigns/CAMPAIGN-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter          | Required | Description                     |
+| Segment            | Required | Description                     |
 |--------------------|----------|---------------------------------|
 | CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to retrieve. |
 
@@ -582,11 +582,14 @@ This endpoint update the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 `PUT API-URL/campaigns/CAMPAIGN-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter          | Required | Description                   |
+| Segment            | Required | Description                   |
 |--------------------|----------|-------------------------------|
 | CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to update. |
+
+### POST Parameters
+Same as for the create campaign call.
 
 ## Copy a campaign
 ```php
@@ -633,9 +636,9 @@ This endpoint copy the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 `POST API-URL/campaigns/CAMPAIGN-UNIQUE-ID/copy`
 
-### Query Parameters
+### URL Segments
 
-| Parameter          | Required | Description                 |
+| Segment            | Required | Description                 |
 |--------------------|----------|-----------------------------|
 | CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to copy. |
 
@@ -685,9 +688,9 @@ This endpoint pause/unpause the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 `PUT API-URL/campaigns/CAMPAIGN-UNIQUE-ID/pause-unpause`
 
-### Query Parameters
+### URL Segments
 
-| Parameter          | Required | Description                          |
+| Segment            | Required | Description                          |
 |--------------------|----------|--------------------------------------|
 | CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to pause/unpause. |
 
@@ -738,9 +741,9 @@ This endpoint mark as SENT the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 `PUT API-URL/campaigns/CAMPAIGN-UNIQUE-ID/mark-sent`
 
-### Query Parameters
+### URL Segments
 
-| Parameter          | Required | Description                         |
+| Segment            | Required | Description                         |
 |--------------------|----------|-------------------------------------|
 | CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to mark as sent. |
 
@@ -788,9 +791,9 @@ This endpoint will delete the campaign with the given CAMPAIGN-UNIQUE-ID.
 
 `DELETE API-URL/campaigns/CAMPAIGN-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter          | Required | Description                   |
+| Segment            | Required | Description                   |
 |--------------------|----------|-------------------------------|
 | CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to delete. |
 
@@ -857,8 +860,8 @@ This endpoint retrieves the campaign stats the given CAMPAIGN-UNIQUE-ID.
 
 `GET API-URL/campaigns/CAMPAIGN-UNIQUE-ID/stats`
 
-### Query Parameters
+### URL Segments
 
-| Parameter          | Required | Description                     |
+| Segment            | Required | Description                     |
 |--------------------|----------|---------------------------------|
 | CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to retrieve. |

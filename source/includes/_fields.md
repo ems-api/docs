@@ -100,10 +100,15 @@ This endpoint retrieves all the fields of a list.
 
 `GET API-URL/lists/LIST-UNIQUE-ID/fields`
 
+### URL Segments
+
+| Segment        | Required | Description                 |
+|----------------|----------|-----------------------------|
+| LIST-UNIQUE-ID | yes      | The list unique identifier  |
+
 ### Query Parameters
 
 | Parameter      | Default | Description                 |
 |----------------|---------|-----------------------------|
 | pageNumber     | 1       | Current page to retrieve.   |
 | perPage        | 10      | Items per page to retrieve. |
-| LIST-UNIQUE-ID |         | The list unique identifier  |

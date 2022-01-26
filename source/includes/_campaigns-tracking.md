@@ -64,9 +64,9 @@ This endpoint set a campaign tracking url click action.
 
 `GET API-URL/campaigns/CAMPAIGN-UID/track-url/SUBSCRIBER-UNIQUE-ID/URL-HASH`
 
-### Query Parameters
+### URL Segments
 
-| Parameter            | Required | Description                                |
+| Segment              | Required | Description                                |
 |----------------------|----------|--------------------------------------------|
 | CAMPAIGN-UID         | Yes      | Campaign unique identifier.                |
 | SUBSCRIBER-UNIQUE-ID | Yes      | Subscriber unique identifier.              |
@@ -116,9 +116,9 @@ This endpoint sets the track campaign open for a certain subscriber.
 
 `GET API-URL/campaigns/CAMPAIGN-UID/track-opening/SUBSCRIBER-UID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter            | Required | Description                   |
+| Segment              | Required | Description                   |
 |----------------------|----------|-------------------------------|
 | CAMPAIGN-UID         | Yes      | Campaign unique identifier.   |
 | SUBSCRIBER-UNIQUE-ID | Yes      | Subscriber unique identifier. |
@@ -179,12 +179,17 @@ This endpoint sets the track campaign unsubscribe for a certain subscriber.
 
 `POST API-URL/campaigns/CAMPAIGN-UID/track-unsubscribe/SUBSCRIBER-UID`
 
+### URL Segments
+
+| Segment              | Required | Description                   |
+|----------------------|----------|-------------------------------|
+| CAMPAIGN-UID         | Yes      | Campaign unique identifier.   |
+| SUBSCRIBER-UNIQUE-ID | Yes      | Subscriber unique identifier. |
+
 ### POST Parameters
 
 | Parameter            | Required | Description                                       |
 |----------------------|----------|---------------------------------------------------|
-| CAMPAIGN-UID         | Yes      | Campaign unique identifier.                       |
-| SUBSCRIBER-UNIQUE-ID | Yes      | Subscriber unique identifier.                     |
 | ip_address           | No       | IP address from which the subscriber unsubscribes |
 | user_agent           | No       | Subscriber user agent                             |
 | reason               | No       | Unsubscribe reason                                |

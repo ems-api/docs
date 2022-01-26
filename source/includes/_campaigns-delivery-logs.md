@@ -76,7 +76,13 @@ This endpoint retrieves all the delivery logs of a campaign.
 
 ### HTTP Request
 
-`GET API-URL/campaigns/CAMAPAIGN-UNIQUE-ID/delivery-logs`
+`GET API-URL/campaigns/CAMPAIGN-UNIQUE-ID/delivery-logs`
+
+### URL Segments
+
+| Segment            | Required | Description                                 |
+|--------------------|----------|---------------------------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign to retrieve the delivery logs for. |
 
 ### Query Parameters
 
@@ -132,8 +138,10 @@ This endpoint retrieves a delivery log based on its unique email message id.
 
 `GET API-URL/campaigns/delivery-logs/email-message-id/EMAIL-MESSAGE-ID`
 
-### Query Parameters
+EMAIL-MESSAGE-ID - The email unique id to retrieve the delivery log for.
 
-| Parameter        | Required | Description                   |
-|------------------|----------|-------------------------------|
-| EMAIL-MESSAGE-ID | yes      | Email message id to retrieve. |
+### URL Segments
+
+| Segment          | Required | Description                                           |
+|------------------|----------|-------------------------------------------------------|
+| EMAIL-MESSAGE-ID | yes      | The email unique id to retrieve the delivery log for. |

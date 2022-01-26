@@ -80,7 +80,13 @@ This endpoint retrieves all the bounces of a campaign.
 
 ### HTTP Request
 
-`GET API-URL/campaigns/CAMAPAIGN-UNIQUE-ID/bounces`
+`GET API-URL/campaigns/CAMPAIGN-UNIQUE-ID/bounces`
+
+### URL Segments
+
+| Segment            | Required | Description                                |
+|--------------------|----------|--------------------------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to retrieve the bounce. |
 
 ### Query Parameters
 
@@ -156,7 +162,13 @@ This endpoint creates a campaign bounce
 
 ### HTTP Request
 
-`POST API-URL/campaigns/CAMAPAIGN-UNIQUE-ID/bounces`
+`POST API-URL/campaigns/CAMPAIGN-UNIQUE-ID/bounces`
+
+### URL Segments
+
+| Segment            | Required | Description                              |
+|--------------------|----------|------------------------------------------|
+| CAMPAIGN-UNIQUE-ID | yes      | Campaign unique id to create the bounce. |
 
 ### POST Parameters
 

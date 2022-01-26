@@ -206,9 +206,9 @@ This endpoint retrieves the transactional email with the given EMAIL-UNIQUE-ID.
 
 `GET API-URL/transactional-emails/EMAIL-UNIQUE-ID`
 
-### Query Parameters
+### URL Segment
 
-| Parameter       | Required | Description                        |
+| Segment         | Required | Description                        |
 |-----------------|----------|------------------------------------|
 | EMAIL-UNIQUE-ID | yes      | Email unique id which to retrieve. |
 
@@ -354,8 +354,8 @@ This endpoint will delete the transactional email with the given TEMPLATE-UNIQUE
 
 `DELETE API-URL/transactional-emails/EMAIL-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter       | Required | Description                |
+| Segment         | Required | Description                |
 |-----------------|----------|----------------------------|
 | EMAIL-UNIQUE-ID | yes      | Email unique id to delete. |

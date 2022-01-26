@@ -129,9 +129,9 @@ This endpoint retrieves the template with the given TEMPLATE-UNIQUE-ID.
 
 `GET API-URL/templates/TEMPLATE-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter          | Required | Description                           |
+| Segment            | Required | Description                           |
 |--------------------|----------|---------------------------------------|
 | TEMPLATE-UNIQUE-ID | yes      | Template unique id which to retrieve. |
 
@@ -195,9 +195,11 @@ This endpoint retrieves the templates based on the filter keys values.
 
 ### Query Parameters
 
-| Parameter | Type  | Required | Description                                                    |
-|-----------|-------|----------|----------------------------------------------------------------|
-| filters   | array | yes      | Indexed array having template attributes as keys.(i.e.: name ) |
+| Parameter | Type  | Required/Default | Description                                                    |
+|-----------|-------|------------------|----------------------------------------------------------------|
+| page      | int   | 1                | Current page to retrieve.                                      |
+| per_page  | int   | 10               | Items per page to retrieve.                                    |
+| filters   | array | yes              | Indexed array having template attributes as keys.(i.e.: name ) |
 
 ## Create a template
 
@@ -336,11 +338,16 @@ This endpoint updates a template.
 
 `PUT API-URL/templates/TEMPLATE-UNIQUE-ID`
 
-### POST Parameters
+### URL Segments
+
+| Segment            | Required | Description                                                         |
+|--------------------|----------|---------------------------------------------------------------------|
+| TEMPLATE-UNIQUE-ID | yes      | Template unique identifier                                          |
+
+### PUT Parameters
 
 | Parameter          | Type   | Required | Description                                                         |
 |--------------------|--------|----------|---------------------------------------------------------------------|
-| TEMPLATE-UNIQUE-ID | string | yes      | Template unique identifier                                          |
 | data               | array  | yes      | Array with the template details. See the create section for details |
 
 ## Delete a template
@@ -386,8 +393,8 @@ This endpoint will delete the template with the given TEMPLATE-UNIQUE-ID.
 
 `DELETE API-URL/templates/TEMPLATE-UNIQUE-ID`
 
-### Query Parameters
+### URL Segments
 
-| Parameter          | Required | Description                   |
+| Segment            | Required | Description                   |
 |--------------------|----------|-------------------------------|
 | TEMPLATE-UNIQUE-ID | yes      | Template unique id to delete. |

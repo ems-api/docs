@@ -376,7 +376,7 @@ print(response.content)
   "status": "success"
 }
 ```
-This endpoint will delete the transactional email with the given TEMPLATE-UNIQUE-ID.
+This endpoint will delete the transactional email with the given EMAIL-UNIQUE-ID.
 
 ### HTTP Request
 

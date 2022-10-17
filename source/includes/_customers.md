@@ -130,13 +130,14 @@ This endpoint creates a customer
 
 **Customer block**
 
-| Parameter  | Type   | Required | Description                 |
-|------------|--------|----------|-----------------------------|
-| first_name | string | yes      | Customer first name         |
-| last_name  | string | yes      | Customer last name          |
-| email      | string | yes      | Customer email              |
-| password   | string | yes      | Customer password           |
-| timezone   | string | yes      | Customer timezone(i.e. UTC) |
+| Parameter  | Type   | Required | Description                      |
+|------------|--------|----------|----------------------------------|
+| first_name | string | yes      | Customer first name              |
+| last_name  | string | yes      | Customer last name               |
+| email      | string | yes      | Customer email                   |
+| password   | string | yes      | Customer password                |
+| timezone   | string | yes      | Customer timezone(i.e. UTC)      |
+| birthDate  | string | yes      | Customer birth date (YYYY-MM-DD) |
 
 **Company block**
 

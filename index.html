@@ -628,10 +628,18 @@
 <p>You will have to make sure your server supports all these methods.</p>
 
 <p>If you are doing API calls and get HTTP Forbidden errors, when updating or deleting items, it means your server does not support PUT/DELETE and you must change it&#39;s configuration to allow these methods.</p>
+
+<p><strong>Authorization</strong></p>
+
+<p>Authentication is done by sending your API key in a custom header called X-Api-Key.</p>
+
+<p><strong>Data Format</strong></p>
+
+<p>When sending data to the API endpoints, it is sent in form-data format and returned as json.</p>
 <h1 id='getting-started'>Getting started</h1>
 <p>First you need to install the SDK. See each supported language for its way of installing</p>
 <h3 id='php'>PHP</h3>
-<p>You can either download the latest version of the code, or you can install it via composer as follows:</p>
+<p>Get started by installing it via composer as follows:</p>
 
 <p><code>composer require ems-api/php-client</code></p>
 

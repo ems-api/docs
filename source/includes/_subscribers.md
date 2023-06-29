@@ -376,6 +376,7 @@ This endpoint searches a subscriber by his email within the all lists.
 |-----------|----------|-------------------------------|
 | email     | yes      | Subscriber email to retrieve. |
 
+
 ## Search by custom fields in a list
 ```php
 // SEARCH BY CUSTOM FIELDS IN A LIST
@@ -450,7 +451,7 @@ This endpoint searches a subscriber by his custom fields values within a list gi
 
 ```php
 // SEARCH BY STATUS
-$response = $endpoint->searchByStatus('LIST-UNIQUE-ID', 'active', $pageNumber = 1, $perPage = 10);
+$response = $endpoint->searchByStatus('LIST-UNIQUE-ID', 'confirmed', $pageNumber = 1, $perPage = 10);
 
 // DISPLAY RESPONSE
 echo '<hr /><pre>';
@@ -473,14 +474,43 @@ TODO - implement
 {
   "status": "success",
   "data": {
-    "subscriber_uid": "ll381bxshm01e",
-    "EMAIL": "dmacmeartyd@jugem.jp",
-    "FNAME": "",
-    "LNAME": "",
-    "status": "unsubscribed",
-    "source": "import",
-    "ip_address": "",
-    "date_added": "2021-02-20 17:26:18"
+    "count": "3",
+    "total_pages": 1,
+    "current_page": 1,
+    "next_page": null,
+    "prev_page": null,
+    "records": [
+      {
+        "subscriber_uid": "jl349100yda86",
+        "EMAIL": "elacroutz6@youku.com",
+        "FNAME": "",
+        "LNAME": "",
+        "source": "import",
+        "status": "confirmed",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:15"
+      },
+      {
+        "subscriber_uid": "kw647a5n8l516",
+        "EMAIL": "mstephenson5@trellian.com",
+        "FNAME": "",
+        "LNAME": "",
+        "source": "import",
+        "status": "confirmed",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:15"
+      },
+      {
+        "subscriber_uid": "vo155s4b0d0ad",
+        "EMAIL": "ldefew4@dailymail.co.uk",
+        "FNAME": "",
+        "LNAME": "",
+        "source": "import",
+        "status": "confirmed",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:14"
+      }
+    ]
   }
 }
 ```
@@ -503,6 +533,93 @@ This endpoint search for the subscribers having a certain status within the list
 | pageNumber     | 1        | Current page to retrieve.                                        |
 | perPage        | 10       | Items per page to retrieve.                                      |
 | status         | yes      | Subscribers status to retrieve.                                  |
+
+## Get blacklisted subscribers
+
+```php
+// Get only the blacklisted subscribers
+$response = $endpoint->getBlacklistedSubscribers('LIST-UNIQUE-ID', 'active', $pageNumber = 1, $perPage = 10);
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+```
+
+```ruby
+# TODO - Implement
+```
+
+```python
+"""
+TODO - implement
+"""
+```
+> The above command returns an object structured like this JSON:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "count": "3",
+    "total_pages": 1,
+    "current_page": 1,
+    "next_page": null,
+    "prev_page": null,
+    "records": [
+      {
+        "subscriber_uid": "jl349100yda86",
+        "EMAIL": "elacroutz6@youku.com",
+        "FNAME": "",
+        "LNAME": "",
+        "source": "import",
+        "status": "blacklisted",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:15"
+      },
+      {
+        "subscriber_uid": "kw647a5n8l516",
+        "EMAIL": "mstephenson5@trellian.com",
+        "FNAME": "",
+        "LNAME": "",
+        "source": "import",
+        "status": "blacklisted",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:15"
+      },
+      {
+        "subscriber_uid": "vo155s4b0d0ad",
+        "EMAIL": "ldefew4@dailymail.co.uk",
+        "FNAME": "",
+        "LNAME": "",
+        "source": "import",
+        "status": "blacklisted",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:14"
+      }
+    ]
+  }
+}
+```
+This endpoint returns all the subscribers with the status blacklisted within the list having the LIST-UNIQUE-ID.
+
+### HTTP Request
+
+`GET API-URL/lists/LIST-UNIQUE-ID/subscribers`
+
+### URL Segments
+
+| Segment        | Required | Description                                                      |
+|----------------|----------|------------------------------------------------------------------|
+| LIST-UNIQUE-ID | yes      | The list unique identifier for which we retrieve the subscribers |
+
+### Query Parameters
+
+| Parameter      | Required    | Description                   |
+|----------------|-------------|-------------------------------|
+| pageNumber     | 1           | Current page to retrieve.     |
+| perPage        | 10          | Items per page to retrieve.   |
+| status         | blacklisted | The blacklisted status value. |
 
 ## Get confirmed subscribers
 ```php
@@ -542,6 +659,7 @@ TODO - Implement
         "FNAME": "",
         "LNAME": "",
         "source": "import",
+        "status": "confirmed",
         "ip_address": "",
         "date_added": "2021-02-20 17:26:15"
       },
@@ -551,6 +669,7 @@ TODO - Implement
         "FNAME": "",
         "LNAME": "",
         "source": "import",
+        "status": "confirmed",
         "ip_address": "",
         "date_added": "2021-02-20 17:26:15"
       },
@@ -560,6 +679,7 @@ TODO - Implement
         "FNAME": "",
         "LNAME": "",
         "source": "import",
+        "status": "confirmed",
         "ip_address": "",
         "date_added": "2021-02-20 17:26:14"
       }
@@ -625,6 +745,7 @@ TODO - Implement
         "FNAME": "",
         "LNAME": "",
         "source": "import",
+        "status": "unconfirmed",
         "ip_address": "",
         "date_added": "2021-02-20 17:26:15"
       },
@@ -634,6 +755,7 @@ TODO - Implement
         "FNAME": "",
         "LNAME": "",
         "source": "import",
+        "status": "unconfirmed",
         "ip_address": "",
         "date_added": "2021-02-20 17:26:15"
       },
@@ -643,6 +765,7 @@ TODO - Implement
         "FNAME": "",
         "LNAME": "",
         "source": "import",
+        "status": "unconfirmed",
         "ip_address": "",
         "date_added": "2021-02-20 17:26:14"
       }
@@ -708,6 +831,7 @@ TODO - Implement
         "FNAME": "",
         "LNAME": "",
         "source": "import",
+        "status": "unsubscribed",
         "ip_address": "",
         "date_added": "2021-02-20 17:26:15"
       },
@@ -717,6 +841,7 @@ TODO - Implement
         "FNAME": "",
         "LNAME": "",
         "source": "import",
+        "status": "unsubscribed",
         "ip_address": "",
         "date_added": "2021-02-20 17:26:15"
       },
@@ -726,6 +851,7 @@ TODO - Implement
         "FNAME": "",
         "LNAME": "",
         "source": "import",
+        "status": "unsubscribed",
         "ip_address": "",
         "date_added": "2021-02-20 17:26:14"
       }

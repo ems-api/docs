@@ -384,6 +384,16 @@ This endpoint creates a campaign
 
 ### POST Parameters
 
+
+| Parameter | Type  | Required | Description                     |
+|-----------|-------|----------|---------------------------------|
+| campaign  | array | yes      | Array with the email details.   |
+| template  | array | yes      | Array with the template details |
+| options   | array | no       | Array with the options details  |
+
+
+**Campaign block**
+
 | Parameter   | Type                   | Required | Description                                                                        |
 |-------------|------------------------|----------|------------------------------------------------------------------------------------|
 | name        | string                 | yes      | Campaign name.                                                                     |

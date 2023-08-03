@@ -58,9 +58,9 @@ print(response.content)
   "data": {
     "records": [
       {
-      "name": "portfolio_html (1)",
-      "content": "HTML content...",
-      "screenshot": "https:\/\/domain.com\/frontend\/assets\/gallery\/ew055sq9tn97e\/img_ytStill.png"
+        "template_uid": "xxxxxxxxx",
+        "name": "portfolio_html (1)",
+        "screenshot": "https:\/\/domain.com\/frontend\/assets\/gallery\/ew055sq9tn97e\/img_ytStill.png"
      }
     ]
   }

@@ -321,7 +321,7 @@ This endpoint creates a transactional email.
 
 | Parameter | Type  | Required | Description                   |
 |-----------|-------|----------|-------------------------------|
-| data      | array | yes      | Array with the email details. |
+| email     | array | yes      | Array with the email details. |
 
 **Data block - required**
 

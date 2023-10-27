@@ -66,60 +66,70 @@ print(response.content)
       "records": [
         {
           "campaign_uid": "og943e5q6e158",
+          "campaign_id": "12",
           "name": "My API Campaign UPDATED #3",
           "status": "sent",
           "group": []
         },
         {
           "campaign_uid": "gp5420ve90f3e",
+          "campaign_id": "13",
           "name": "My API Campaign UPDATED #2",
           "status": "sent",
           "group": []
         },
         {
           "campaign_uid": "hv4163y076d84",
+          "campaign_id": "14",
           "name": "My API Campaign UPDATED #1",
           "status": "sent",
           "group": []
         },
         {
           "campaign_uid": "xk906nd8fn506",
+          "campaign_id": "15",
           "name": "My API Campaign UPDATED",
           "status": "sent",
           "group": []
         },
         {
           "campaign_uid": "eh477yfos0258",
+          "campaign_id": "16",
           "name": "API campaing #1",
           "status": "draft",
           "group": []
         },
         {
           "campaign_uid": "db516xtc45237",
+          "campaign_id": "17",
           "name": "API campaing #2",
           "status": "draft",
           "group": []
         },
         {
           "campaign_uid": "ld526wjke1ff4",
+          "campaign_id": "18",
           "name": "API campaing #1",
           "status": "draft",
           "group": []
         },
         {
           "campaign_uid": "bx831rctawf92",
+          "campaign_id": "19",
           "name": "API campaing",
           "status": "paused",
           "group": []
         },
         {
           "campaign_uid": "tk459h475l8ef",
+          "campaign_id": "20",
           "name": "Test #1",
           "status": "sent",
           "group": []
         },
         {
           "campaign_uid": "go896lnslz8ae",
+          "campaign_id": "21",
           "name": "Test",
           "status": "sent",
           "group": []
@@ -181,6 +191,7 @@ print(response.content)
   "data": {
     "record": {
       "campaign_uid": "og943e5q6e158",
+      "campaign_id": "12",
       "name": "My API Campaign UPDATED #3",
       "type": "regular",
       "from_name": "John Doe",
@@ -388,9 +399,6 @@ This endpoint creates a campaign
 | Parameter | Type  | Required | Description                     |
 |-----------|-------|----------|---------------------------------|
 | campaign  | array | yes      | Array with the email details.   |
-| template  | array | yes      | Array with the template details |
-| options   | array | no       | Array with the options details  |
-
 
 **Campaign block**
 

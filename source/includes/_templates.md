@@ -268,7 +268,7 @@ This endpoint creates a template.
 
 | Parameter | Type  | Required | Description                      |
 |-----------|-------|----------|----------------------------------|
-| data      | array | yes      | Array with the template details. |
+| template  | array | yes      | Array with the template details. |
 
 **Data block - required**
 

@@ -58,6 +58,7 @@ print(response.content)
   "data": {
     "records": [
       {
+        "field_id": "12",
         "tag": "EMAIL",
         "label": "Email",
         "required": "yes",
@@ -69,6 +70,7 @@ print(response.content)
         }
       },
       {
+        "field_id": "13",
         "tag": "FNAME",
         "label": "First name",
         "required": "no",
@@ -80,6 +82,7 @@ print(response.content)
         }
       },
       {
+        "field_id": "14",
         "tag": "LNAME",
         "label": "Last name",
         "required": "no",

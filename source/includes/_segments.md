@@ -198,7 +198,7 @@ echo '</pre>';
 ```
 This endpoint creates a list segment.
 
-The $data param can contain following indexed arrays:
+The data param can contain following indexed arrays:
 
 -> conditions - optional
 

@@ -180,10 +180,10 @@ This endpoint retrieves all the subscribers of a list.
 
 ### Query Parameters
 
-| Parameter      | Default | Description                                                      |
-|----------------|---------|------------------------------------------------------------------|
-| pageNumber     | 1       | Current page to retrieve.                                        |
-| perPage        | 10      | Items per page to retrieve.                                      |
+| Parameter | Default | Description                 |
+|-----------|---------|-----------------------------|
+| page      | 1       | Current page to retrieve.   |
+| per_page  | 10      | Items per page to retrieve. |
 
 ## Get one subscriber
 ```php
@@ -441,11 +441,11 @@ This endpoint searches a subscriber by his custom fields values within a list gi
 
 ### Query Parameters
 
-| Parameter      | Required/Default | Description                                        |
-|----------------|------------------|----------------------------------------------------|
-| array          | yes              | Array of custom fields {'CUSTOM_FIELD' => 'VALUE'} |
-| pageNumber     | 1                | Current page to retrieve.                          |
-| perPage        | 10               | Items per page to retrieve.                        |
+| Parameter | Required/Default | Description                                        |
+|-----------|------------------|----------------------------------------------------|
+| array     | yes              | Array of custom fields {'CUSTOM_FIELD' => 'VALUE'} |
+| page      | 1                | Current page to retrieve.                          |
+| per_page  | 10               | Items per page to retrieve.                        |
 
 ## Search by status
 
@@ -528,11 +528,11 @@ This endpoint search for the subscribers having a certain status within the list
 
 ### Query Parameters
 
-| Parameter      | Required | Description                                                      |
-|----------------|----------|------------------------------------------------------------------|
-| pageNumber     | 1        | Current page to retrieve.                                        |
-| perPage        | 10       | Items per page to retrieve.                                      |
-| status         | yes      | Subscribers status to retrieve.                                  |
+| Parameter | Required | Description                     |
+|-----------|----------|---------------------------------|
+| page      | 1        | Current page to retrieve.       |
+| per_page  | 10       | Items per page to retrieve.     |
+| status    | yes      | Subscribers status to retrieve. |
 
 ## Get blacklisted subscribers
 
@@ -615,11 +615,11 @@ This endpoint returns all the subscribers with the status blacklisted within the
 
 ### Query Parameters
 
-| Parameter      | Required    | Description                   |
-|----------------|-------------|-------------------------------|
-| pageNumber     | 1           | Current page to retrieve.     |
-| perPage        | 10          | Items per page to retrieve.   |
-| status         | blacklisted | The blacklisted status value. |
+| Parameter | Required    | Description                   |
+|-----------|-------------|-------------------------------|
+| page      | 1           | Current page to retrieve.     |
+| per_page  | 10          | Items per page to retrieve.   |
+| status    | blacklisted | The blacklisted status value. |
 
 ## Get confirmed subscribers
 ```php
@@ -701,11 +701,11 @@ This endpoint retrieves all the confirmed subscribers of a list.
 
 ### Query Parameters
 
-| Parameter      | Default   | Description                 |
-|----------------|-----------|-----------------------------|
-| pageNumber     | 1         | Current page to retrieve.   |
-| perPage        | 10        | Items per page to retrieve. |
-| status         | confirmed | The confirmed status value  |
+| Parameter | Default   | Description                 |
+|-----------|-----------|-----------------------------|
+| page      | 1         | Current page to retrieve.   |
+| per_page  | 10        | Items per page to retrieve. |
+| status    | confirmed | The confirmed status value  |
 
 ## Get unconfirmed subscribers
 ```php
@@ -787,11 +787,11 @@ This endpoint retrieves all the unconfirmed subscribers of a list.
 
 ### Query Parameters
 
-| Parameter      | Default     | Description                  |
-|----------------|-------------|------------------------------|
-| pageNumber     | 1           | Current page to retrieve.    |
-| perPage        | 10          | Items per page to retrieve.  |
-| status         | unconfirmed | The unconfirmed status value |
+| Parameter | Default     | Description                  |
+|-----------|-------------|------------------------------|
+| page      | 1           | Current page to retrieve.    |
+| per_page  | 10          | Items per page to retrieve.  |
+| status    | unconfirmed | The unconfirmed status value |
 
 ## Get unsubscribed subscribers
 ```php
@@ -873,11 +873,11 @@ This endpoint retrieves all the unsubscribed subscribers of a list.
 
 ### Query Parameters
 
-| Parameter      | Default      | Description                                                      |
-|----------------|--------------|------------------------------------------------------------------|
-| pageNumber     | 1            | Current page to retrieve.                                        |
-| perPage        | 10           | Items per page to retrieve.                                      |
-| status         | unsubscribed | The unsubscribe status value                                     |
+| Parameter | Default      | Description                  |
+|-----------|--------------|------------------------------|
+| page      | 1            | Current page to retrieve.    |
+| per_page  | 10           | Items per page to retrieve.  |
+| status    | unsubscribed | The unsubscribe status value |
 
 ## Create a subscriber
 

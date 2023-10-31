@@ -86,10 +86,10 @@ This endpoint retrieves all the delivery logs of a campaign.
 
 ### Query Parameters
 
-| Parameter  | Default | Description                 |
-|------------|---------|-----------------------------|
-| pageNumber | 1       | Current page to retrieve.   |
-| perPage    | 10      | Items per page to retrieve. |
+| Parameter | Default | Description                 |
+|-----------|---------|-----------------------------|
+| page      | 1       | Current page to retrieve.   |
+| per_page  | 10      | Items per page to retrieve. |
 
 
 ## Get a delivery log based on its unique email message id

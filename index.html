@@ -1919,22 +1919,22 @@ DISPLAY RESPONSE
             <span class="s1">'campaign_id'</span><span class="o">=&gt;</span> <span class="s1">'100'</span><span class="p">,</span> <span class="c1">// required</span>
             <span class="s1">'time_comparison_operator'</span>  <span class="o">=&gt;</span> <span class="s1">'lte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
             <span class="s1">'time_value'</span>   <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
-            <span class="s1">'time_unit'</span> <span class="o">=&gt;</span> <span class="s1">'day // required (day/month/year)
-        ],
-        [
-            '</span><span class="n">action</span><span class="s1">' =&gt; '</span><span class="n">open</span><span class="s1">', // required (click/open)
-            '</span><span class="n">campaign_id</span><span class="s1">'=&gt; '</span><span class="mi">99</span><span class="s1">', // required
-            '</span><span class="n">time_comparison_operator</span><span class="s1">'  =&gt; '</span><span class="n">gte</span><span class="s1">', // required (lte/lt/gte/gt/eq)
-            '</span><span class="n">time_value</span><span class="s1">'   =&gt; '</span><span class="mi">3</span><span class="s1">', // required
-            '</span><span class="n">time_unit</span><span class="s1">' =&gt; '</span><span class="n">month</span> <span class="c1">// required (day/month/year)</span>
-        <span class="p">]</span>
-    <span class="p">],</span>
-<span class="p">]);</span>
+            <span class="s1">'time_unit'</span> <span class="o">=&gt;</span> <span class="s1">'day'</span> <span class="c1">// required (day/month/year)</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s1">'action'</span> <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span> <span class="c1">// required (click/open)</span>
+            <span class="s1">'campaign_id'</span><span class="o">=&gt;</span> <span class="s1">'99'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_comparison_operator'</span>  <span class="o">=&gt;</span> <span class="s1">'gte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
+            <span class="s1">'time_value'</span>   <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_unit'</span> <span class="o">=&gt;</span> <span class="s1">'month // required (day/month/year)
+        ]
+    ],
+]);
 
-<span class="c1">// and get the response</span>
-<span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span><span class="p">;</span>
-<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
-<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
+// and get the response
+echo '</span><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="s1">';
+print_r($response-&gt;body);
+echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span><span class="err">'</span><span class="p">;</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns an object structured like this JSON:</p>

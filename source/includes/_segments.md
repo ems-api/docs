@@ -165,7 +165,7 @@ $response = $endpoint->create([
             'campaign_id'=> '100', // required
             'time_comparison_operator'  => 'lte', // required (lte/lt/gte/gt/eq)
             'time_value'   => '3', // required
-            'time_unit' => 'day // required (day/month/year)
+            'time_unit' => 'day' // required (day/month/year)
         ],
         [
             'action' => 'open', // required (click/open)

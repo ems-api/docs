@@ -365,6 +365,18 @@
                   <li>
                     <a href="#get-all-list-fields" class="toc-h2 toc-link" data-title="Get all list fields">Get all list fields</a>
                   </li>
+                  <li>
+                    <a href="#create-a-list-field" class="toc-h2 toc-link" data-title="Create a list field">Create a list field</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-list-field" class="toc-h2 toc-link" data-title="Update a list field">Update a list field</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-list-field" class="toc-h2 toc-link" data-title="Delete a list field">Delete a list field</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-list-field-types" class="toc-h2 toc-link" data-title="Get all list field types">Get all list field types</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -384,6 +396,9 @@
                   </li>
                   <li>
                     <a href="#update-a-list-segment" class="toc-h2 toc-link" data-title="Update a list segment">Update a list segment</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-list-segment" class="toc-h2 toc-link" data-title="Delete a list segment">Delete a list segment</a>
                   </li>
                   <li>
                     <a href="#get-all-list-segments-operators" class="toc-h2 toc-link" data-title="Get all list segments operators">Get all list segments operators</a>
@@ -1575,6 +1590,525 @@ DISPLAY RESPONSE
 <td>Items per page to retrieve.</td>
 </tr>
 </tbody></table>
+<h2 id='create-a-list-field'>Create a list field</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// create a new list field</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">create</span><span class="p">([</span>
+  <span class="s1">'type'</span>           <span class="o">=&gt;</span> <span class="s1">'dropdown'</span><span class="p">,</span>
+  <span class="s1">'label'</span>         <span class="o">=&gt;</span> <span class="s1">'Text Label'</span><span class="p">,</span>
+  <span class="s1">'tag'</span>           <span class="o">=&gt;</span> <span class="s1">'DROPDOWN'</span><span class="p">,</span>
+  <span class="s1">'required'</span>      <span class="o">=&gt;</span> <span class="s1">'no'</span><span class="p">,</span>
+  <span class="s1">'visibility'</span>    <span class="o">=&gt;</span> <span class="s1">'visible'</span><span class="p">,</span>
+  <span class="s1">'sort_order'</span>    <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s1">'help_text'</span>     <span class="o">=&gt;</span> <span class="s1">'Help'</span><span class="p">,</span>
+  <span class="s1">'default_value'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="s1">'description'</span>   <span class="o">=&gt;</span> <span class="s1">'Description'</span><span class="p">,</span>
+  <span class="s1">'options        =&gt; [
+    [
+      '</span><span class="n">name</span><span class="s1">'  =&gt; '</span><span class="nc">Option1</span><span class="s1">',
+      '</span><span class="n">value</span><span class="s1">' =&gt; '</span><span class="nc">Value1</span><span class="s1">'
+    ],
+    [
+      '</span><span class="n">name</span><span class="s1">'  =&gt; '</span><span class="nc">Option2</span><span class="s1">',
+      '</span><span class="n">value</span><span class="s1">' =&gt; '</span><span class="nc">Value2</span><span class="s1">'
+    ],
+  ]
+]);
+
+// and get the response
+echo '</span><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="s1">';
+print_r($response-&gt;body);
+echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span><span class="err">'</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns an object structured like this JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"record"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"138"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text Label"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DROPDOWN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"help_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Help"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dropdown"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dropdown"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dropdown"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"list_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wo16508sn983b"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My list"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Value1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Value2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint creates a list field.</p>
+
+<p>The data param can contain following indexed arrays:</p>
+
+<p>-&gt; options - optional</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST API-URL/lists/LIST_UID/fields</code></p>
+<h3 id='post-parameters'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array</td>
+<td>yes</td>
+<td>Array with the list field details. The following indexed arrays are accepted: options</td>
+</tr>
+</tbody></table>
+
+<p><strong>General block - required</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>yes</td>
+<td>The field type check the field types endpoint for possible values</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>yes</td>
+<td>The label of the field</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>string</td>
+<td>yes</td>
+<td>The unique tag</td>
+</tr>
+<tr>
+<td>required</td>
+<td>string</td>
+<td>yes</td>
+<td>Whether the field is required or not (yes/no)</td>
+</tr>
+<tr>
+<td>visibility</td>
+<td>string</td>
+<td>yes</td>
+<td>Whether the field is visible or not (hidden/visible)</td>
+</tr>
+<tr>
+<td>default_value</td>
+<td>string</td>
+<td>no</td>
+<td>The field default value</td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>int</td>
+<td>no</td>
+<td>The field showing order in the form</td>
+</tr>
+<tr>
+<td>help_text</td>
+<td>string</td>
+<td>no</td>
+<td>The field help text</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>no</td>
+<td>The field description</td>
+</tr>
+</tbody></table>
+
+<p><strong>Options block - optional</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>yes</td>
+<td>The option name to show in the dropdown</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>yes</td>
+<td>The option value for the dropdown</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-list-field'>Update a list field</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// update list field</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">update</span><span class="p">(</span><span class="s1">'LIST-UNIQUE-ID'</span><span class="p">,</span> <span class="s1">'FIELD-ID'</span><span class="p">,</span> <span class="p">[</span>
+  <span class="s1">'label'</span>         <span class="o">=&gt;</span> <span class="s1">'Text Label'</span><span class="p">,</span>
+  <span class="s1">'tag'</span>           <span class="o">=&gt;</span> <span class="s1">'DROPDOWN'</span><span class="p">,</span>
+  <span class="s1">'required'</span>      <span class="o">=&gt;</span> <span class="s1">'no'</span><span class="p">,</span>
+  <span class="s1">'visibility'</span>    <span class="o">=&gt;</span> <span class="s1">'visible'</span><span class="p">,</span>
+  <span class="s1">'sort_order'</span>    <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s1">'help_text'</span>     <span class="o">=&gt;</span> <span class="s1">'Help'</span><span class="p">,</span>
+  <span class="s1">'default_value'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="s1">'description'</span>   <span class="o">=&gt;</span> <span class="s1">'Description'</span><span class="p">,</span>
+  <span class="s1">'options        =&gt; [
+    [
+      '</span><span class="n">name</span><span class="s1">'  =&gt; '</span><span class="nc">Option1</span><span class="s1">',
+      '</span><span class="n">value</span><span class="s1">' =&gt; '</span><span class="nc">Value1</span><span class="s1">'
+    ],
+    [
+      '</span><span class="n">name</span><span class="s1">'  =&gt; '</span><span class="nc">Option2</span><span class="s1">',
+      '</span><span class="n">value</span><span class="s1">' =&gt; '</span><span class="nc">Value2</span><span class="s1">'
+    ],
+  ]
+]);
+
+// and get the response
+echo '</span><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="s1">';
+print_r($response-&gt;body);
+echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span><span class="err">'</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns an object structured like this JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"record"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"138"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text Label"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DROPDOWN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"help_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Help"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dropdown"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dropdown"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dropdown"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"list_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wo16508sn983b"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My list"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Value1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Value2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint updates a list field.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT API-URL/lists/LIST-UNIQUE-ID/fields/FIELD-ID</code></p>
+<h3 id='url-segment'>URL Segment</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>string</td>
+<td>yes</td>
+<td>List unique identifier</td>
+</tr>
+<tr>
+<td>FIELD-ID</td>
+<td>string</td>
+<td>yes</td>
+<td>List field id</td>
+</tr>
+</tbody></table>
+<h3 id='put-parameters'>PUT Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array</td>
+<td>yes</td>
+<td>Array with the list field details. The following indexed arrays are accepted: options See the create section for details</td>
+</tr>
+</tbody></table>
+
+<p><strong>General block - required</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>yes</td>
+<td>The label of the field</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>string</td>
+<td>yes</td>
+<td>The unique tag</td>
+</tr>
+<tr>
+<td>required</td>
+<td>string</td>
+<td>yes</td>
+<td>Whether the field is required or not (yes/no)</td>
+</tr>
+<tr>
+<td>visibility</td>
+<td>string</td>
+<td>yes</td>
+<td>Whether the field is visible or not (hidden/visible)</td>
+</tr>
+<tr>
+<td>default_value</td>
+<td>string</td>
+<td>no</td>
+<td>The field default value</td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>int</td>
+<td>no</td>
+<td>The field showing order in the form</td>
+</tr>
+<tr>
+<td>help_text</td>
+<td>string</td>
+<td>no</td>
+<td>The field help text</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>no</td>
+<td>The field description</td>
+</tr>
+</tbody></table>
+
+<p><strong>Options block - optional</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>yes</td>
+<td>The option name to show in the dropdown</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>yes</td>
+<td>The option value for the dropdown</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-list-field'>Delete a list field</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// Delete FIELD</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nb">delete</span><span class="p">(</span><span class="s1">'LIST-UNIQUE-ID'</span><span class="p">,</span> <span class="s1">'FIELD-ID'</span><span class="p">);</span>
+
+<span class="c1">// DISPLAY RESPONSE</span>
+<span class="k">echo</span> <span class="s1">'&lt;hr /&gt;&lt;pre&gt;'</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns an object structured like this JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will delete the list field with the given FIELD-ID for the LIST-UNIQUE-ID.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE API-URL/lists/LIST-UNIQUE-ID/fields/LIST-ID</code></p>
+<h3 id='url-segments-2'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>List unique id to delete.</td>
+</tr>
+<tr>
+<td>FIELD-ID</td>
+<td>yes</td>
+<td>List field id to delete</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-list-field-types'>Get all list field types</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ALL ITEMS</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">getListFieldTypes</span><span class="p">();</span>
+
+<span class="c1">// DISPLAY RESPONSE</span>
+<span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns an object structured like this JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dropdown"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dropdown"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dropdown"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multiselect"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multiselect"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multiselect"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Datetime"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datetime"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Datetime"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Textarea"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"textarea"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Textarea"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"State"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"state"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"State"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Checkbox List"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkboxlist"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Checkbox List"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Radio List"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"radiolist"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Radio List"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Geo Country"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"geocountry"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Geo Country"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Geo State"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"geostate"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Geo State"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Geo City"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"geocity"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Geo City"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Checkbox"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkbox"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Checkbox"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consent Checkbox"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consentcheckbox"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consent Checkbox"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years Range"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yearsrange"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Years Range"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone Number"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phonenumber"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone Number"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Url"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Url"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rating"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rating"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rating"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all the list field types.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET API-URL/lists/fields/types</code></p>
 <h1 id='segments'>Segments</h1><h2 id='list-segments-endpoint'>List segments endpoint</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// CREATE THE ENDPOINT</span>
 <span class="nv">$endpoint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">EmsApi\Endpoint\ListSegments</span><span class="p">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="c1"># CREATE THE ENDPOINT</span>
@@ -1739,26 +2273,26 @@ DISPLAY RESPONSE
     <span class="p">],</span>
     <span class="s1">'campaign_conditions'</span> <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="p">[</span>
-            <span class="s1">'action'</span> <span class="o">=&gt;</span> <span class="s1">'click'</span><span class="p">,</span> <span class="c1">// required (click/open)</span>
-            <span class="s1">'campaign_id'</span><span class="o">=&gt;</span> <span class="s1">'100'</span><span class="p">,</span> <span class="c1">// required</span>
-            <span class="s1">'time_comparison_operator'</span>  <span class="o">=&gt;</span> <span class="s1">'lte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
-            <span class="s1">'time_value'</span>   <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
-            <span class="s1">'time_unit'</span> <span class="o">=&gt;</span> <span class="s1">'day // required (day/month/year)
-        ],
-        [
-            '</span><span class="n">action</span><span class="s1">' =&gt; '</span><span class="n">open</span><span class="s1">', // required (click/open)
-            '</span><span class="n">campaign_id</span><span class="s1">'=&gt; '</span><span class="mi">99</span><span class="s1">', // required
-            '</span><span class="n">time_comparison_operator</span><span class="s1">'  =&gt; '</span><span class="n">gte</span><span class="s1">', // required (lte/lt/gte/gt/eq)
-            '</span><span class="n">time_value</span><span class="s1">'   =&gt; '</span><span class="mi">3</span><span class="s1">', // required
-            '</span><span class="n">time_unit</span><span class="s1">' =&gt; '</span><span class="n">month</span> <span class="c1">// required (day/month/year)</span>
-        <span class="p">]</span>
-    <span class="p">],</span>
-<span class="p">]);</span>
+            <span class="s1">'action'</span>                   <span class="o">=&gt;</span> <span class="s1">'click'</span><span class="p">,</span> <span class="c1">// required (click/open)</span>
+            <span class="s1">'campaign_id'</span>              <span class="o">=&gt;</span> <span class="s1">'100'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_comparison_operator'</span> <span class="o">=&gt;</span> <span class="s1">'lte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
+            <span class="s1">'time_value'</span>               <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_unit'</span>                <span class="o">=&gt;</span> <span class="s1">'day'</span> <span class="c1">// required (day/month/year)</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s1">'action'</span>                   <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span> <span class="c1">// required (click/open)</span>
+            <span class="s1">'campaign_id              '</span><span class="o">=&gt;</span> <span class="s1">'99'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_comparison_operator'</span> <span class="o">=&gt;</span> <span class="s1">'gte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
+            <span class="s1">'time_value'</span>               <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_unit'</span>                <span class="o">=&gt;</span> <span class="s1">'month // required (day/month/year)
+        ]
+    ],
+]);
 
-<span class="c1">// and get the response</span>
-<span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span><span class="p">;</span>
-<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
-<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
+// and get the response
+echo '</span><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="s1">';
+print_r($response-&gt;body);
+echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span><span class="err">'</span><span class="p">;</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns an object structured like this JSON:</p>
@@ -1915,18 +2449,18 @@ DISPLAY RESPONSE
     <span class="p">],</span>
     <span class="s1">'campaign_conditions'</span> <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="p">[</span>
-            <span class="s1">'action'</span> <span class="o">=&gt;</span> <span class="s1">'click'</span><span class="p">,</span> <span class="c1">// required (click/open)</span>
-            <span class="s1">'campaign_id'</span><span class="o">=&gt;</span> <span class="s1">'100'</span><span class="p">,</span> <span class="c1">// required</span>
-            <span class="s1">'time_comparison_operator'</span>  <span class="o">=&gt;</span> <span class="s1">'lte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
-            <span class="s1">'time_value'</span>   <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
-            <span class="s1">'time_unit'</span> <span class="o">=&gt;</span> <span class="s1">'day'</span> <span class="c1">// required (day/month/year)</span>
+            <span class="s1">'action'</span>                   <span class="o">=&gt;</span> <span class="s1">'click'</span><span class="p">,</span> <span class="c1">// required (click/open)</span>
+            <span class="s1">'campaign_id'</span>              <span class="o">=&gt;</span> <span class="s1">'100'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_comparison_operator'</span> <span class="o">=&gt;</span> <span class="s1">'lte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
+            <span class="s1">'time_value'</span>               <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_unit'</span>                <span class="o">=&gt;</span> <span class="s1">'day'</span> <span class="c1">// required (day/month/year)</span>
         <span class="p">],</span>
         <span class="p">[</span>
-            <span class="s1">'action'</span> <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span> <span class="c1">// required (click/open)</span>
-            <span class="s1">'campaign_id'</span><span class="o">=&gt;</span> <span class="s1">'99'</span><span class="p">,</span> <span class="c1">// required</span>
-            <span class="s1">'time_comparison_operator'</span>  <span class="o">=&gt;</span> <span class="s1">'gte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
-            <span class="s1">'time_value'</span>   <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
-            <span class="s1">'time_unit'</span> <span class="o">=&gt;</span> <span class="s1">'month // required (day/month/year)
+            <span class="s1">'action'</span>                   <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span> <span class="c1">// required (click/open)</span>
+            <span class="s1">'campaign_id'</span>              <span class="o">=&gt;</span> <span class="s1">'99'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_comparison_operator'</span> <span class="o">=&gt;</span> <span class="s1">'gte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
+            <span class="s1">'time_value'</span>               <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
+            <span class="s1">'time_unit'</span>                <span class="o">=&gt;</span> <span class="s1">'month // required (day/month/year)
         ]
     ],
 ]);
@@ -1981,7 +2515,7 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
 <td>data</td>
 <td>array</td>
 <td>yes</td>
-<td>Array with the list details. The following indexed arrays are accepted: general, defaults, notifications, company. See the create section for details</td>
+<td>Array with the list segment details. The following indexed arrays are accepted: conditions, campaign_conditions. See the create section for details</td>
 </tr>
 </tbody></table>
 
@@ -2080,6 +2614,43 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
 <td>Time unit day/month/year</td>
 </tr>
 </tbody></table>
+<h2 id='delete-a-list-segment'>Delete a list segment</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// Delete SEGMENT</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nb">delete</span><span class="p">(</span><span class="s1">'LIST-UNIQUE-ID'</span><span class="p">,</span> <span class="s1">'SEGMENT-UNIQUE-ID'</span><span class="p">);</span>
+
+<span class="c1">// DISPLAY RESPONSE</span>
+<span class="k">echo</span> <span class="s1">'&lt;hr /&gt;&lt;pre&gt;'</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns an object structured like this JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will delete the list segment with the given SEGMENT-UNIQUE-ID for the LIST-UNIQUE-ID.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE API-URL/lists/LIST-UNIQUE-ID/segments/SEGMENT-UNIQUE-ID</code></p>
+<h3 id='url-segments-3'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>List unique id to delete.</td>
+</tr>
+<tr>
+<td>SEGMENT-UNIQUE-ID</td>
+<td>yes</td>
+<td>List segment unique id to delete</td>
+</tr>
+</tbody></table>
 <h2 id='get-all-list-segments-operators'>Get all list segments operators</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ALL ITEMS</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">getOperators</span><span class="p">();</span>
 
@@ -2151,7 +2722,7 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all the list segments operators.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET API-URL/lists/segments/operators</code></p>
 <h1 id='subscribers'>Subscribers</h1><h2 id='subscribers-endpoint'>Subscribers endpoint</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="o">/</span> <span class="no">CREATE</span> <span class="no">THE</span> <span class="no">ENDPOINT</span>
 <span class="nv">$endpoint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">EmsApi\Endpoint\ListSubscribers</span><span class="p">();</span>

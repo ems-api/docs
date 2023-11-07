@@ -161,18 +161,18 @@ $response = $endpoint->create([
     ],
     'campaign_conditions' => [
         [
-            'action' => 'click', // required (click/open)
-            'campaign_id'=> '100', // required
-            'time_comparison_operator'  => 'lte', // required (lte/lt/gte/gt/eq)
-            'time_value'   => '3', // required
-            'time_unit' => 'day' // required (day/month/year)
+            'action'                   => 'click', // required (click/open)
+            'campaign_id'              => '100', // required
+            'time_comparison_operator' => 'lte', // required (lte/lt/gte/gt/eq)
+            'time_value'               => '3', // required
+            'time_unit'                => 'day' // required (day/month/year)
         ],
         [
-            'action' => 'open', // required (click/open)
-            'campaign_id'=> '99', // required
-            'time_comparison_operator'  => 'gte', // required (lte/lt/gte/gt/eq)
-            'time_value'   => '3', // required
-            'time_unit' => 'month // required (day/month/year)
+            'action'                   => 'open', // required (click/open)
+            'campaign_id              '=> '99', // required
+            'time_comparison_operator' => 'gte', // required (lte/lt/gte/gt/eq)
+            'time_value'               => '3', // required
+            'time_unit'                => 'month // required (day/month/year)
         ]
     ],
 ]);
@@ -263,18 +263,18 @@ $response = $endpoint->update('LIST-UNIQUE-ID', 'SEGMENT-UNIQUE-ID', [
     ],
     'campaign_conditions' => [
         [
-            'action' => 'click', // required (click/open)
-            'campaign_id'=> '100', // required
-            'time_comparison_operator'  => 'lte', // required (lte/lt/gte/gt/eq)
-            'time_value'   => '3', // required
-            'time_unit' => 'day' // required (day/month/year)
+            'action'                   => 'click', // required (click/open)
+            'campaign_id'              => '100', // required
+            'time_comparison_operator' => 'lte', // required (lte/lt/gte/gt/eq)
+            'time_value'               => '3', // required
+            'time_unit'                => 'day' // required (day/month/year)
         ],
         [
-            'action' => 'open', // required (click/open)
-            'campaign_id'=> '99', // required
-            'time_comparison_operator'  => 'gte', // required (lte/lt/gte/gt/eq)
-            'time_value'   => '3', // required
-            'time_unit' => 'month // required (day/month/year)
+            'action'                   => 'open', // required (click/open)
+            'campaign_id'              => '99', // required
+            'time_comparison_operator' => 'gte', // required (lte/lt/gte/gt/eq)
+            'time_value'               => '3', // required
+            'time_unit'                => 'month // required (day/month/year)
         ]
     ],
 ]);
@@ -307,9 +307,9 @@ This endpoint updates a list segment.
 
 ### PUT Parameters
 
-| Parameter      | Type   | Required | Description                                                                                                                                           |
-|----------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| data           | array  | yes      | Array with the list details. The following indexed arrays are accepted: general, defaults, notifications, company. See the create section for details |
+| Parameter      | Type   | Required | Description                                                                                                                                         |
+|----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| data           | array  | yes      | Array with the list segment details. The following indexed arrays are accepted: conditions, campaign_conditions. See the create section for details |
 
 **General block - required**
 
@@ -335,6 +335,39 @@ This endpoint updates a list segment.
 | time_comparison_operator | string  | yes      | Time comparison operator: (lte/lt/gte/gt/eq) |
 | time_value               | integer | yes      | Time value                                   |
 | time_unit                | string  | yes      | Time unit day/month/year                     |
+
+
+## Delete a list segment
+```php
+// Delete SEGMENT
+$response = $endpoint->delete('LIST-UNIQUE-ID', 'SEGMENT-UNIQUE-ID');
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+```
+
+> The above command returns an object structured like this JSON:
+
+```json
+{
+  "status":"success"
+}
+```
+
+This endpoint will delete the list segment with the given SEGMENT-UNIQUE-ID for the LIST-UNIQUE-ID.
+
+### HTTP Request
+
+`DELETE API-URL/lists/LIST-UNIQUE-ID/segments/SEGMENT-UNIQUE-ID`
+
+### URL Segments
+
+| Segment           | Required | Description                      |
+|-------------------|----------|----------------------------------|
+| LIST-UNIQUE-ID    | yes      | List unique id to delete.        |
+| SEGMENT-UNIQUE-ID | yes      | List segment unique id to delete |
 
 
 ## Get all list segments operators

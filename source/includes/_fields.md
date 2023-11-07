@@ -116,11 +116,56 @@ This endpoint retrieves all the fields of a list.
 | page      | 1       | Current page to retrieve.   |
 | per_page  | 10      | Items per page to retrieve. |
 
+## Get one list field
+```php
+// GET ONE ITEM
+$response = $endpoint->getField('LIST-UNIQUE-ID', 'FIELD-ID');
+
+// DISPLAY RESPONSE
+echo '<pre>';
+print_r($response->body);
+echo '</pre>';
+```
+> The above command returns an object structured like this JSON:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "record": {
+      "field_id": "13",
+      "tag": "FNAME",
+      "label": "First name",
+      "required": "no",
+      "help_text": null,
+      "type": {
+        "name": "Text",
+        "identifier": "text",
+        "description": "Text" 
+      }
+    }
+  }
+}
+```
+This endpoint retrieves the list field with the given FIELD-ID for the given LIST-UNIQUE-ID.
+
+### HTTP Request
+
+`GET API-URL/lists/LIST-UNIQUE-ID/fields/FIELD-ID`
+
+### URL Segments
+
+| Segment        | Required | Description                           |
+|----------------|----------|---------------------------------------|
+| LIST-UNIQUE-ID | yes      | List unique id to retrieve field for. |
+| FIELD-ID       | yes      | List field id to retrieve             |
+
+
 ## Create a list field
 
 ```php 
 // create a new list field
-$response = $endpoint->create([
+$response = $endpoint->create('LIST-UNIQUE-ID', [
   'type'           => 'dropdown',
   'label'         => 'Text Label',
   'tag'           => 'DROPDOWN',
@@ -130,7 +175,7 @@ $response = $endpoint->create([
   'help_text'     => 'Help',
   'default_value' => '',
   'description'   => 'Description',
-  'options        => [
+  'options'        => [
     [
       'name'  => 'Option1',
       'value' => 'Value1'
@@ -231,7 +276,7 @@ $response = $endpoint->update('LIST-UNIQUE-ID', 'FIELD-ID', [
   'help_text'     => 'Help',
   'default_value' => '',
   'description'   => 'Description',
-  'options        => [
+  'options'        => [
     [
       'name'  => 'Option1',
       'value' => 'Value1'

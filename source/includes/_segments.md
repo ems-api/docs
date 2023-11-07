@@ -142,7 +142,7 @@ This endpoint retrieves the list segment with the given SEGMENT-UNIQUE-ID.
 
 ```php 
 // create a new list segment
-$response = $endpoint->create([
+$response = $endpoint->create('LIST-UNIQUE-ID', [
     // required
     'name'           => 'My list segment created from the API', // required
     'operator_match' => 'any', // required (any/all)
@@ -150,12 +150,12 @@ $response = $endpoint->create([
     'conditions' => [
         [
             'field_id'    => '96', // required . 
-            'operator_id' => '3', // required .  See the API-URL/lists/segments/operators endpoint
+            'operator_id' => '3', // required .  See the API-URL/lists/segments/condition-operators endpoint
             'value'       => 'domain.com', // required
         ],
         [
             'field_id'    => '95', // required . 
-            'operator_id' => '4', // required .  See the API-URL/lists/segments/operators endpoint
+            'operator_id' => '4', // required .  See the API-URL/lists/segments/condition-operators endpoint
             'value'       => 'keyword', // required
         ]
     ],
@@ -172,7 +172,7 @@ $response = $endpoint->create([
             'campaign_id              '=> '99', // required
             'time_comparison_operator' => 'gte', // required (lte/lt/gte/gt/eq)
             'time_value'               => '3', // required
-            'time_unit'                => 'month // required (day/month/year)
+            'time_unit'                => 'month' // required (day/month/year)
         ]
     ],
 ]);
@@ -252,12 +252,12 @@ $response = $endpoint->update('LIST-UNIQUE-ID', 'SEGMENT-UNIQUE-ID', [
     'conditions' => [
         [
             'field_id'    => '96', // required . 
-            'operator_id' => '3', // required .  See the API-URL/lists/segments/operators endpoint
+            'operator_id' => '3', // required .  See the API-URL/lists/segments/condition-operators endpoint
             'value'       => 'domain.com', // required
         ],
         [
             'field_id'    => '95', // required . 
-            'operator_id' => '4', // required .  See the API-URL/lists/segments/operators endpoint
+            'operator_id' => '4', // required .  See the API-URL/lists/segments/condition-operators endpoint
             'value'       => 'keyword', // required
         ]
     ],
@@ -274,7 +274,7 @@ $response = $endpoint->update('LIST-UNIQUE-ID', 'SEGMENT-UNIQUE-ID', [
             'campaign_id'              => '99', // required
             'time_comparison_operator' => 'gte', // required (lte/lt/gte/gt/eq)
             'time_value'               => '3', // required
-            'time_unit'                => 'month // required (day/month/year)
+            'time_unit'                => 'month' // required (day/month/year)
         ]
     ],
 ]);
@@ -370,10 +370,10 @@ This endpoint will delete the list segment with the given SEGMENT-UNIQUE-ID for 
 | SEGMENT-UNIQUE-ID | yes      | List segment unique id to delete |
 
 
-## Get all list segments operators
+## Get all list segment condition operators
 ```php
 // GET ALL ITEMS
-$response = $endpoint->getOperators();
+$response = $endpoint->getConditionOperators();
 
 // DISPLAY RESPONSE
 echo '<pre>';
@@ -443,8 +443,8 @@ echo '</pre>';
   }
 }
 ```
-This endpoint retrieves all the list segments operators.
+This endpoint retrieves all the list segment condition operators.
 
 ### HTTP Request
 
-`GET API-URL/lists/segments/operators`
+`GET API-URL/lists/segments/condition-operators`

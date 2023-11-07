@@ -169,7 +169,7 @@ $response = $endpoint->create('LIST-UNIQUE-ID', [
         ],
         [
             'action'                   => 'open', // required (click/open)
-            'campaign_id              '=> '99', // required
+            'campaign_id'              => '99', // required
             'time_comparison_operator' => 'gte', // required (lte/lt/gte/gt/eq)
             'time_value'               => '3', // required
             'time_unit'                => 'month' // required (day/month/year)

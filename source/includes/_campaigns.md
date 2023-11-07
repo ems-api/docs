@@ -148,10 +148,11 @@ This endpoint retrieves all the campaigns.
 
 ### Query Parameters
 
-| Parameter | Default | Description                 |
-|-----------|---------|-----------------------------|
-| page      | 1       | Current page to retrieve.   |
-| per_page  | 10      | Items per page to retrieve. |
+| Parameter | Default | Description                                                              |
+|-----------|---------|--------------------------------------------------------------------------|
+| page      | 1       | Current page to retrieve.                                                |
+| per_page  | 10      | Items per page to retrieve.                                              |
+| list_uid  |         | You can get only the campaigns for the list with the specified unique id |
 
 ## Get one campaign
 ```php

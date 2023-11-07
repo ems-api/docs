@@ -63,6 +63,8 @@ print(response.content)
         "label": "Email",
         "required": "yes",
         "help_text": null,
+        "visibility": "visible",
+        "sort_order": "0",
         "type": {
           "name": "Text",
           "identifier": "text",
@@ -75,6 +77,8 @@ print(response.content)
         "label": "First name",
         "required": "no",
         "help_text": null,
+        "visibility": "visible",
+        "sort_order": "1",
         "type": {
           "name": "Text",
           "identifier": "text",
@@ -87,6 +91,8 @@ print(response.content)
         "label": "Last name",
         "required": "no",
         "help_text": null,
+        "visibility": "visible",
+        "sort_order": "2",
         "type": {
           "name": "Text",
           "identifier": "text",
@@ -138,6 +144,8 @@ echo '</pre>';
       "label": "First name",
       "required": "no",
       "help_text": null,
+      "visibility": "visible",
+      "sort_order": "1",
       "type": {
         "name": "Text",
         "identifier": "text",
@@ -244,17 +252,26 @@ The data param can contain following indexed arrays:
 
 **General block - required**
 
-| Parameter     | Type   | Required | Description                                                       |
-|---------------|--------|----------|-------------------------------------------------------------------|
-| type          | string | yes      | The field type check the field types endpoint for possible values |
-| label         | string | yes      | The label of the field                                            |
-| tag           | string | yes      | The unique tag                                                    |
-| required      | string | yes      | Whether the field is required or not (yes/no)                     |
-| visibility    | string | yes      | Whether the field is visible or not (hidden/visible)              |
-| default_value | string | no       | The field default value                                           |
-| sort_order    | int    | no       | The field showing order in the form                               |
-| help_text     | string | no       | The field help text                                               |
-| description   | string | no       | The field description                                             |
+| Parameter         | Type   | Required | Description                                                                      |
+|-------------------|--------|----------|----------------------------------------------------------------------------------|
+| type              | string | yes      | The field type check the field types endpoint for possible values                |
+| label             | string | yes      | The label of the field                                                           |
+| tag               | string | yes      | The unique tag                                                                   |
+| required          | string | yes      | Whether the field is required or not (yes/no)                                    |
+| visibility        | string | yes      | Whether the field is visible or not (hidden/visible)                             |
+| default_value     | string | no       | The field default value                                                          |
+| sort_order        | int    | no       | The field showing order in the form                                              |
+| help_text         | string | no       | The field help text                                                              |
+| description       | string | no       | The field description                                                            |
+| min_length        | int    | no       | Applies for the text fields. Min length                                          |
+| max_length        | int    | no       | Applies for the text fields. Max length                                          |
+| content_rule      | string | no       | Applies for the text fields. Allows rules as alpha_ci/alphanum_ci/alphanumext_ci |
+| content_regex     | string | no       | Applies for the text fields. Regex to validate the field value                   |
+| allowed_scheme    | string | no       | Applies for the url field                                                        |
+| whitelist_domains | string | no       | Applies for the url field                                                        |
+| blacklist_domains | string | no       | Applies for the url field                                                        |
+| max_stars         | int    | no       | Applies for the rating field                                                     |
+| default_country   | string | no       | Applies for the country field. Country codes values like us/ro/bg                |
 
 **Options block - optional**
 
@@ -348,16 +365,24 @@ This endpoint updates a list field.
 
 **General block - required**
 
-| Parameter     | Type   | Required | Description                                                       |
-|---------------|--------|----------|-------------------------------------------------------------------|
-| label         | string | yes      | The label of the field                                            |
-| tag           | string | yes      | The unique tag                                                    |
-| required      | string | yes      | Whether the field is required or not (yes/no)                     |
-| visibility    | string | yes      | Whether the field is visible or not (hidden/visible)              |
-| default_value | string | no       | The field default value                                           |
-| sort_order    | int    | no       | The field showing order in the form                               |
-| help_text     | string | no       | The field help text                                               |
-| description   | string | no       | The field description                                             |
+| Parameter         | Type   | Required | Description                                                                      |
+|-------------------|--------|----------|----------------------------------------------------------------------------------|
+| label             | string | yes      | The label of the field                                                           |
+| tag               | string | yes      | The unique tag                                                                   |
+| required          | string | yes      | Whether the field is required or not (yes/no)                                    |
+| visibility        | string | yes      | Whether the field is visible or not (hidden/visible)                             |
+| default_value     | string | no       | The field default value                                                          |
+| sort_order        | int    | no       | The field showing order in the form                                              |
+| help_text         | string | no       | The field help text                                                              |
+| description       | string | no       | The field description                                          min_length        | int    | no       | Applies for the text fields. Min length                                          |
+| max_length        | int    | no       | Applies for the text fields. Max length                                          |
+| content_rule      | string | no       | Applies for the text fields. Allows rules as alpha_ci/alphanum_ci/alphanumext_ci |
+| content_regex     | string | no       | Applies for the text fields. Regex to validate the field value                   |
+| allowed_scheme    | string | no       | Applies for the url field                                                        |
+| whitelist_domains | string | no       | Applies for the url field                                                        |
+| blacklist_domains | string | no       | Applies for the url field                                                        |
+| max_stars         | int    | no       | Applies for the rating field                                                     |
+| default_country   | string | no       | Applies for the country field. Country codes values like us/ro/bg                |
 
 **Options block - optional**
 

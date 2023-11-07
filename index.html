@@ -1523,6 +1523,8 @@ DISPLAY RESPONSE
         </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"help_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
@@ -1535,6 +1537,8 @@ DISPLAY RESPONSE
         </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"help_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
@@ -1547,6 +1551,8 @@ DISPLAY RESPONSE
         </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"help_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
@@ -1613,6 +1619,8 @@ DISPLAY RESPONSE
       </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First name"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"help_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
@@ -1792,6 +1800,60 @@ DISPLAY RESPONSE
 <td>string</td>
 <td>no</td>
 <td>The field description</td>
+</tr>
+<tr>
+<td>min_length</td>
+<td>int</td>
+<td>no</td>
+<td>Applies for the text fields. Min length</td>
+</tr>
+<tr>
+<td>max_length</td>
+<td>int</td>
+<td>no</td>
+<td>Applies for the text fields. Max length</td>
+</tr>
+<tr>
+<td>content_rule</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the text fields. Allows rules as alpha_ci/alphanum_ci/alphanumext_ci</td>
+</tr>
+<tr>
+<td>content_regex</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the text fields. Regex to validate the field value</td>
+</tr>
+<tr>
+<td>allowed_scheme</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the url field</td>
+</tr>
+<tr>
+<td>whitelist_domains</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the url field</td>
+</tr>
+<tr>
+<td>blacklist_domains</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the url field</td>
+</tr>
+<tr>
+<td>max_stars</td>
+<td>int</td>
+<td>no</td>
+<td>Applies for the rating field</td>
+</tr>
+<tr>
+<td>default_country</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the country field. Country codes values like us/ro/bg</td>
 </tr>
 </tbody></table>
 
@@ -1976,7 +2038,55 @@ DISPLAY RESPONSE
 <td>description</td>
 <td>string</td>
 <td>no</td>
-<td>The field description</td>
+<td>The field description                                          min_length</td>
+</tr>
+<tr>
+<td>max_length</td>
+<td>int</td>
+<td>no</td>
+<td>Applies for the text fields. Max length</td>
+</tr>
+<tr>
+<td>content_rule</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the text fields. Allows rules as alpha_ci/alphanum_ci/alphanumext_ci</td>
+</tr>
+<tr>
+<td>content_regex</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the text fields. Regex to validate the field value</td>
+</tr>
+<tr>
+<td>allowed_scheme</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the url field</td>
+</tr>
+<tr>
+<td>whitelist_domains</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the url field</td>
+</tr>
+<tr>
+<td>blacklist_domains</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the url field</td>
+</tr>
+<tr>
+<td>max_stars</td>
+<td>int</td>
+<td>no</td>
+<td>Applies for the rating field</td>
+</tr>
+<tr>
+<td>default_country</td>
+<td>string</td>
+<td>no</td>
+<td>Applies for the country field. Country codes values like us/ro/bg</td>
 </tr>
 </tbody></table>
 
@@ -4655,6 +4765,11 @@ DISPLAY RESPONSE
 <td>per_page</td>
 <td>10</td>
 <td>Items per page to retrieve.</td>
+</tr>
+<tr>
+<td>list_uid</td>
+<td></td>
+<td>You can get only the campaigns for the list with the specified unique id</td>
 </tr>
 </tbody></table>
 <h2 id='get-one-campaign'>Get one campaign</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ONE ITEM</span>

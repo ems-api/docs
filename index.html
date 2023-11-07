@@ -366,6 +366,9 @@
                     <a href="#get-all-list-fields" class="toc-h2 toc-link" data-title="Get all list fields">Get all list fields</a>
                   </li>
                   <li>
+                    <a href="#get-one-list-field" class="toc-h2 toc-link" data-title="Get one list field">Get one list field</a>
+                  </li>
+                  <li>
                     <a href="#create-a-list-field" class="toc-h2 toc-link" data-title="Create a list field">Create a list field</a>
                   </li>
                   <li>
@@ -401,7 +404,7 @@
                     <a href="#delete-a-list-segment" class="toc-h2 toc-link" data-title="Delete a list segment">Delete a list segment</a>
                   </li>
                   <li>
-                    <a href="#get-all-list-segments-operators" class="toc-h2 toc-link" data-title="Get all list segments operators">Get all list segments operators</a>
+                    <a href="#get-all-list-segment-condition-operators" class="toc-h2 toc-link" data-title="Get all list segment condition operators">Get all list segment condition operators</a>
                   </li>
               </ul>
           </li>
@@ -1590,8 +1593,59 @@ DISPLAY RESPONSE
 <td>Items per page to retrieve.</td>
 </tr>
 </tbody></table>
+<h2 id='get-one-list-field'>Get one list field</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ONE ITEM</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">getField</span><span class="p">(</span><span class="s1">'LIST-UNIQUE-ID'</span><span class="p">,</span> <span class="s1">'FIELD-ID'</span><span class="p">);</span>
+
+<span class="c1">// DISPLAY RESPONSE</span>
+<span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns an object structured like this JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"record"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FNAME"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"help_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="w"> 
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves the list field with the given FIELD-ID for the given LIST-UNIQUE-ID.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET API-URL/lists/LIST-UNIQUE-ID/fields/FIELD-ID</code></p>
+<h3 id='url-segments-2'>URL Segments</h3>
+<table><thead>
+<tr>
+<th>Segment</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LIST-UNIQUE-ID</td>
+<td>yes</td>
+<td>List unique id to retrieve field for.</td>
+</tr>
+<tr>
+<td>FIELD-ID</td>
+<td>yes</td>
+<td>List field id to retrieve</td>
+</tr>
+</tbody></table>
 <h2 id='create-a-list-field'>Create a list field</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// create a new list field</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">create</span><span class="p">([</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">create</span><span class="p">(</span><span class="s1">'LIST-UNIQUE-ID'</span><span class="p">,</span> <span class="p">[</span>
   <span class="s1">'type'</span>           <span class="o">=&gt;</span> <span class="s1">'dropdown'</span><span class="p">,</span>
   <span class="s1">'label'</span>         <span class="o">=&gt;</span> <span class="s1">'Text Label'</span><span class="p">,</span>
   <span class="s1">'tag'</span>           <span class="o">=&gt;</span> <span class="s1">'DROPDOWN'</span><span class="p">,</span>
@@ -1601,22 +1655,22 @@ DISPLAY RESPONSE
   <span class="s1">'help_text'</span>     <span class="o">=&gt;</span> <span class="s1">'Help'</span><span class="p">,</span>
   <span class="s1">'default_value'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="s1">'description'</span>   <span class="o">=&gt;</span> <span class="s1">'Description'</span><span class="p">,</span>
-  <span class="s1">'options        =&gt; [
-    [
-      '</span><span class="n">name</span><span class="s1">'  =&gt; '</span><span class="nc">Option1</span><span class="s1">',
-      '</span><span class="n">value</span><span class="s1">' =&gt; '</span><span class="nc">Value1</span><span class="s1">'
-    ],
-    [
-      '</span><span class="n">name</span><span class="s1">'  =&gt; '</span><span class="nc">Option2</span><span class="s1">',
-      '</span><span class="n">value</span><span class="s1">' =&gt; '</span><span class="nc">Value2</span><span class="s1">'
-    ],
-  ]
-]);
+  <span class="s1">'options'</span>        <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s1">'name'</span>  <span class="o">=&gt;</span> <span class="s1">'Option1'</span><span class="p">,</span>
+      <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'Value1'</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="s1">'name'</span>  <span class="o">=&gt;</span> <span class="s1">'Option2'</span><span class="p">,</span>
+      <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'Value2'</span>
+    <span class="p">],</span>
+  <span class="p">]</span>
+<span class="p">]);</span>
 
-// and get the response
-echo '</span><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="s1">';
-print_r($response-&gt;body);
-echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span><span class="err">'</span><span class="p">;</span>
+<span class="c1">// and get the response</span>
+<span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns an object structured like this JSON:</p>
@@ -1656,7 +1710,7 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
 <p>The data param can contain following indexed arrays:</p>
 
 <p>-&gt; options - optional</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST API-URL/lists/LIST_UID/fields</code></p>
 <h3 id='post-parameters'>POST Parameters</h3>
 <table><thead>
@@ -1774,22 +1828,22 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
   <span class="s1">'help_text'</span>     <span class="o">=&gt;</span> <span class="s1">'Help'</span><span class="p">,</span>
   <span class="s1">'default_value'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="s1">'description'</span>   <span class="o">=&gt;</span> <span class="s1">'Description'</span><span class="p">,</span>
-  <span class="s1">'options        =&gt; [
-    [
-      '</span><span class="n">name</span><span class="s1">'  =&gt; '</span><span class="nc">Option1</span><span class="s1">',
-      '</span><span class="n">value</span><span class="s1">' =&gt; '</span><span class="nc">Value1</span><span class="s1">'
-    ],
-    [
-      '</span><span class="n">name</span><span class="s1">'  =&gt; '</span><span class="nc">Option2</span><span class="s1">',
-      '</span><span class="n">value</span><span class="s1">' =&gt; '</span><span class="nc">Value2</span><span class="s1">'
-    ],
-  ]
-]);
+  <span class="s1">'options'</span>        <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s1">'name'</span>  <span class="o">=&gt;</span> <span class="s1">'Option1'</span><span class="p">,</span>
+      <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'Value1'</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="s1">'name'</span>  <span class="o">=&gt;</span> <span class="s1">'Option2'</span><span class="p">,</span>
+      <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'Value2'</span>
+    <span class="p">],</span>
+  <span class="p">]</span>
+<span class="p">]);</span>
 
-// and get the response
-echo '</span><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="s1">';
-print_r($response-&gt;body);
-echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span><span class="err">'</span><span class="p">;</span>
+<span class="c1">// and get the response</span>
+<span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns an object structured like this JSON:</p>
@@ -1825,7 +1879,7 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a list field.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT API-URL/lists/LIST-UNIQUE-ID/fields/FIELD-ID</code></p>
 <h3 id='url-segment'>URL Segment</h3>
 <table><thead>
@@ -1965,9 +2019,9 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will delete the list field with the given FIELD-ID for the LIST-UNIQUE-ID.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE API-URL/lists/LIST-UNIQUE-ID/fields/LIST-ID</code></p>
-<h3 id='url-segments-2'>URL Segments</h3>
+<h3 id='url-segments-3'>URL Segments</h3>
 <table><thead>
 <tr>
 <th>Segment</th>
@@ -2107,7 +2161,7 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all the list field types.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET API-URL/lists/fields/types</code></p>
 <h1 id='segments'>Segments</h1><h2 id='list-segments-endpoint'>List segments endpoint</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// CREATE THE ENDPOINT</span>
 <span class="nv">$endpoint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">EmsApi\Endpoint\ListSegments</span><span class="p">();</span>
@@ -2254,7 +2308,7 @@ DISPLAY RESPONSE
 </tr>
 </tbody></table>
 <h2 id='create-a-list-segment'>Create a list segment</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// create a new list segment</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">create</span><span class="p">([</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">create</span><span class="p">(</span><span class="s1">'LIST-UNIQUE-ID'</span><span class="p">,</span> <span class="p">[</span>
     <span class="c1">// required</span>
     <span class="s1">'name'</span>           <span class="o">=&gt;</span> <span class="s1">'My list segment created from the API'</span><span class="p">,</span> <span class="c1">// required</span>
     <span class="s1">'operator_match'</span> <span class="o">=&gt;</span> <span class="s1">'any'</span><span class="p">,</span> <span class="c1">// required (any/all)</span>
@@ -2262,12 +2316,12 @@ DISPLAY RESPONSE
     <span class="s1">'conditions'</span> <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="p">[</span>
             <span class="s1">'field_id'</span>    <span class="o">=&gt;</span> <span class="s1">'96'</span><span class="p">,</span> <span class="c1">// required . </span>
-            <span class="s1">'operator_id'</span> <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required .  See the API-URL/lists/segments/operators endpoint</span>
+            <span class="s1">'operator_id'</span> <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required .  See the API-URL/lists/segments/condition-operators endpoint</span>
             <span class="s1">'value'</span>       <span class="o">=&gt;</span> <span class="s1">'domain.com'</span><span class="p">,</span> <span class="c1">// required</span>
         <span class="p">],</span>
         <span class="p">[</span>
             <span class="s1">'field_id'</span>    <span class="o">=&gt;</span> <span class="s1">'95'</span><span class="p">,</span> <span class="c1">// required . </span>
-            <span class="s1">'operator_id'</span> <span class="o">=&gt;</span> <span class="s1">'4'</span><span class="p">,</span> <span class="c1">// required .  See the API-URL/lists/segments/operators endpoint</span>
+            <span class="s1">'operator_id'</span> <span class="o">=&gt;</span> <span class="s1">'4'</span><span class="p">,</span> <span class="c1">// required .  See the API-URL/lists/segments/condition-operators endpoint</span>
             <span class="s1">'value'</span>       <span class="o">=&gt;</span> <span class="s1">'keyword'</span><span class="p">,</span> <span class="c1">// required</span>
         <span class="p">]</span>
     <span class="p">],</span>
@@ -2284,15 +2338,15 @@ DISPLAY RESPONSE
             <span class="s1">'campaign_id              '</span><span class="o">=&gt;</span> <span class="s1">'99'</span><span class="p">,</span> <span class="c1">// required</span>
             <span class="s1">'time_comparison_operator'</span> <span class="o">=&gt;</span> <span class="s1">'gte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
             <span class="s1">'time_value'</span>               <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
-            <span class="s1">'time_unit'</span>                <span class="o">=&gt;</span> <span class="s1">'month // required (day/month/year)
-        ]
-    ],
-]);
+            <span class="s1">'time_unit'</span>                <span class="o">=&gt;</span> <span class="s1">'month'</span> <span class="c1">// required (day/month/year)</span>
+        <span class="p">]</span>
+    <span class="p">],</span>
+<span class="p">]);</span>
 
-// and get the response
-echo '</span><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="s1">';
-print_r($response-&gt;body);
-echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span><span class="err">'</span><span class="p">;</span>
+<span class="c1">// and get the response</span>
+<span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns an object structured like this JSON:</p>
@@ -2438,12 +2492,12 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
     <span class="s1">'conditions'</span> <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="p">[</span>
             <span class="s1">'field_id'</span>    <span class="o">=&gt;</span> <span class="s1">'96'</span><span class="p">,</span> <span class="c1">// required . </span>
-            <span class="s1">'operator_id'</span> <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required .  See the API-URL/lists/segments/operators endpoint</span>
+            <span class="s1">'operator_id'</span> <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required .  See the API-URL/lists/segments/condition-operators endpoint</span>
             <span class="s1">'value'</span>       <span class="o">=&gt;</span> <span class="s1">'domain.com'</span><span class="p">,</span> <span class="c1">// required</span>
         <span class="p">],</span>
         <span class="p">[</span>
             <span class="s1">'field_id'</span>    <span class="o">=&gt;</span> <span class="s1">'95'</span><span class="p">,</span> <span class="c1">// required . </span>
-            <span class="s1">'operator_id'</span> <span class="o">=&gt;</span> <span class="s1">'4'</span><span class="p">,</span> <span class="c1">// required .  See the API-URL/lists/segments/operators endpoint</span>
+            <span class="s1">'operator_id'</span> <span class="o">=&gt;</span> <span class="s1">'4'</span><span class="p">,</span> <span class="c1">// required .  See the API-URL/lists/segments/condition-operators endpoint</span>
             <span class="s1">'value'</span>       <span class="o">=&gt;</span> <span class="s1">'keyword'</span><span class="p">,</span> <span class="c1">// required</span>
         <span class="p">]</span>
     <span class="p">],</span>
@@ -2460,15 +2514,15 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
             <span class="s1">'campaign_id'</span>              <span class="o">=&gt;</span> <span class="s1">'99'</span><span class="p">,</span> <span class="c1">// required</span>
             <span class="s1">'time_comparison_operator'</span> <span class="o">=&gt;</span> <span class="s1">'gte'</span><span class="p">,</span> <span class="c1">// required (lte/lt/gte/gt/eq)</span>
             <span class="s1">'time_value'</span>               <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span> <span class="c1">// required</span>
-            <span class="s1">'time_unit'</span>                <span class="o">=&gt;</span> <span class="s1">'month // required (day/month/year)
-        ]
-    ],
-]);
+            <span class="s1">'time_unit'</span>                <span class="o">=&gt;</span> <span class="s1">'month'</span> <span class="c1">// required (day/month/year)</span>
+        <span class="p">]</span>
+    <span class="p">],</span>
+<span class="p">]);</span>
 
-// and get the response
-echo '</span><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="s1">';
-print_r($response-&gt;body);
-echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span><span class="err">'</span><span class="p">;</span>
+<span class="c1">// and get the response</span>
+<span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">'&lt;/pre&gt;'</span><span class="p">;</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns an object structured like this JSON:</p>
@@ -2651,8 +2705,8 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
 <td>List segment unique id to delete</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-list-segments-operators'>Get all list segments operators</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ALL ITEMS</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">getOperators</span><span class="p">();</span>
+<h2 id='get-all-list-segment-condition-operators'>Get all list segment condition operators</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ALL ITEMS</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">getConditionOperators</span><span class="p">();</span>
 
 <span class="c1">// DISPLAY RESPONSE</span>
 <span class="k">echo</span> <span class="s1">'&lt;pre&gt;'</span><span class="p">;</span>
@@ -2721,9 +2775,9 @@ echo '</span><span class="o">&lt;/</span><span class="n">pre</span><span class="
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all the list segments operators.</p>
+<p>This endpoint retrieves all the list segment condition operators.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET API-URL/lists/segments/operators</code></p>
+<p><code>GET API-URL/lists/segments/condition-operators</code></p>
 <h1 id='subscribers'>Subscribers</h1><h2 id='subscribers-endpoint'>Subscribers endpoint</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="o">/</span> <span class="no">CREATE</span> <span class="no">THE</span> <span class="no">ENDPOINT</span>
 <span class="nv">$endpoint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">EmsApi\Endpoint\ListSubscribers</span><span class="p">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="c1"># CREATE THE ENDPOINT</span>

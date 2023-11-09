@@ -264,14 +264,14 @@ The data param can contain following indexed arrays:
 | help_text         | string | no       | The field help text                                                              |
 | description       | string | no       | The field description                                                            |
 | min_length        | int    | no       | Applies for the text fields. Min length                                          |
-| max_length        | int    | no       | Applies for the text fields. Max length                                          |
+| max_length        | int    | no       | Applies for the text fields. Max length maximum allowed value is 255             |
 | content_rule      | string | no       | Applies for the text fields. Allows rules as alpha_ci/alphanum_ci/alphanumext_ci |
 | content_regex     | string | no       | Applies for the text fields. Regex to validate the field value                   |
 | allowed_scheme    | string | no       | Applies for the url field                                                        |
 | whitelist_domains | string | no       | Applies for the url field                                                        |
 | blacklist_domains | string | no       | Applies for the url field                                                        |
 | max_stars         | int    | no       | Applies for the rating field                                                     |
-| default_country   | string | no       | Applies for the country field. Country codes values like us/ro/bg                |
+| default_country   | string | no       | Applies for the phone field. Country codes values like us/ro/bg                  |
 
 **Options block - optional**
 

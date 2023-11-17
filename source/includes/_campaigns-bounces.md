@@ -23,7 +23,7 @@ endpoint = CampaignBounces()
 ## Get all bounces
 ```php
 // GET ALL ITEMS
-$response = $endpoint->getBounces($campaignUid = CAMPAIGN-UNIQUE-ID, $pageNumber = 1, $perPage = 10);
+$response = $endpoint->getBounces('CAMPAIGN-UNIQUE-ID, $pageNumber = 1, $perPage = 10);
 
 // DISPLAY RESPONSE
 echo "<pre>";

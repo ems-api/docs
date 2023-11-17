@@ -5867,7 +5867,7 @@ CREATE THE ENDPOINT
 """</span>
 <span class="n">endpoint</span> <span class="o">=</span> <span class="n">CampaignBounces</span><span class="p">()</span>
 </code></pre></div><h2 id='get-all-bounces'>Get all bounces</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="c1">// GET ALL ITEMS</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">getBounces</span><span class="p">(</span><span class="nv">$campaignUid</span> <span class="o">=</span> <span class="no">CAMPAIGN</span><span class="o">-</span><span class="no">UNIQUE</span><span class="o">-</span><span class="no">ID</span><span class="p">,</span> <span class="nv">$pageNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$perPage</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$endpoint</span><span class="o">-&gt;</span><span class="nf">getBounces</span><span class="p">(</span><span class="err">'</span><span class="no">CAMPAIGN</span><span class="o">-</span><span class="no">UNIQUE</span><span class="o">-</span><span class="no">ID</span><span class="p">,</span> <span class="nv">$pageNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$perPage</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span>
 
 <span class="c1">// DISPLAY RESPONSE</span>
 <span class="k">echo</span> <span class="s2">"&lt;pre&gt;"</span><span class="p">;</span>

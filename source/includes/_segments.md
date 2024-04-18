@@ -138,6 +138,173 @@ This endpoint retrieves the list segment with the given SEGMENT-UNIQUE-ID.
 | LIST-UNIQUE-ID    | yes      | List unique id to retrieve segment for. |
 | SEGMENT-UNIQUE-ID | yes      | Segment unique id to retrieve           |
 
+## Get all subscribers
+```php
+// GET ALL SUBSCRIBERS OF A LIST SEGMENT
+$response = $endpoint->getSubscribers('LIST-UNIQUE-ID', 'SEGMENT-UNIQUE-ID', $pageNumber = 1, $perPage = 10);
+
+// DISPLAY RESPONSE
+echo '<pre>';
+print_r($response->body);
+echo '</pre>';
+```
+
+```ruby
+# GET ALL SUBSCRIBERS OF A LIST SEGMENT
+response = endpoint.get_subscribers(list_uid = 'LIST-UNIQUE-ID', segment_uid = 'SEGMENT-UNIQUE-ID', page = 1, per_page = 10)
+
+# DISPLAY RESPONSE
+puts response.body
+```
+
+```python
+"""
+GET ALL SUBSCRIBERS OF A LIST SEGMENT
+"""
+response = endpoint.get_subscribers(list_uid='LIST-UNIQUE-ID', segment_uid='SEGMENT-UNIQUE-ID', page=1, per_page=10)
+
+"""
+DISPLAY RESPONSE
+"""
+print(response.content)
+```
+> The above command returns an object structured like this JSON:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "count": "13",
+    "total_pages": 2,
+    "current_page": 1,
+    "next_page": 2,
+    "prev_page": null,
+    "records": [
+      {
+        "subscriber_uid": "ll381bxshm01e",
+        "EMAIL": "dmacmeartyd@jugem.jp",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "unsubscribed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:18"
+      },
+      {
+        "subscriber_uid": "tl269bw0ol42e",
+        "EMAIL": "gsteblesc@hp.com",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "unsubscribed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:18"
+      },
+      {
+        "subscriber_uid": "gs870cmwgve71",
+        "EMAIL": "lruterb@prlog.org",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "unsubscribed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:17"
+      },
+      {
+        "subscriber_uid": "nz753vyrm0f86",
+        "EMAIL": "kwheildona@tmall.com",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "confirmed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:17"
+      },
+      {
+        "subscriber_uid": "sf449a4k7n193",
+        "EMAIL": "dshorrock9@hp.com",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "confirmed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:16"
+      },
+      {
+        "subscriber_uid": "op6219zx1s149",
+        "EMAIL": "slorenz8@drupal.org",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "confirmed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:16"
+      },
+      {
+        "subscriber_uid": "zz449poqsr2af",
+        "EMAIL": "mhanlon7@wikispaces.com",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "confirmed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:16"
+      },
+      {
+        "subscriber_uid": "jl349100yda86",
+        "EMAIL": "elacroutz6@youku.com",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "confirmed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:15"
+      },
+      {
+        "subscriber_uid": "kw647a5n8l516",
+        "EMAIL": "mstephenson5@trellian.com",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "confirmed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:15"
+      },
+      {
+        "subscriber_uid": "vo155s4b0d0ad",
+        "EMAIL": "ldefew4@dailymail.co.uk",
+        "FNAME": "",
+        "LNAME": "",
+        "status": "confirmed",
+        "source": "import",
+        "ip_address": "",
+        "date_added": "2021-02-20 17:26:14"
+      }
+    ]
+  }
+}
+```
+This endpoint retrieves all the subscribers of a list.
+
+### HTTP Request
+
+`GET API-URL/lists/LIST-UNIQUE-ID/segments/SEGMEMT-UNIQUE-ID/subscribers`
+
+### URL Segments
+
+| Segment           | Required | Description                                                      |
+|-------------------|----------|------------------------------------------------------------------|
+| LIST-UNIQUE-ID    | yes      | The list unique identifier for which we retrieve the subscribers |
+| SEGMENT-UNIQUE-ID | yes      | Segment unique identifier                                        |
+
+### Query Parameters
+
+| Parameter | Default | Description                 |
+|-----------|---------|-----------------------------|
+| page      | 1       | Current page to retrieve.   |
+| per_page  | 10      | Items per page to retrieve. |
+
+
 ## Create a list segment
 
 ```php 

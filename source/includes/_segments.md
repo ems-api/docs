@@ -284,7 +284,7 @@ print(response.content)
   }
 }
 ```
-This endpoint retrieves all the subscribers of a list.
+This endpoint retrieves all the subscribers of a list segment.
 
 ### HTTP Request
 

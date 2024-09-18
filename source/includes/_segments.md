@@ -357,8 +357,20 @@ echo '</pre>';
   "status": "success",
   "data": {
     "record": {
-      "segment_uid": "xs655vtkcx569",
-      "name": "my segment with cond"
+      "segment_uid": "sx795qzttl9bb",
+      "segment_id": "11",
+      "name": "my segment with cond updated",
+      "operator_match": "any",
+      "date_added": "10/23/23, 2:36 PM",
+      "subscribers_count": 0,
+      "conditions": [
+        {
+          "field_id": "96",
+          "operator_id": "3",
+          "value": "keyword"
+        }
+      ],
+      "campaign_conditions": []
     }
   }
 }
@@ -456,7 +468,25 @@ echo '</pre>';
 
 ```json
 {
-  "status":"success"
+  "status": "success",
+  "data": {
+    "record": {
+      "segment_uid": "sx795qzttl9bb",
+      "segment_id": "11",
+      "name": "my segment with cond updated",
+      "operator_match": "any",
+      "date_added": "10/23/23, 2:36 PM",
+      "subscribers_count": 0,
+      "conditions": [
+        {
+          "field_id": "96",
+          "operator_id": "3",
+          "value": "keyword"
+        }
+      ],
+      "campaign_conditions": []
+    }
+  }
 }
 ```
 This endpoint updates a list segment.

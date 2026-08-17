@@ -1,5 +1,5 @@
 ---
-title: MailWizz v2.x API documentation
+title: MailWizz v2.x/3.x API documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - php
@@ -31,7 +31,7 @@ code_clipboard: true
 
 # Introduction
 
-This is the documentation for MailWizz 2.x API.
+This is the documentation for MailWizz 2.x/3.x API.
 
 For MailWizz 1.x API documentation, please see this [link](/v1).  
 

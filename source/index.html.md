@@ -55,6 +55,8 @@ This document will drive you through the MailWizz available SDKs .
 
 [Node.js implementations](https://www.npmjs.com/package/node-mailwizz).
 
+[mailwizz-cli](https://github.com/onetwist-software/mailwizz-cli), a command line client for the MailWizz REST API.
+
 **HTTP Methods used**
 
 We follow the REST standards for MailWizz's API interaction, which means that we use following HTTP methods during communication:

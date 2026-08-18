@@ -1,81 +1,81 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/slatedocs/img/main/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
-  <br>
-  <a href="https://github.com/slatedocs/slate/actions?query=workflow%3ABuild+branch%3Amain"><img src="https://github.com/slatedocs/slate/workflows/Build/badge.svg?branch=main" alt="Build Status"></a>
-  <a href="https://hub.docker.com/r/slatedocs/slate"><img src="https://img.shields.io/docker/v/slatedocs/slate?sort=semver" alt="Docker Version" /></a>
-</p>
+# MailWizz API Documentation
 
-<p align="center">Slate helps you create beautiful, intelligent, responsive API documentation.</p>
+This repository contains the source for the MailWizz API documentation, built with
+[Hugo](https://gohugo.io/) using the [Docsy](https://github.com/google/docsy) theme.
 
-<p align="center"><img src="https://raw.githubusercontent.com/slatedocs/img/main/screenshot-slate.png" width=700 alt="Screenshot of Example Documentation created with Slate"></p>
+> This site was previously built with [Slate](https://github.com/slatedocs/slate), which
+> is no longer actively maintained. It has been migrated to Hugo + Docsy.
 
-<p align="center"><em>The example above was created with Slate. Check it out at <a href="https://slatedocs.github.io/slate">slatedocs.github.io/slate</a>.</em></p>
+## Project layout
 
-Features
-------------
+- `content/en/` — the documentation pages (one section per API area: Setup, Lists,
+  Fields, Segments, Subscribers, Campaigns, etc.)
+- `hugo.toml` — site configuration, including the Docsy theme import (as a Hugo Module)
+- `assets/`, `static/` — branding overrides (logo, colors) and static assets
+- `go.mod` / `go.sum` — Hugo Module dependency lock for the Docsy theme
+- `package.json` — npm dependencies required by Docsy's CSS build (PostCSS/Autoprefixer)
 
-* **Clean, intuitive design** — With Slate, the description of your API is on the left side of your documentation, and all the code examples are on the right side. Inspired by [Stripe's](https://stripe.com/docs/api) and [PayPal's](https://developer.paypal.com/webapps/developer/docs/api/) API docs. Slate is responsive, so it looks great on tablets, phones, and even in print.
+## Requirements
 
-* **Everything on a single page** — Gone are the days when your users had to search through a million pages to find what they wanted. Slate puts the entire documentation on a single page. We haven't sacrificed linkability, though. As you scroll, your browser's hash will update to the nearest header, so linking to a particular point in the documentation is still natural and easy.
+You need Hugo **extended**, Go (for Hugo Modules) and Node.js (for Docsy's CSS
+pipeline). The easiest way to get all three without installing anything locally is
+via the provided `Dockerfile` (based on the actively maintained
+[`hugomods/hugo`](https://github.com/hugomods/docker) image) and `compose.yaml`.
 
-* **Slate is just Markdown** — When you write docs with Slate, you're just writing Markdown, which makes it simple to edit and understand. Everything is written in Markdown — even the code samples are just Markdown code blocks.
+## Local development (preview with live reload)
 
-* **Write code samples in multiple languages** — If your API has bindings in multiple programming languages, you can easily put in tabs to switch between them. In your document, you'll distinguish different languages by specifying the language name at the top of each code block, just like with GitHub Flavored Markdown.
+Start the preview server:
 
-* **Out-of-the-box syntax highlighting** for [over 100 languages](https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers), no configuration required.
+```sh
+docker compose up
+```
 
-* **Automatic, smoothly scrolling table of contents** on the far left of the page. As you scroll, it displays your current position in the document. It's fast, too. We're using Slate at TripIt to build documentation for our new API, where our table of contents has over 180 entries. We've made sure that the performance remains excellent, even for larger documents.
+This builds the image (first run only) and starts `hugo server` on
+<http://localhost:1313/>, watching for file changes and live-reloading the browser.
+Leave it running while you edit content.
 
-* **Let your users update your documentation for you** — By default, your Slate-generated documentation is hosted in a public GitHub repository. Not only does this mean you get free hosting for your docs with GitHub Pages, but it also makes it simple for other developers to make pull requests to your docs if they find typos or other problems. Of course, if you don't want to use GitHub, you're also welcome to host your docs elsewhere.
+Stop it with `docker compose down` (or `Ctrl+C` if running in the foreground).
 
-* **RTL Support** Full right-to-left layout for RTL languages such as Arabic, Persian (Farsi), Hebrew etc.
+### Running other commands against the same container
 
-Getting started with Slate is super easy! Simply press the green "use this template" button above and follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [sample docs](https://slatedocs.github.io/slate/).
+While the preview server is running, you can run additional commands (npm install,
+`hugo mod tidy`, one-off builds, a shell, etc.) inside the *same* running container with
+`docker compose exec`:
 
-Getting Started with Slate
-------------------------------
+```sh
+docker compose exec hugo npm install
+docker compose exec hugo hugo mod tidy
+docker compose exec hugo sh
+```
 
-To get started with Slate, please check out the [Getting Started](https://github.com/slatedocs/slate/wiki#getting-started)
-section in our [wiki](https://github.com/slatedocs/slate/wiki).
+If the preview server isn't running, use `docker compose run --rm` instead, which spins
+up a temporary container for the one command:
 
-We support running Slate in three different ways:
-* [Natively](https://github.com/slatedocs/slate/wiki/Using-Slate-Natively)
-* [Using Vagrant](https://github.com/slatedocs/slate/wiki/Using-Slate-in-Vagrant)
-* [Using Docker](https://github.com/slatedocs/slate/wiki/Using-Slate-in-Docker)
+```sh
+docker compose run --rm hugo npm install
+docker compose run --rm hugo hugo mod tidy
+```
 
-Companies Using Slate
----------------------------------
+## Building the static site
 
-* [NASA](https://api.nasa.gov)
-* [Sony](http://developers.cimediacloud.com)
-* [Best Buy](https://bestbuyapis.github.io/api-documentation/)
-* [Travis-CI](https://docs.travis-ci.com/api/)
-* [Greenhouse](https://developers.greenhouse.io/harvest.html)
-* [WooCommerce](http://woocommerce.github.io/woocommerce-rest-api-docs/)
-* [Dwolla](https://docs.dwolla.com/)
-* [Clearbit](https://clearbit.com/docs)
-* [Coinbase](https://developers.coinbase.com/api)
-* [Parrot Drones](http://developer.parrot.com/docs/bebop/)
+```sh
+docker compose run --rm hugo hugo --minify
+```
 
-You can view more in [the list on the wiki](https://github.com/slatedocs/slate/wiki/Slate-in-the-Wild).
+The generated static site is written to `public/`. Copy the contents of that directory
+to your web server.
 
-Questions? Need Help? Found a bug?
---------------------
+## Updating the Docsy theme
 
-If you've got questions about setup, deploying, special feature implementation in your fork, or just want to chat with the developer, please feel free to [start a thread in our Discussions tab](https://github.com/slatedocs/slate/discussions)!
+Docsy is consumed as a [Hugo Module](https://gohugo.io/hugo-modules/use-modules/). To
+update it:
 
-Found a bug with upstream Slate? Go ahead and [submit an issue](https://github.com/slatedocs/slate/issues). And, of course, feel free to submit pull requests with bug fixes or changes to the `dev` branch.
+```sh
+docker compose run --rm hugo sh -c \
+  "hugo mod get -u github.com/google/docsy github.com/google/docsy/dependencies && hugo mod tidy"
+```
 
-Contributors
---------------------
+## Contributing
 
-Slate was built by [Robert Lord](https://lord.io) while at [TripIt](https://www.tripit.com/). The project is now maintained by [Matthew Peveler](https://github.com/MasterOdin) and [Mike Ralphson](https://github.com/MikeRalphson).
-
-Thanks to the following people who have submitted major pull requests:
-
-- [@chrissrogers](https://github.com/chrissrogers)
-- [@bootstraponline](https://github.com/bootstraponline)
-- [@realityking](https://github.com/realityking)
-- [@cvkef](https://github.com/cvkef)
-
-Also, thanks to [Sauce Labs](http://saucelabs.com) for sponsoring the development of the responsive styles.
+Pull requests to improve the documentation are welcome. Please open an issue or PR at
+<https://github.com/ems-api/docs>.

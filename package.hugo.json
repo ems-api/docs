@@ -1,0 +1,14 @@
+{
+  "name": "mailwizz-api-docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "hugo --minify",
+    "server": "hugo server"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0"
+  }
+}

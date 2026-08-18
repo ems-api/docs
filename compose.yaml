@@ -1,0 +1,25 @@
+services:
+  hugo:
+    build: .
+    image: mailwizz-docs
+    ports:
+      - "1313:1313"
+    volumes:
+      - .:/src
+      - hugo_cache:/tmp/hugo_cache
+    working_dir: /src
+    environment:
+      HOME: /tmp
+    command:
+      [
+        "hugo",
+        "server",
+        "--bind",
+        "0.0.0.0",
+        "--port",
+        "1313",
+        "--disableFastRender",
+      ]
+
+volumes:
+  hugo_cache:

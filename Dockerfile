@@ -1,28 +1,10 @@
-FROM ruby:2.6-slim
+# Build/dev image for this Hugo + Docsy site.
+# Includes Hugo Extended, Go (for Hugo Modules) and Node (for Docsy's PostCSS pipeline).
+#
+# Build:  docker build -t mailwizz-docs .
+# Serve:  docker run --rm -p 1313:1313 -v "$(pwd)":/src mailwizz-docs \
+#           hugo server --bind 0.0.0.0 --port 1313
+# Build static site: docker run --rm -v "$(pwd)":/src mailwizz-docs hugo --minify
+FROM hugomods/hugo:exts
 
-WORKDIR /srv/slate
-
-VOLUME /srv/slate/build
-VOLUME /srv/slate/source
-
-EXPOSE 4567
-
-COPY Gemfile .
-COPY Gemfile.lock .
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        build-essential \
-        nodejs \
-    && gem install bundler \
-    && bundle install \
-    && apt-get remove -y build-essential \
-    && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
-
-COPY . /srv/slate
-
-RUN chmod +x /srv/slate/slate.sh
-
-ENTRYPOINT ["/srv/slate/slate.sh"]
-CMD ["build"]
+WORKDIR /src
